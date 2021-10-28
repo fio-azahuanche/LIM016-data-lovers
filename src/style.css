@@ -1,0 +1,77 @@
+body{
+    margin: 0%;
+    background-color: #0A4141;
+    min-height: 100vh;
+    background-image: url('imagenPortada1.png');
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size:70%;
+}
+
+nav{
+    padding: 1.5% 2.5%;
+    display: flex;
+    align-items: center;
+}
+nav img{
+    width: 90%;
+}
+a{
+    text-decoration: none;
+}
+.enlaces{
+    font-size: 25px;
+    color: rgb(253, 252, 252);
+    margin-right: 4%;
+}
+p{
+    width: 50%;
+    font-size: 25px;
+    margin: 5%;
+    color: white;
+}
+article{
+    overflow-x:scroll;
+    margin-top: 8%;
+    background: rgba(2, 22, 39, 0.8);
+    
+}
+article::-webkit-scrollbar{
+    height: 8px;
+   
+    background-color: turquoise;
+}
+article::-webkit-scrollbar-thumb{
+    height: 3px;
+    width: 40px;
+    background-color: rgb(255, 255, 255);
+}
+
+#Container{
+    align-items: center;
+    display: flex;
+    
+}
+#Container div{
+    width: 100%;
+    margin: 1% 0.75%;
+}
+div img{
+    width: 250px;
+}
+
+.flechasScroll{
+    border: none;
+    border-radius: 50%;
+    color: #999;
+    background-color: white;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+    margin: 0px 5px;
+    font-size: 35px;
+    outline: none;
+    cursor:pointer;
+}
+
+
