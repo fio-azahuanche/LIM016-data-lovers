@@ -14,18 +14,18 @@ flechaDerecha.addEventListener('click', ()=>{
   fila.scrollLeft += fila.offsetWidth;
 });
 
-document.body.onload=addElement;
-function addElement () {
-    const img=document.getElementById("poster1");
-    let Poster1import=data.films[0].poster;
+//Peliculas
+//for(let i =0;i<data.films.length;i++){
+    let div=document.createElement("div");
+    let img=document.createElement("img");
+    let year=document.createElement("span")
+    div.id="infoPoster"+0;
+    img.src=data.films[0].poster;
+    year.textContent=data.films[0].release_date;
+    poster1.appendChild(div);
+    infoPoster0.appendChild(img);
+    infoPoster0.appendChild(year);
+//}
 
-    
-    img.src=Poster1import;
-    document.body.appendChild(img);
-    var currentDiv = document.getElementById("poster1");
-  document.body.insertBefore(img, currentDiv);
-}
-
-console.log(data.films[0].title);
 
 //console.log(example, data);

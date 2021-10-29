@@ -2,14 +2,36 @@ body{
     margin: 0%;
     background-color: rgba(254, 143, 143, 0.5);
     font-family: 'Lato', sans-serif;
+    
   }
   
-  main{
+  #Principal{
     min-height: 100vh;
     background-image: url('imagenPortada.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size:72%;
+  }
+  #Contenedor{
+    margin-top: 11%;
+  }
+  #Peliculas{
+      background-color: #39A388;
+  }
+  #seccionFiltrado{
+    margin-left: 598px;
+    margin-top: 20px;
+  }
+  span{
+      color:white;
+  }
+  input, select{
+    border-radius: 15px;
+    width: 192px;
+    height: 32px;
+    font-family: 'Lato', sans-serif;
+    font-size: 16px;
+    margin: 5px;
   }
 nav{
     padding: 1.5% 2.5%;
@@ -32,9 +54,7 @@ p{
     margin: 5%;
     color: black;
 }
-article{
-    margin-top: 11%;
-}
+
 /*-----CONTENEDOR PELICULAS TOP-----*/
 #peliculasTop{
     /*width: 90%;*/

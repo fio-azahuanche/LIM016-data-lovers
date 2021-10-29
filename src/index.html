@@ -1,68 +1,94 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <main>
-      <nav>
-        <a href="#" ><img src="logoStudioGhibli.png"></a>
-        <a href="##" class="enlaces"><b>Películas</b> </a>
-        <a href="###" class="enlaces"><b>Estadísticas</b> </a>
-      </nav>
-      <p> Studio Ghibli, es reconocido por sus películas animadas fascinantes y de culto, como las que componen esta colección.</p>
-      <article>
-        <section id="peliculasTop">
-          <div class="contenedorPeliculas">
-            <button role="button" id="flechaIzquierda" class="flechaIzquierda">
-              <img src="left-arrow-solid-24.svg" alt="">
-            </button>
-  
-            <div class="contenedorCarrusel">
-              <div class="carrusel">
-                <div class="peliculaTop">
-                  <a href="#"><img src="carrusel/castillo vagabundo.png"></a>
-                </div>
-                <div class="peliculaTop">
-                  <a href="#"><img src="carrusel/onlyYesterday.png"></a>
-                </div>
-                <div class="peliculaTop">
-                  <a href="#"><img src="carrusel/princesaKayuga.png"></a>
-                </div>
-                <div class="peliculaTop">
-                  <a href="#"><img src="carrusel/castilloCielo.png"></a>
-                </div>
-                <div class="peliculaTop">
-                  <a href="#"><img src="carrusel/mononoke.png"></a>
-                </div>
-                <div class="peliculaTop">
-                  <a href="#"><img src="carrusel/totoro.png"></a>
-                </div>
-                <div class="peliculaTop">
-                  <a href="#"><img src="carrusel/viajeChihiro.png"></a>
-                </div>
-                <div class="peliculaTop">
-                  <a href="#"><img src="carrusel/luciernagas.png"></a>
-                </div>
+
+<head>
+  <meta charset="utf-8">
+  <title>Data Lovers</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <article id="Principal">
+    <nav>
+      <a href="#"><img src="logoStudioGhibli.png"></a>
+      <a href="#" class="enlaces"><b>Películas</b> </a>
+      <a href="#" class="enlaces"><b>Estadísticas</b> </a>
+    </nav>
+    <p> Studio Ghibli, es reconocido por sus películas animadas fascinantes y de culto, como las que componen esta
+      colección.</p>
+    <div id="Contenedor">
+      <section id="peliculasTop">
+        <div class="contenedorPeliculas">
+          <button role="button" id="flechaIzquierda" class="flechaIzquierda">
+            <img src="left-arrow-solid-24.svg" alt="">
+          </button>
+
+          <div class="contenedorCarrusel">
+            <div class="carrusel">
+              <div class="peliculaTop">
+                <a href="#"><img src="carrusel/castillo vagabundo.png"></a>
+              </div>
+              <div class="peliculaTop">
+                <a href="#"><img src="carrusel/onlyYesterday.png"></a>
+              </div>
+              <div class="peliculaTop">
+                <a href="#"><img src="carrusel/princesaKayuga.png"></a>
+              </div>
+              <div class="peliculaTop">
+                <a href="#"><img src="carrusel/castilloCielo.png"></a>
+              </div>
+              <div class="peliculaTop">
+                <a href="#"><img src="carrusel/mononoke.png"></a>
+              </div>
+              <div class="peliculaTop">
+                <a href="#"><img src="carrusel/totoro.png"></a>
+              </div>
+              <div class="peliculaTop">
+                <a href="#"><img src="carrusel/viajeChihiro.png"></a>
+              </div>
+              <div class="peliculaTop">
+                <a href="#"><img src="carrusel/luciernagas.png"></a>
               </div>
             </div>
-  
-            <button role="button" id="flechaDerecha" class="flechaDerecha">
-              <img src="right-arrow-solid-24.svg" alt="">
-            </button>
-  
           </div>
-        </section>
-  
-        
-      </article>
-    </main>
-    <div id="poster1">HOLALLALLLALLAL</div>
-    
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  </body>
+
+          <button role="button" id="flechaDerecha" class="flechaDerecha">
+            <img src="right-arrow-solid-24.svg" alt="">
+          </button>
+
+        </div>
+      </section>
+
+
+    </div>
+  </article>
+  <article id="Peliculas">
+    <section id="seccionFiltrado">
+      <input type="search" id="buscarPelicula" placeholder="Buscar Película">
+
+      <select class="filtrarPor">
+        <option selected>Filtrar Por</option>
+        <option value="directorHayao" id="hayaoD">Director Hayao</option>
+        <option value="directorIsao" id="isaoD">Director Isao</option>
+        <option value="productorToshio">Productor Toshio</option>
+      </select>
+
+      <select class="ordenarPor">
+        <option selected>Ordenar Por</option>
+        <option value="anioDescendente">Año descendente</option>
+        <option value="anioAscendente">Año ascendente</option>
+        <option value="puntaje">Puntaje</option>
+        <option value="a-to-z">A - Z</option>
+        <option value="z-to-a">Z - A</option>
+      </select>
+    </section>
+    <div id="poster1"></div>
+
+  </article>
+  <div id="root"></div>
+  <script src="main.js" type="module"></script>
+</body>
+
 </html>
