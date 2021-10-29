@@ -1,13 +1,16 @@
 body{
     margin: 0%;
-    background-color: #0A4141;
+    background-color: rgba(254, 143, 143, 0.5);
+    font-family: 'Lato', sans-serif;
+  }
+  
+  main{
     min-height: 100vh;
-    background-image: url('imagenPortada1.png');
+    background-image: url('imagenPortada.png');
     background-repeat: no-repeat;
     background-position: right center;
-    background-size:70%;
-}
-
+    background-size:72%;
+  }
 nav{
     padding: 1.5% 2.5%;
     display: flex;
@@ -16,62 +19,70 @@ nav{
 nav img{
     width: 90%;
 }
-a{
-    text-decoration: none;
-}
 .enlaces{
-    font-size: 25px;
-    color: rgb(253, 252, 252);
+    font-size: 30px;
+    color: black;
     margin-right: 4%;
+    font-style: normal;
+    text-decoration: none;
 }
 p{
     width: 50%;
     font-size: 25px;
     margin: 5%;
-    color: white;
+    color: black;
 }
 article{
-    overflow-x:scroll;
-    margin-top: 8%;
-    background: rgba(2, 22, 39, 0.8);
-    
+    margin-top: 11%;
 }
-article::-webkit-scrollbar{
-    height: 8px;
-   
-    background-color: turquoise;
-}
-article::-webkit-scrollbar-thumb{
-    height: 3px;
-    width: 40px;
-    background-color: rgb(255, 255, 255);
-}
-
-#Container{
-    align-items: center;
+/*-----CONTENEDOR PELICULAS TOP-----*/
+#peliculasTop{
+    /*width: 90%;*/
+    background: rgba(10, 65, 65, 0.8);
+    padding: 10px;
+  }
+  
+  #peliculasTop .contenedorPeliculas{
     display: flex;
-    
-}
-#Container div{
-    width: 100%;
-    margin: 1% 0.75%;
-}
-div img{
-    width: 250px;
-}
-
-.flechasScroll{
+    align-items: center;
+    position: relative;
+  }
+  
+  .contenedorPeliculas .flechaIzquierda,
+  .contenedorPeliculas .flechaDerecha{
+    position: absolute;
     border: none;
-    border-radius: 50%;
-    color: #999;
-    background-color: white;
-    z-index: 1;
-    width: 40px;
-    height: 40px;
-    margin: 0px 5px;
-    font-size: 35px;
-    outline: none;
-    cursor:pointer;
-}
-
-
+    font-size: 40px;
+    height: 50%;
+    line-height: 40px;
+    width: 50px;
+    cursor: pointer;
+    background: rgba(236, 236, 236, 0.3);
+    /*filter: brightness(0.9);
+    mix-blend-mode: multiply; para quitar fondo blanco*/
+  }
+  
+  .contenedorPeliculas .flechaIzquierda{
+    left: 0;
+  }
+  .contenedorPeliculas .flechaDerecha{
+    right: 0;
+  }
+  
+  /*-----CARRUSEL-----*/
+  .contenedorCarrusel{
+    width: 100%;
+    overflow: hidden;/*este de aqui oculta la barra*/
+    /*overflow-x: scroll; este de aqui muestra la barra*/
+    scroll-behavior: smooth;
+  }
+  
+  .contenedorCarrusel .carrusel{
+    display: flex;
+  }
+  
+  .contenedorCarrusel .carrusel .peliculaTop{
+    width: 70%;
+    margin: 2px 5px;
+    transition: .3 ease all;
+  }
