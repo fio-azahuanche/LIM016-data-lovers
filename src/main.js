@@ -1,32 +1,40 @@
 //import { example } from './data.js';
 import data from './data/ghibli/ghibli.js';
 
-/* Evento para mostrar y quitar las secciones Peliculas y Principal*/
-let nav=document.getElementsByClassName("enlaces");
+/* Event to show Films and remove Principal*/
+let nav=document.getElementsByClassName("links");
 nav[0].addEventListener('click',()=>{
   document.getElementById("Principal").style.display="none";
-  document.getElementById("Peliculas").style.display="block";
-})
-
-/* Evento para crear carrusel de peliculas populares*/
-const fila = document.querySelector('.contenedorCarrusel');
-const flechaIzquierda = document.getElementById('flechaIzquierda');
-flechaIzquierda.addEventListener('click', ()=>{
-  fila.scrollLeft -= fila.offsetWidth;
+  document.getElementById("Films").style.display="block";
 });
 
-const flechaDerecha = document.getElementById('flechaDerecha');
-flechaDerecha.addEventListener('click', ()=>{
-  fila.scrollLeft += fila.offsetWidth;
+/* Event to show Films and remove Principal, filInfoSections*/
+const buttonBackFilms = document.getElementById("buttonBackFilms");
+buttonBackFilms.addEventListener('click', ()=>{
+  document.getElementById("Principal").style.display="none";
+  document.getElementById("filmInfoSection").style.display="none";
+  document.getElementById("Films").style.display="block";
 });
 
-/* Mostrando Posters y año de las peliculas*/
-let div=[], img=[], year=[], score=[],etiqueta=[], star=[];
+/* Event to create carousel of popular movies*/
+const row = document.querySelector('.containerCarousel');
+const leftArrow = document.getElementById('leftArrow');
+leftArrow.addEventListener('click', ()=>{
+  row.scrollLeft -= row.offsetWidth;
+});
+
+const rightArrow = document.getElementById('rightArrow');
+rightArrow.addEventListener('click', ()=>{
+  row.scrollLeft += row.offsetWidth;
+});
+
+/* Showing Posters and year of the films*/
+let div=[], img=[], year=[], score=[],tag=[], star=[];
 
 data.films.forEach((film,index)=>{
   div[index]=document.createElement("div");
   img[index]=document.createElement("img");
-  etiqueta[index]=document.createElement("div");
+  tag[index]=document.createElement("div");
   year[index]=document.createElement("span")
   score[index]=document.createElement("span");
   star[index]=document.createElement("img");
@@ -40,20 +48,20 @@ data.films.forEach((film,index)=>{
 
   posters.appendChild(div[index]);
   div[index].appendChild(img[index]);
-  div[index].appendChild(etiqueta[index]);
-  etiqueta[index].appendChild(year[index]);
-  etiqueta[index].appendChild(score[index]);
+  div[index].appendChild(tag[index]);
+  tag[index].appendChild(year[index]);
+  tag[index].appendChild(score[index]);
   score[index].appendChild(star[index]);
 
 
-  div[index].classList.add("infoPeliculas");
-  etiqueta[index].classList.add("etiquetas");
+  div[index].classList.add("infoMovies");
+  tag[index].classList.add("tags");
   img[index].classList.add("imgPosters");
 
 
   img[index].addEventListener('click',()=>{
-    document.getElementById("Peliculas").style.display="none";
-    document.getElementById("SectionInfoPeliculas").style.display="block";
+    document.getElementById("Films").style.display="none";
+    document.getElementById("filmInfoSection").style.display="block";
   })
 
 
