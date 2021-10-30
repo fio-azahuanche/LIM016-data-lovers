@@ -37,5 +37,6 @@ data.films.forEach((film,index)=>{
     posters.appendChild(div[index]);
     div[index].appendChild(img[index]);
     div[index].appendChild(year[index]);
+    div[index].classList.add("infoPeliculas");
 })
 //Comentario para ver si funciona el pull request
