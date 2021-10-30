@@ -1,87 +1,86 @@
 body{
-    margin: 0%;
-    background-color: rgba(254, 143, 143, 0.5);
-    font-family: 'Lato', sans-serif;
-    cursor: pointer;
-    
+  margin: 0%;
+  background-color: rgba(254, 143, 143, 0.5);
+  font-family: 'Lato', sans-serif;
+  cursor: pointer;
 }
 
 #Principal{
-    height: 100vh;
-    background-image: url('imagenPortada.png');
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size:70%;
-    overflow: hidden;
-  }
-  
-#Contenedor{
-    margin-top: 11%;
-  }
-  
-  #Peliculas{
-      padding-top: 4%;
-    background-color: #39A388;
-  }
-  
-  /*#seccionFiltrado{
-    margin-left: 5%;
-  }*/
-  
-  span{
-    color:white;
-  }
-  
-  input, select{
-    border-radius: 15px;
-    width: 192px;
-    height: 32px;
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    margin: 5px;
-  }
-  
-  nav{
-    padding: 1.5% 2.5%;
-    display: flex;
-    align-items: center;
-  }
-  
-  nav img{
-      width: 90%;
-  }
-  
-  .enlaces{
-    font-size: 30px;
-    color: black;
-    margin-right: 4%;
-    font-style: normal;
-    text-decoration: none;
-    /*cursor: pointer;*/
-  }
-  
-  p{
-    width: 50%;
-    font-size: 25px;
-    margin: 5%;
-    color: black;
-  }
-  
-  /*-----CONTENEDOR PELICULAS TOP-----*/
-  #peliculasTop{
-      /*width: 90%;*/
+  height: 100vh;
+  background-image: url('imagenPortada.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size:70%;
+  overflow: hidden;
+}
+
+#Container{
+  margin-top: 11%;
+}
+
+#Films{
+  padding-top: 4%;
+  background-color: #39A388;
+}
+
+/*#filteringSection{
+  margin-left: 5%;
+}*/
+
+span{
+  color:white;
+}
+
+input, select, button{
+  border-radius: 15px;
+  width: 192px;
+  height: 32px;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  margin: 5px;
+}
+
+nav{
+  padding: 1.5% 2.5%;
+  display: flex;
+  align-items: center;
+}
+
+nav img{
+  width: 90%;
+}
+
+.links{
+  font-size: 30px;
+  color: black;
+  margin-right: 4%;
+  font-style: normal;
+  text-decoration: none;
+  /*cursor: pointer;*/
+}
+
+p{
+  width: 50%;
+  font-size: 25px;
+  margin: 5%;
+  color: black;
+}
+
+/*-----CONTAINER POPULAR FILMS-----*/
+#popularFilms{
+  /*width: 90%;*/
   background: rgba(10, 65, 65, 0.8);
   padding: 10px;
 }
 
-#peliculasTop .contenedorPeliculas{
+#popularFilms .containerFilms{
   display: flex;
   align-items: center;
   position: relative;
 }
 
-.contenedorPeliculas .flechaIzquierda,
-.contenedorPeliculas .flechaDerecha{
+.containerFilms .leftArrow,
+.containerFilms .rightArrow{
   position: absolute;
   border: none;
   font-size: 40px;
@@ -94,39 +93,39 @@ body{
   mix-blend-mode: multiply; para quitar fondo blanco*/
 }
 
-.contenedorPeliculas .flechaIzquierda{
+.containerFilms .leftArrow{
   left: 0;
 }
 
-.contenedorPeliculas .flechaDerecha{
+.containerFilms .rightArrow{
   right: 0;
 }
 
-/*-----CARRUSEL-----*/
-.contenedorCarrusel{
+/*-----CAROUSEL-----*/
+.containerCarousel{
   width: 100%;
-  overflow: hidden;/*este de aqui oculta la barra*/
-  /*overflow-x: scroll; este de aqui muestra la barra*/
+  overflow: hidden;/*this one hides the bar*/
+  /*overflow-x: scroll; this one shows the bar*/
   scroll-behavior: smooth;
 }
 
-.contenedorCarrusel .carrusel{
+.containerCarousel .carousel{
   display: flex;
 }
 
-.contenedorCarrusel .carrusel .peliculaTop{
+.containerCarousel .carousel .popularFilm{
   width: 70%;
   margin: 2px 5px;
   transition: .3 ease all;
 }
 
-/*-----USO DE FLEX-WRAP PARA ORDENAR POSTERS DE TODAS LAS PELICULAS-----*/
+/*-----USE OF FLEX-WRAP TO ORDER POSTERS OF ALL MOVIES-----*/
 .flex{
   display: flex;
 }
 .space{
-    margin:0% 4%;
-    justify-content: space-between;
+  margin:0% 4%;
+  justify-content: space-between;
 }
 
 #posters{
@@ -134,39 +133,41 @@ body{
   flex-wrap: wrap;
 
 }
-.etiquetas{
-    display: flex;
-    justify-content: space-between;
+
+.tags{
+  display: flex;
+  justify-content: space-between;
 }
-.infoPeliculas{
+
+.infoMovies{
   width: 16%;
   margin: 2%;
 }
 
-.infoPeliculas .imgPosters{
+.infoMovies .imgPosters{
   width: 100%;
   height: 85%;
   border-radius: 5%;
   border: 5px solid #0A4141;
 }
-.infoPeliculas:hover{
-    margin-top: 1%;
-    margin-bottom: 3%;
-   transition: all 0.6s ease;
+.infoMovies:hover{
+  margin-top: 1%;
+  margin-bottom: 3%;
+  transition: all 0.6s ease;
 }
 span img{
-    border: none;
-    size: 5px;
-    color: lightcoral;
+  border: none;
+  size: 5px;
+  color: lightcoral;
 }
 
 
-/*PERSONAJES DE CADA PELICULA*/
-#Personajes{
-    min-height: 100vh;
-    background-color: #0A4141;
-    background-image: url('imagenEsquina.png');
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size:70%;
+/*-----CHARACTERS OF EACH MOVIE-----*/
+#Characters{
+  min-height: 100vh;
+  background-color: #0A4141;
+  background-image: url('imagenEsquina.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size:70%;
 }

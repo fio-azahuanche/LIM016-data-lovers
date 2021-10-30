@@ -10,52 +10,51 @@
 
 <body>
 
-  <!--PANTALLA PRINCIPAL-->
+  <!--MAIN SCREEN-->
   <article id="Principal">
     <nav>
-      <a href="#"><img src="logoStudioGhibli.png"></a>
-      <a class="enlaces"><b>Películas</b> </a>
-      <a class="enlaces"><b>Estadísticas</b> </a>
+      <a href="#Principal"><img src="logoStudioGhibli.png"></a>
+      <a class="links"><b>Films</b> </a>
+      <a class="links"><b>Statistics</b> </a>
     </nav>
-    <p> Studio Ghibli, es reconocido por sus películas animadas fascinantes y de culto, como las que componen esta
-      colección.</p>
-    <div id="Contenedor">
-      <section id="peliculasTop">
-        <div class="contenedorPeliculas">
-          <button role="button" id="flechaIzquierda" class="flechaIzquierda">
+    <p>Studio Ghibli is renowned for its fascinating and cult animated films, such as the ones in this collection.</p>
+    <div id="Container">
+      <section id="popularFilms">
+        <div class="containerFilms">
+          <button role="button" id="leftArrow" class="leftArrow">
             <img src="left-arrow-solid-24.svg" alt="">
           </button>
 
-          <div class="contenedorCarrusel">
-            <div class="carrusel">
-              <div class="peliculaTop">
+          <div class="containerCarousel">
+            <div class="carousel">
+              <div class="popularFilm">
                 <a href="#"><img src="carrusel/castillo vagabundo.png"></a>
               </div>
-              <div class="peliculaTop">
+              <div class="popularFilm">
                 <a href="#"><img src="carrusel/onlyYesterday.png"></a>
               </div>
-              <div class="peliculaTop">
+              <div class="popularFilm">
                 <a href="#"><img src="carrusel/princesaKayuga.png"></a>
               </div>
-              <div class="peliculaTop">
+              <div class="popularFilm">
                 <a href="#"><img src="carrusel/castilloCielo.png"></a>
               </div>
-              <div class="peliculaTop">
+              <div class="popularFilm">
                 <a href="#"><img src="carrusel/mononoke.png"></a>
               </div>
-              <div class="peliculaTop">
+              <div class="popularFilm">
                 <a href="#"><img src="carrusel/totoro.png"></a>
               </div>
-              <div class="peliculaTop">
+              <div class="popularFilm">
                 <a href="#"><img src="carrusel/viajeChihiro.png"></a>
               </div>
-              <div class="peliculaTop">
+              <div class="popularFilm">
                 <a href="#"><img src="carrusel/luciernagas.png"></a>
               </div>
             </div>
           </div>
 
-          <button role="button" id="flechaDerecha" class="flechaDerecha">
+          <button role="button" id="rightArrow" class="rightArrow">
             <img src="right-arrow-solid-24.svg" alt="">
           </button>
 
@@ -66,24 +65,24 @@
     </div>
   </article>
 
-  <!--PANTALLA PELICULAS-->
-  <article id="Peliculas" style="display: none;">
+  <!--FILM SCREEN-->
+  <article id="Films" style="display: none;">
     <div class="flex space">
-      <section id="seccionFiltrado">
-        <input type="search" id="buscarPelicula" placeholder="Buscar Película">
-  
-        <select class="filtrarPor">
-          <option selected>Filtrar Por</option>
+      <section id="filteringSection">
+        <input type="search" id="searchMovie" placeholder="Search">
+
+        <select class="filterBy">
+          <option selected>Filter by</option>
           <option value="directorHayao" id="hayaoD">Director Hayao</option>
           <option value="directorIsao" id="isaoD">Director Isao</option>
           <option value="productorToshio">Productor Toshio</option>
         </select>
-  
-        <select class="ordenarPor">
-          <option selected>Ordenar Por</option>
-          <option value="anioDescendente">Año descendente</option>
-          <option value="anioAscendente">Año ascendente</option>
-          <option value="puntaje">Puntaje</option>
+
+        <select class="sortBy">
+          <option selected>Sort By</option>
+          <option value="yearDescending">Year Descending</option>
+          <option value="yearAscending">Year Ascending</option>
+          <option value="score">Score</option>
           <option value="a-to-z">A - Z</option>
           <option value="z-to-a">Z - A</option>
         </select>
@@ -93,32 +92,32 @@
 
     </div>
 
-    
+
 
     <div id="posters" class="flex"></div>
   </article>
 
-  <!--INFO PELICULAS-->
-  <article id="SectionInfoPeliculas" style="display: none;">
-    <section id="DescripcionGeneral">
+  <!--FILM INFORMATION-->
+  <article id="filmInfoSection" style="display: none;">
+    <section id="generalDescription">
       <div class="flex space">
-        <div><button>Volver a Peliculas</button></div>
+        <div><button id="buttonBackFilms">Back to Films</button></div>
         <img src="logoStudioGhibli.png">
       </div>
 
       <div class="flex">
-        <div id="posterPelicula"></div>
-        <div id="descripcionPelicula"></div>
+        <div id="posterFilm"></div>
+        <div id="filmDescription"></div>
       </div>
 
     </section>
-    <section id="Personajes">
+    <section id="Characters">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente laboriosam aut, voluptas voluptatem sint fugit reiciendis dignissimos suscipit laudantium ad. Voluptates aliquam molestiae debitis vitae libero consequuntur dolores! Culpa, velit.
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque distinctio quam magni dolor. Corporis, pariatur ipsam doloribus nulla dicta commodi reiciendis in quia necessitatibus nesciunt iusto corrupti deleniti. Aspernatur, quos?
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis delectus quisquam corrupti, ex nulla quo reiciendis a voluptate doloremque rerum temporibus, error consequatur dignissimos. Fuga laudantium impedit maxime est blanditiis.
-      <div id="personajes"></div>
-      <div id="lugares"></div>
-      <div id="vehiculos"></div>
+      <div id="character"></div>
+      <div id="locations"></div>
+      <div id="vehicles"></div>
     </section>
 
   </article>
