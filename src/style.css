@@ -2,7 +2,6 @@ body{
     margin: 0%;
     background-color: rgba(254, 143, 143, 0.5);
     font-family: 'Lato', sans-serif;
-    
   }
   html{
     scroll-behavior: smooth;
@@ -12,24 +11,26 @@ body{
     flex-wrap: wrap;
 }
 #posters{
-    margin:15px;
+    margin:0% 4%;
 }
   
   #Principal{
-    min-height: 100vh;
+    height: 100vh;
     background-image: url('imagenPortada.png');
     background-repeat: no-repeat;
     background-position: right center;
     background-size:72%;
+    overflow:hidden;
   }
   #Contenedor{
     margin-top: 11%;
   }
   #Peliculas{
-      background-color: #39A388;
+      padding-top: 4%;
+      background: linear-gradient(#39a388, #39a38881, #39a38800)
   }
   #seccionFiltrado{
-    margin-left: 598px;
+    margin-left: 5%;
   }
   span{
       color:white;
@@ -118,9 +119,17 @@ p{
   }
   
   .infoPeliculas{
-      width: 16.55%;
-    padding: 10px;
+      width: 16%;
+      margin: 2%;
   }
   .infoPeliculas img{
       width: 100%;
+      height: 85%;
+      border-radius: 5%;
+      border: 5px solid #0A4141;
+  }
+  .infoPeliculas:hover{
+      margin-top: 1%;
+      margin-bottom: 3%;
+     transition: all 0.5s ease;
   }
