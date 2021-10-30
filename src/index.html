@@ -68,27 +68,59 @@
 
   <!--PANTALLA PELICULAS-->
   <article id="Peliculas" style="display: none;">
-    <section id="seccionFiltrado">
-      <input type="search" id="buscarPelicula" placeholder="Buscar Película">
+    <div class="flex space">
+      <section id="seccionFiltrado">
+        <input type="search" id="buscarPelicula" placeholder="Buscar Película">
+  
+        <select class="filtrarPor">
+          <option selected>Filtrar Por</option>
+          <option value="directorHayao" id="hayaoD">Director Hayao</option>
+          <option value="directorIsao" id="isaoD">Director Isao</option>
+          <option value="productorToshio">Productor Toshio</option>
+        </select>
+  
+        <select class="ordenarPor">
+          <option selected>Ordenar Por</option>
+          <option value="anioDescendente">Año descendente</option>
+          <option value="anioAscendente">Año ascendente</option>
+          <option value="puntaje">Puntaje</option>
+          <option value="a-to-z">A - Z</option>
+          <option value="z-to-a">Z - A</option>
+        </select>
+      </section>
 
-      <select class="filtrarPor">
-        <option selected>Filtrar Por</option>
-        <option value="directorHayao" id="hayaoD">Director Hayao</option>
-        <option value="directorIsao" id="isaoD">Director Isao</option>
-        <option value="productorToshio">Productor Toshio</option>
-      </select>
+      <img src="Group.png" alt="StudioGhibli">
 
-      <select class="ordenarPor">
-        <option selected>Ordenar Por</option>
-        <option value="anioDescendente">Año descendente</option>
-        <option value="anioAscendente">Año ascendente</option>
-        <option value="puntaje">Puntaje</option>
-        <option value="a-to-z">A - Z</option>
-        <option value="z-to-a">Z - A</option>
-      </select>
-    </section>
+    </div>
+
+    
 
     <div id="posters" class="flex"></div>
+  </article>
+
+  <!--INFO PELICULAS-->
+  <article id="SectionInfoPeliculas" style="display: none;">
+    <section id="DescripcionGeneral">
+      <div class="flex space">
+        <div><button>Volver a Peliculas</button></div>
+        <img src="logoStudioGhibli.png">
+      </div>
+
+      <div class="flex">
+        <div id="posterPelicula"></div>
+        <div id="descripcionPelicula"></div>
+      </div>
+
+    </section>
+    <section id="Personajes">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente laboriosam aut, voluptas voluptatem sint fugit reiciendis dignissimos suscipit laudantium ad. Voluptates aliquam molestiae debitis vitae libero consequuntur dolores! Culpa, velit.
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque distinctio quam magni dolor. Corporis, pariatur ipsam doloribus nulla dicta commodi reiciendis in quia necessitatibus nesciunt iusto corrupti deleniti. Aspernatur, quos?
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis delectus quisquam corrupti, ex nulla quo reiciendis a voluptate doloremque rerum temporibus, error consequatur dignissimos. Fuga laudantium impedit maxime est blanditiis.
+      <div id="personajes"></div>
+      <div id="lugares"></div>
+      <div id="vehiculos"></div>
+    </section>
+
   </article>
 
   <div id="root"></div>
