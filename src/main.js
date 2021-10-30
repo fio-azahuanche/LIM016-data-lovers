@@ -2,6 +2,15 @@
 // import data from './data/lol/lol.js';
 import data from './data/ghibli/ghibli.js';
 // import data from './data/rickandmorty/rickandmorty.js';
+
+let nav=document.getElementsByClassName("enlaces");
+nav[0].addEventListener('click',()=>{
+  document.getElementById("Principal").style.display="none";
+  document.getElementById("Peliculas").style.display="block";
+})
+
+
+
 const fila = document.querySelector('.contenedorCarrusel');
 
 const flechaIzquierda = document.getElementById('flechaIzquierda');
@@ -15,19 +24,18 @@ flechaDerecha.addEventListener('click', ()=>{
 });
 
 //Peliculas
-//for(let i =0;i<data.films.length;i++){
-    let div=document.createElement("div");
-    let img=document.createElement("img");
-    let year=document.createElement("span")
-    div.id="infoPoster"+0;
-    img.src=data.films[0].poster;
-    year.textContent=data.films[0].release_date;
-    poster1.appendChild(div);
-    infoPoster0.appendChild(img);
-    infoPoster0.appendChild(year);
-//}
+let div=[];
+let img=[];
+let year=[];
 
-
-//console.log(example, data);
-
+data.films.forEach((film,index)=>{
+  div[index]=document.createElement("div");
+    img[index]=document.createElement("img");
+    year[index]=document.createElement("span")
+    img[index].src=film.poster;
+    year[index].textContent=film.release_date;
+    posters.appendChild(div[index]);
+    div[index].appendChild(img[index]);
+    div[index].appendChild(year[index]);
+})
 //Comentario para ver si funciona el pull request

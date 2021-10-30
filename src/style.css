@@ -4,6 +4,12 @@ body{
     font-family: 'Lato', sans-serif;
     
   }
+  html{
+    scroll-behavior: smooth;
+}
+.flex{
+    display: flexbox;
+}
   
   #Principal{
     min-height: 100vh;
@@ -20,7 +26,6 @@ body{
   }
   #seccionFiltrado{
     margin-left: 598px;
-    margin-top: 20px;
   }
   span{
       color:white;
@@ -47,6 +52,7 @@ nav img{
     margin-right: 4%;
     font-style: normal;
     text-decoration: none;
+    cursor: pointer;
 }
 p{
     width: 50%;

@@ -13,8 +13,8 @@
   <article id="Principal">
     <nav>
       <a href="#"><img src="logoStudioGhibli.png"></a>
-      <a href="#" class="enlaces"><b>Películas</b> </a>
-      <a href="#" class="enlaces"><b>Estadísticas</b> </a>
+      <a class="enlaces"><b>Películas</b> </a>
+      <a class="enlaces"><b>Estadísticas</b> </a>
     </nav>
     <p> Studio Ghibli, es reconocido por sus películas animadas fascinantes y de culto, como las que componen esta
       colección.</p>
@@ -64,7 +64,7 @@
 
     </div>
   </article>
-  <article id="Peliculas">
+  <article id="Peliculas" style="display: none;">
     <section id="seccionFiltrado">
       <input type="search" id="buscarPelicula" placeholder="Buscar Película">
 
@@ -84,7 +84,7 @@
         <option value="z-to-a">Z - A</option>
       </select>
     </section>
-    <div id="poster1"></div>
+    <div id="posters" class="flex"></div>
 
   </article>
   <div id="root"></div>
