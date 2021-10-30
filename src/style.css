@@ -2,125 +2,136 @@ body{
     margin: 0%;
     background-color: rgba(254, 143, 143, 0.5);
     font-family: 'Lato', sans-serif;
-    
-  }
-  html{
-    scroll-behavior: smooth;
+
 }
-.flex{
-    display: flex;
-    flex-wrap: wrap;
+
+#Principal{
+  min-height: 100vh;
+  background-image: url('imagenPortada.png');
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size:70%;
 }
-#posters{
-    margin:15px;
+
+#Contenedor{
+  margin-top: 11%;
 }
-  
-  #Principal{
-    min-height: 100vh;
-    background-image: url('imagenPortada.png');
-    background-repeat: no-repeat;
-    background-position: right center;
-    background-size:72%;
-  }
-  #Contenedor{
-    margin-top: 11%;
-  }
-  #Peliculas{
-      background-color: #39A388;
-  }
-  #seccionFiltrado{
-    margin-left: 598px;
-  }
-  span{
-      color:white;
-  }
-  input, select{
-    border-radius: 15px;
-    width: 192px;
-    height: 32px;
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    margin: 5px;
-  }
+
+#Peliculas{
+  background-color: #39A388;
+}
+
+#seccionFiltrado{
+  margin-left: 598px;
+}
+
+span{
+  color:white;
+}
+
+input, select{
+  border-radius: 15px;
+  width: 192px;
+  height: 32px;
+  font-family: 'Lato', sans-serif;
+  font-size: 16px;
+  margin: 5px;
+}
+
 nav{
-    padding: 1.5% 2.5%;
-    display: flex;
-    align-items: center;
+  padding: 1.5% 2.5%;
+  display: flex;
+  align-items: center;
 }
+
 nav img{
     width: 90%;
 }
+
 .enlaces{
-    font-size: 30px;
-    color: black;
-    margin-right: 4%;
-    font-style: normal;
-    text-decoration: none;
-    cursor: pointer;
+  font-size: 30px;
+  color: black;
+  margin-right: 4%;
+  font-style: normal;
+  text-decoration: none;
+  cursor: pointer;
 }
+
 p{
-    width: 50%;
-    font-size: 25px;
-    margin: 5%;
-    color: black;
+  width: 50%;
+  font-size: 25px;
+  margin: 5%;
+  color: black;
 }
 
 /*-----CONTENEDOR PELICULAS TOP-----*/
 #peliculasTop{
-    /*width: 90%;*/
-    background: rgba(10, 65, 65, 0.8);
-    padding: 10px;
-  }
-  
-  #peliculasTop .contenedorPeliculas{
-    display: flex;
-    align-items: center;
-    position: relative;
-  }
-  
-  .contenedorPeliculas .flechaIzquierda,
-  .contenedorPeliculas .flechaDerecha{
-    position: absolute;
-    border: none;
-    font-size: 40px;
-    height: 50%;
-    line-height: 40px;
-    width: 50px;
-    cursor: pointer;
-    background: rgba(236, 236, 236, 0.3);
-    /*filter: brightness(0.9);
-    mix-blend-mode: multiply; para quitar fondo blanco*/
-  }
-  
-  .contenedorPeliculas .flechaIzquierda{
-    left: 0;
-  }
-  .contenedorPeliculas .flechaDerecha{
-    right: 0;
-  }
-  
-  /*-----CARRUSEL-----*/
-  .contenedorCarrusel{
-    width: 100%;
-    overflow: hidden;/*este de aqui oculta la barra*/
-    /*overflow-x: scroll; este de aqui muestra la barra*/
-    scroll-behavior: smooth;
-  }
-  
-  .contenedorCarrusel .carrusel{
-    display: flex;
-  }
-  
-  .contenedorCarrusel .carrusel .peliculaTop{
-    width: 70%;
-    margin: 2px 5px;
-    transition: .3 ease all;
-  }
-  
-  .infoPeliculas{
-      width: 16.55%;
-    padding: 10px;
-  }
-  .infoPeliculas img{
-      width: 100%;
-  }
+  /*width: 90%;*/
+  background: rgba(10, 65, 65, 0.8);
+  padding: 10px;
+}
+
+#peliculasTop .contenedorPeliculas{
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.contenedorPeliculas .flechaIzquierda,
+.contenedorPeliculas .flechaDerecha{
+  position: absolute;
+  border: none;
+  font-size: 40px;
+  height: 50%;
+  line-height: 40px;
+  width: 50px;
+  cursor: pointer;
+  background: rgba(236, 236, 236, 0.3);
+  /*filter: brightness(0.9);
+  mix-blend-mode: multiply; para quitar fondo blanco*/
+}
+
+.contenedorPeliculas .flechaIzquierda{
+  left: 0;
+}
+
+.contenedorPeliculas .flechaDerecha{
+  right: 0;
+}
+
+/*-----CARRUSEL-----*/
+.contenedorCarrusel{
+  width: 100%;
+  overflow: hidden;/*este de aqui oculta la barra*/
+  /*overflow-x: scroll; este de aqui muestra la barra*/
+  scroll-behavior: smooth;
+}
+
+.contenedorCarrusel .carrusel{
+  display: flex;
+}
+
+.contenedorCarrusel .carrusel .peliculaTop{
+  width: 70%;
+  margin: 2px 5px;
+  transition: .3 ease all;
+}
+
+/*-----USO DE FLEX-WRAP PARA ORDENAR POSTERS DE TODAS LAS PELICULAS-----*/
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#posters{
+  margin:15px;
+}
+
+.infoPeliculas{
+  width: 16.55%;
+  padding: 10px;
+}
+
+.infoPeliculas img{
+  width: 100%;
+}

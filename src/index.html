@@ -3,13 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Data Lovers</title>
+  <title>Studio Ghibli</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
+  <!--PANTALLA PRINCIPAL-->
   <article id="Principal">
     <nav>
       <a href="#"><img src="logoStudioGhibli.png"></a>
@@ -64,6 +65,8 @@
 
     </div>
   </article>
+
+  <!--PANTALLA PELICULAS-->
   <article id="Peliculas" style="display: none;">
     <section id="seccionFiltrado">
       <input type="search" id="buscarPelicula" placeholder="Buscar Película">
@@ -84,9 +87,10 @@
         <option value="z-to-a">Z - A</option>
       </select>
     </section>
-    <div id="posters" class="flex"></div>
 
+    <div id="posters" class="flex"></div>
   </article>
+
   <div id="root"></div>
   <script src="main.js" type="module"></script>
 </body>
