@@ -198,8 +198,8 @@ span img{
   background-color: #0A4141;
   background-image: url('imagenEsquina.png');
   background-repeat: no-repeat;
-  background-position: right center;
-  background-size:70%;
+  background-position: right bottom;
+  background-size:50%;
 }
 #descriptionOfEachMovie{
   margin:2% 8%;
