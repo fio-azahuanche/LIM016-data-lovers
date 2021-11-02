@@ -1,4 +1,4 @@
-![portada](pictures/studio ghibli all.jpg)
+![portada](pictures/studioghibliall.jpg)
 
 # Data Lovers – Studio Ghibli
 
@@ -40,6 +40,6 @@ Esta sería la vista para desktop:
 ![prototipoDesktop](pictures/characters.png)
 
 Esta sería la vista para celulares:
-![prototipoCelular](pictures/Android - Home.png)
-![prototipoCelular](pictures/Android - movies.png)
-![prototipoCelular](pictures/Android - characters.png)
+![prototipoCelular](pictures/Android-Home.png)
+![prototipoCelular](pictures/Android-movies.png)
+![prototipoCelular](pictures/Android-characters.png)
