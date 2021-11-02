@@ -1,10 +1,16 @@
-//import { example } from './data.js';
+import { filterDataByDirectorProducer } from './data.js';
 import data from './data/ghibli/ghibli.js';
 
 /* Event to show Films and remove Home*/
 let nav=document.getElementsByClassName("links");
 nav[0].addEventListener('click',()=>{
   document.getElementById("Home").style.display="none";
+  //Show all posters
+const allPosters=document.getElementById("allPosters");
+for (let i = 0; i <data.films.length; i ++) {
+  funcionGeneral(data.films[i], allPosters);
+}
+
   document.getElementById("Films").style.display="block";
 });
 
@@ -20,59 +26,17 @@ rightArrow.addEventListener('click', ()=>{
   row.scrollLeft += row.offsetWidth;
 });
 
-/* Showing Posters and year of the films*/
-let div=[], img=[], year=[], score=[],tag=[], star=[], layout=[],title=[];
-let posters = document.getElementById("posters");
-data.films.forEach((film,index)=>{
-  div[index]=document.createElement("div");
-  img[index]=document.createElement("img");
-  tag[index]=document.createElement("div");
-  year[index]=document.createElement("span")
-  score[index]=document.createElement("span");
-  star[index]=document.createElement("img");
-  //Create layout and title
-  layout[index]=document.createElement("div");
-  title[index]=document.createElement("div");
-
-  //Add info of data
-  img[index].src=film.poster;
-  year[index].textContent=film.release_date;
-  score[index].textContent=film.rt_score;
-  star[index].src="bxs-star 1.png";
-  //Add title for layout
-  title[index].textContent=film.title;
-
-  //inserts a new node(div) into posters
-  posters.appendChild(div[index]);
-
-  div[index].appendChild(img[index]);
-  div[index].appendChild(tag[index]);
-  tag[index].appendChild(year[index]);
-  tag[index].appendChild(score[index]);
-  score[index].appendChild(star[index]);
-  //
-  div[index].appendChild(layout[index]);
-  layout[index].appendChild(title[index]);
-  //
-  div[index].classList.add("infoMovies");
-  tag[index].classList.add("tags");
-  //
-  layout[index].classList.add("overlay");
-  title[index].classList.add("txtCard");
-})
-
 //Trying to show poster in another section
-let imgPoster=[];
-let overlay=document.getElementsByClassName("overlay");
-let posterFilm = document.getElementById("posterFilm");
-overlay[0].addEventListener('click',()=>{
-  document.getElementById("Films").style.display="none";
-  document.getElementById("filmInfoSection").style.display="block";
-
-  imgPoster[0]=document.createElement("img");
-  imgPoster[0].src = data.films[0].poster;
-  posterFilm.appendChild(imgPoster[0]);
-})
+/*let overlay=document.getElementsByClassName("overlay");
+for(let i=0; i<20;i++){
+  overlay[i].addEventListener('click',()=>{
+    document.getElementById("Films").style.display="none";
+    document.getElementById("posterFilm").innerHTML="";
+    let imgPoster=document.createElement("img");
+  imgPoster.src = data.films[i].poster;
+  posterFilm.appendChild(imgPoster);
+    document.getElementById("filmInfoSection").style.display="block";})
+}*/
 
 /* Event to show Films and remove Home & filmInfoSection*/
 const buttonBackFilms = document.getElementById("buttonBackFilms");
@@ -82,10 +46,66 @@ buttonBackFilms.addEventListener('click', ()=>{
 });
 
 
+//crearFuncionGeneral para filtros/orden de busquedas
+
+const funcionGeneral=(posterMovies,container)=>{
+  let div=document.createElement("div");
+  div.classList.add("infoMovies");
+
+  let imagenPoster=document.createElement("img");
+  imagenPoster.src=posterMovies.poster;  
+  div.appendChild(imagenPoster);
+
+  let year=document.createElement("span")
+  let score=document.createElement("span");
+  let star=document.createElement("img");
+  year.textContent=posterMovies.release_date;
+  score.textContent=posterMovies.rt_score;
+  star.src="bxs-star 1.png";
+
+  let tag=document.createElement("div");
+  div.appendChild(tag);
+  tag.appendChild(year);
+  tag.appendChild(score);
+  score.appendChild(star);
+  tag.classList.add("tags");
+
+
+  container.appendChild(div);
+}
 
 
 
 
 
+/* Showing Posters flitrados */
+let posters = document.getElementById("posters");
+//filterByDirectorandProducer
+const filter=document.getElementById("filter");
+filter.addEventListener('change',(event)=>{
+  document.getElementById("allPosters").style.display="none";
+  if(event.target.value=="directorHayao"){
+    posters.innerHTML="";
+    let filterHayao=filterDataByDirectorProducer(data.films,"Hayao Miyazaki");
+    filterHayao.forEach( (filterH)=> funcionGeneral(filterH,posters));
+    
+    /* for (let i = 0; i <filterHayao.length; i ++) {
+      funcionGeneral(filterHayao[i], posters);
+    } */
+  }
+
+  if(event.target.value=="directorIsao"){
+    posters.innerHTML="";
+    let filterIsao=filterDataByDirectorProducer(data.films,"Isao Takahata");
+    filterIsao.forEach( (filterH)=> funcionGeneral(filterH,posters));
+  }
+
+  if(event.target.value=="productorToshio"){
+    posters.innerHTML="";
+    let filterToshio=filterDataByDirectorProducer(data.films,"Toshio Suzuki");
+    filterToshio.forEach( (filterH)=> funcionGeneral(filterH,posters));
+  }
+  
+})
 
 

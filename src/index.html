@@ -69,9 +69,9 @@
   <article id="Films" style="display: none;">
     <div class="flex space">
       <section id="filteringSection">
-        <input type="search" id="searchMovie" placeholder="Search">
+        <input type="search" id="searchMovie" placeholder="Search" class="infoMovies-filter">
 
-        <select class="filterBy">
+        <select class="filterBy" id="filter">
           <option selected>Filter by</option>
           <option value="directorHayao" id="hayaoD">Director Hayao</option>
           <option value="directorIsao" id="isaoD">Director Isao</option>
@@ -93,7 +93,7 @@
     </div>
 
 
-
+    <div id="allPosters" class="flex"></div>
     <div id="posters" class="flex"></div>
   </article>
 

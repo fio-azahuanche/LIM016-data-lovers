@@ -218,3 +218,15 @@ span img{
   background: rgba(57, 163, 136, 0.55);
 border-radius: 20px;
 }
+
+
+#allPosters{
+  margin:0% 4%;
+  flex-wrap: wrap;
+}
+
+
+
+.filter{
+  display: none;
+}
