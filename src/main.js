@@ -1,4 +1,4 @@
-import { filterByDirectorProducer, sortScore, sortYearDesc, sortYearAsc ,sortByTitle} from './data.js';
+import { filterByDirectorProducer, sortScore, sortYearDesc, sortYearAsc ,sortByTitle,searchFilms} from './data.js';
 import data from './data/ghibli/ghibli.js';
 
 /* Event to create carousel of popular movies*/
@@ -17,6 +17,8 @@ rightArrow.addEventListener('click', () => {
 const generalFunction = (posterMovies, container) => {
   let div = document.createElement("div");
   div.classList.add("infoMovies");
+  //div.setAttribute('value',posterMovies.title)  NO DA CON VALUE
+  div.textContent=posterMovies.title;
 
   let imagenPoster = document.createElement("img");
   imagenPoster.src = posterMovies.poster;
@@ -150,6 +152,10 @@ buttonBackFilms.addEventListener('click', () => {
   document.getElementById("Films").style.display = "block";
 });
 
+const searchMovie=document.getElementById("searchMovie");
+searchMovie.addEventListener('click',()=>{
+searchFilms("#searchMovie",".infoMovies");
+});
 
 
 
