@@ -22,6 +22,46 @@ export const sortYearAsc = (data, items) => {
   return yearAsc;
 };
 
+export const sortByTitle = {
+  fromAtoZ: (data,items) => {
+    const fromAtoZ = data.sort((a, b) => {
+      if (a[items] < b[items]) {
+        return -1;
+      }
+      if (a[items] > b[items]) {
+        return 1;
+      }
+      return 0;
+    })
+    return fromAtoZ;
+  },
+  fromZtoA : (data,items) => {
+    const fromZtoA = data.sort((a, b) => {
+      if (a[items] < b[items]) {
+        return 1;
+      }
+      if (a[items] > b[items]) {
+        return -1;
+      }
+      return 0;
+    })
+    return fromZtoA;
+  }
+};
+/* export const sortZtoA = (data) => {
+  //falta algo
+  const fromZtoA = data.sort((a, b) => {
+    if (a.title < b.title) {
+      return 1;
+    }
+    if (a.title > b.title) {
+      return -1;
+    }
+    return 0;
+  })
+  return fromZtoA;
+}; */
+
 export const anotherExample = () => {
   return 'OMG';
 };

@@ -140,10 +140,16 @@ p{
 }
 
 .infoMovies{
-  width: 16%;
-  margin: 2%;
-  /**/
-  position: relative;
+  width: 18%;
+  margin: 1%;
+  
+}
+.infoMovies img{
+  width: 88%;
+  border-radius: 20px;
+    border-width: 6%;
+    border-style: solid;
+    border-color: #3cb6ee;
 }
 .overlay{
   position: absolute;
@@ -180,15 +186,11 @@ p{
   opacity: 1;
 }
 
-/*
-.infoMovies:hover{
-  margin-top: 1%;
-  margin-bottom: 3%;
-  transition: all 0.6s ease;
-}*/
-span img{
+
+
+.infoMovies span img{
   border: none;
-  size: 5px;
+  width: 15px;
 }
 
 
@@ -208,6 +210,7 @@ span img{
   width: 42%;
 }
 #posterFilm img {
+  
   width: 80%;
   height: 96%;
   margin: 1% 10% 3% 10%;
