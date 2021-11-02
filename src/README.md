@@ -25,9 +25,11 @@ Para el proyecto se optó por la temática de una de las películas de Studio Gh
 Estos dos prototipos fueron realizados a mano para tener una idea de la estructura.
 
 Esta sería la vista para celulares:
+
 ![prototipo](pictures/prototipoCelular.jpg)
 
 Esta sería la vista para desktop:
+
 ![prototipo](pictures/prototipoDataLovers.jpg)
 
 * Prototipo de alta fidelidad
@@ -40,6 +42,7 @@ Esta sería la vista para desktop:
 ![prototipoDesktop](pictures/characters.png)
 
 Esta sería la vista para celulares:
+
 ![prototipoCelular](pictures/Android-Home.png)
 ![prototipoCelular](pictures/Android-movies.png)
 ![prototipoCelular](pictures/Android-characters.png)
