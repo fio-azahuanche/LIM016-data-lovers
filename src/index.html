@@ -13,7 +13,7 @@
   <!--MAIN SCREEN-->
   <article id="Home">
     <nav>
-      <a href="#Home"><img src="logoStudioGhibli.png"></a>
+      <a href="#Home"><img src="pictures/logoStudioGhibli.png"></a>
       <a class="links"><b>Films</b> </a>
       <a class="links"><b>Statistics</b> </a>
     </nav>
@@ -22,7 +22,7 @@
       <section id="popularFilms">
         <div class="containerFilms">
           <button role="button" id="leftArrow" class="leftArrow">
-            <img src="left-arrow-solid-24.svg" alt="">
+            <img src="pictures/left-arrow-solid-24.svg" alt="left arrow">
           </button>
 
           <div class="containerCarousel">
@@ -55,7 +55,7 @@
           </div>
 
           <button role="button" id="rightArrow" class="rightArrow">
-            <img src="right-arrow-solid-24.svg" alt="">
+            <img src="pictures/right-arrow-solid-24.svg" alt="right arrow">
           </button>
 
         </div>
@@ -74,11 +74,17 @@
         <select class="filterBy" id="filter">
           <option selected>Filter by</option>
           <option value="directorHayao" id="hayaoD">Director Hayao</option>
+          <option value="directorGoro" id="goroD">Director Gorō</option>
+          <option value="directorHiromasa" id="hiromasaD">Director Hiromasa</option>
           <option value="directorIsao" id="isaoD">Director Isao</option>
-          <option value="productorToshio">Productor Toshio</option>
+          <option value="producerToshio" id="toshioP">Producer Toshio</option>
+          <option value="producerIsao" id="isaoP">Producer Isao</option>
+          <option value="producerToru" id="toruP">Producer Toru</option>
+          <option value="producerHayao" id="hayaoP">Producer Hayao</option>
+          <option value="producerYoshiaki" id="yoshiakiP">Producer Yoshiaki</option>
         </select>
 
-        <select class="sortBy">
+        <select id="sortBy">
           <option selected>Sort By</option>
           <option value="yearDescending">Year Descending</option>
           <option value="yearAscending">Year Ascending</option>
@@ -88,7 +94,7 @@
         </select>
       </section>
 
-      <img src="Group.png" alt="StudioGhibli" style="width: 15%;">
+      <img src="pictures/logoWhite.png" alt="StudioGhibli" style="width: 15%;">
 
     </div>
 
@@ -102,7 +108,7 @@
     <section id="generalDescription">
       <div class="flex space">
         <div><button id="buttonBackFilms">Back to Films</button></div>
-        <img src="logoStudioGhibli.png" style="width: 15%;">
+        <img src="pictures/logoStudioGhibli.png" style="width: 15%;">
       </div>
 
       <div id="descriptionOfEachMovie" class="flex">

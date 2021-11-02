@@ -7,7 +7,7 @@ body{
 
 #Home{
   height: 100vh;
-  background-image: url('imagenPortada.png');
+  background-image: url('pictures/image2.png');
   background-repeat: no-repeat;
   background-position: right center;
   background-size:70%;
@@ -196,7 +196,7 @@ span img{
 #Characters{
   min-height: 100vh;
   background-color: #0A4141;
-  background-image: url('imagenEsquina.png');
+  background-image: url('pictures/image1.png');
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size:50%;

@@ -1,14 +1,14 @@
-import { example, anotherExample } from '../src/data.js';
+import { filterByDirectorProducer, anotherExample } from '../src/data.js';
 
 
-describe('example', () => {
+describe('filterByDirectorProducer', () => {
   it('is a function', () => {
-    expect(typeof example).toBe('function');
+    expect(typeof filterByDirectorProducer).toBe('function');
   });
 
-  it('returns `example`', () => {
-    expect(example()).toBe('example');
-  });
+  /* it('returns ``', () => {
+    expect(filterByDirectorProducer()).toBe('filterByDirectorProducer');
+  }); */
 });
 
 
