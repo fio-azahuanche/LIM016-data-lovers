@@ -23,7 +23,7 @@ export const sortYearAsc = (data, items) => {
 };
 
 export const sortByTitle = {
-  fromAtoZ: (data,items) => {
+  fromAtoZ: (data, items) => {
     const fromAtoZ = data.sort((a, b) => {
       if (a[items] < b[items]) {
         return -1;
@@ -35,7 +35,7 @@ export const sortByTitle = {
     })
     return fromAtoZ;
   },
-  fromZtoA : (data,items) => {
+  fromZtoA: (data, items) => {
     const fromZtoA = data.sort((a, b) => {
       if (a[items] < b[items]) {
         return 1;
@@ -49,12 +49,12 @@ export const sortByTitle = {
   }
 };
 
-export const searchFilms=(input,selector)=>{
-  document.addEventListener('keyup',(e)=>{
-if(e.target.matches(input)){
-  console.log(e.target.value);
-  document.querySelectorAll(selector).forEach((el)=>el.getAttribute('id').toLowerCase().includes(e.target.value)?el.classList.remove('filter'):el.classList.add('filter'))
-}
+export const searchFilms = (input, selector) => {
+  document.addEventListener('keyup', (e) => {
+    if (e.target.matches(input)) {
+      console.log(e.target.value);
+      document.querySelectorAll(selector).forEach((el) => el.getAttribute('id').toLowerCase().includes(e.target.value) ? el.classList.remove('filter') : el.classList.add('filter'))
+    }
   })
 
 };
