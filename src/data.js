@@ -48,24 +48,12 @@ export const sortByTitle = {
     return fromZtoA;
   }
 };
-/* export const sortZtoA = (data) => {
-  //falta algo
-  const fromZtoA = data.sort((a, b) => {
-    if (a.title < b.title) {
-      return 1;
-    }
-    if (a.title > b.title) {
-      return -1;
-    }
-    return 0;
-  })
-  return fromZtoA;
-}; */
+
 export const searchFilms=(input,selector)=>{
   document.addEventListener('keyup',(e)=>{
 if(e.target.matches(input)){
   console.log(e.target.value);
-  document.querySelectorAll(selector).forEach((el)=>el.textContent.toLowerCase().includes(e.target.value)?el.classList.remove('filter'):el.classList.add('filter'))
+  document.querySelectorAll(selector).forEach((el)=>el.getAttribute('id').toLowerCase().includes(e.target.value)?el.classList.remove('filter'):el.classList.add('filter'))
 }
   })
 
