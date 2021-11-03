@@ -22,6 +22,7 @@ Filtrando, ordenando y buscando la información detallada de cada película seg�
 Para el proyecto se optó por la temática de una de las películas de Studio Ghibli, El viaje de Chihiro, ya que vimos el buen contraste de colores que nos permitiría transmitir la información de forma clara y precisa, y que a su vez pueda ser amigable ante la vista de nuestros usuarios, asi ellos puedan tener un rápido reconocimiento de la interfaz de nuestra pagina web.
 
 * Prototipo de baja fidelidad
+
 Estos dos prototipos fueron realizados a mano para tener una idea de la estructura.
 
 Esta sería la vista para celulares:
@@ -33,16 +34,16 @@ Esta sería la vista para desktop:
 ![prototipo](pictures/prototipoDataLovers.jpg)
 
 * Prototipo de alta fidelidad
+
 Estos dos prototipos fueron realizados en Figma para aplicar los colores y temática previamente pensados.
 
 Esta sería la vista para desktop:
 
-![prototipoDesktop](pictures/home.png)
-![prototipoDesktop](pictures/movies.png)
-![prototipoDesktop](pictures/characters.png)
+![prototipoDesktop](pictures/home.jpg)
+![prototipoDesktop](pictures/characters.jpg)
 
 Esta sería la vista para celulares:
 
-![prototipoCelular](pictures/Android-Home.png)
-![prototipoCelular](pictures/Android-movies.png)
-![prototipoCelular](pictures/Android-characters.png)
+![prototipoCelular](pictures/Android-home.jpg)
+![prototipoCelular](pictures/Android-movies.jpg)
+![prototipoCelular](pictures/Android-characters.jpg)
