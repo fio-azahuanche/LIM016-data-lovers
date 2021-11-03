@@ -1,4 +1,4 @@
-import { filterByDirectorProducer, sortScore, sortYearDesc, sortYearAsc, sortByTitle, searchFilms } from './data.js';
+import { filterByDirectorProducer, sortData, searchFilms } from './data.js';
 import data from './data/ghibli/ghibli.js';
 
 /* Event to create carousel of popular movies*/
@@ -52,12 +52,13 @@ nav[0].addEventListener('click', () => {
   }
   document.getElementById("Films").style.display = "block";
   //
-  
+
   let classPoster=document.getElementsByClassName("infoMovies");
   enterInfoMovie(classPoster);
   //
 });
 console.log(data.films);
+
 /* Showing filtered posters*/
 let posters = document.getElementById("posters");
 //filterByDirectorandProducer
@@ -78,7 +79,7 @@ filter.addEventListener('change', (event) => {
     }
   }
   //
-  
+
   let classPoster=document.getElementsByClassName("infoMovies");
   enterInfoMovie(classPoster);
   //
@@ -88,43 +89,12 @@ filter.addEventListener('change', (event) => {
 /* Showing ordering of posters*/
 const sortBy = document.getElementById("sortBy");
 sortBy.addEventListener('change', (event) => {
-  
-
-  if (event.target.value == "score") {
-    posters.innerHTML = "";
-    let sortByScore = sortScore(data.films, "rt_score");
-    //console.log(sortByScore)
-    sortByScore.forEach(sortD => generalFunction(sortD, posters));
-  }
-
-  if (event.target.value == "yearDescending") {
-    posters.innerHTML = "";
-    let sortByYearD = sortYearDesc(data.films, "release_date");
-    //console.log(sortByYear)
-    sortByYearD.forEach(sortYdes => generalFunction(sortYdes, posters));
-  }
-
-  if (event.target.value == "yearAscending") {
-    posters.innerHTML = "";
-    let sortByYearA = sortYearAsc(data.films, "release_date");
-    //console.log(sortByYear)
-    sortByYearA.forEach(sortYasc => generalFunction(sortYasc, posters));
-  }
-
-  if (event.target.value == "a-to-z") {
-    posters.innerHTML = "";
-    let fromAtoZ = sortByTitle.fromAtoZ(data.films, "title");
-    fromAtoZ.forEach(sortAtoZ => generalFunction(sortAtoZ, posters));
-  }
-
-  if (event.target.value == "z-to-a") {
-    posters.innerHTML = "";
-    let fromZtoA = sortByTitle.fromZtoA(data.films, "title");
-    fromZtoA.forEach(sortZtoA => generalFunction(sortZtoA, posters));
-  }
-  
+  document.getElementById("allPosters").style.display = "none";
+  posters.innerHTML = "";
+  const sortItemsValue = event.target.value;
+  let sortBy = sortData(data.films, sortItemsValue);
+  sortBy.forEach(sortItems => generalFunction(sortItems, posters));
   //
-  
   let classPoster=document.getElementsByClassName("infoMovies");
   enterInfoMovie(classPoster);
   //
@@ -158,13 +128,13 @@ const enterInfoMovie=(groupFilms)=>{
       let mensaje=idPostersClick[i].getAttribute('id');
       let busquedaFiltrado=data.films.filter((film)=>{return film.title===mensaje})
       document.getElementById("Films").style.display="none";
-      document.getElementById("posterFilm").innerHTML="";  
+      document.getElementById("posterFilm").innerHTML="";
        let imgPoster=document.createElement("img");
     imgPoster.src = busquedaFiltrado[0].poster;
-    posterFilm.appendChild(imgPoster); 
+    posterFilm.appendChild(imgPoster);
        document.getElementById("filmInfoSection").style.display="block";
       console.log(busquedaFiltrado)})
-  } 
+  }
 }
 
 
