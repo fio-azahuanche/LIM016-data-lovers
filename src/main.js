@@ -53,34 +53,30 @@ nav[0].addEventListener('click', () => {
   document.getElementById("Films").style.display = "block";
   //
 
-  let classPoster=document.getElementsByClassName("infoMovies");
+  let classPoster = document.getElementsByClassName("infoMovies");
   enterInfoMovie(classPoster);
   //
 });
-console.log(data.films);
+
 
 /* Showing filtered posters*/
 let posters = document.getElementById("posters");
 //filterByDirectorandProducer
 const filter = document.getElementById("filter");
 filter.addEventListener('change', (event) => {
-  document.getElementById("allPosters").style.display = "none";
 
-  let directors = ["Hayao Miyazaki", "Gorō Miyazaki", "Hiromasa Yonebayashi", "Isao Takahata", "Toshio Suzuki", "Isao Takahata", "Toru Hara", "Hayao Miyazaki", "Yoshiaki Nishimura"];
-  let opciones = [];
-  for (let i = 1; i < filter.options.length; i++) {
-    opciones[i - 1] = filter.options[i].value;
-  }
-  for (let i = 0; i < filter.options.length - 1; i++) {
-    if (event.target.value == opciones[i]) {
-      posters.innerHTML = "";
-      let filterHayao = filterByDirectorProducer(data.films, directors[i]);
-      filterHayao.forEach(filterData => generalFunction(filterData, posters));
-    }
+  let optionSelected = event.target.value;
+  posters.innerHTML = "";
+  if (optionSelected == "D.Hayao Miyazaki" || optionSelected == "D.Gorō Miyazaki" || optionSelected == "D.Hiromasa Yonebayashi" || optionSelected == "D.Isao Takahata") {
+
+    let filterDirectors = filterByDirectorProducer(data.films, optionSelected.slice(2), 'director')
+    filterDirectors.forEach(filterData => generalFunction(filterData, posters));
+  } else {
+    let filterProducer = filterByDirectorProducer(data.films, optionSelected.slice(2), 'producer')
+    filterProducer.forEach(filterData => generalFunction(filterData, posters));
   }
   //
-
-  let classPoster=document.getElementsByClassName("infoMovies");
+  let classPoster = document.getElementsByClassName("infoMovies");
   enterInfoMovie(classPoster);
   //
 
@@ -89,16 +85,31 @@ filter.addEventListener('change', (event) => {
 /* Showing ordering of posters*/
 const sortBy = document.getElementById("sortBy");
 sortBy.addEventListener('change', (event) => {
-  document.getElementById("allPosters").style.display = "none";
+
   posters.innerHTML = "";
   const sortItemsValue = event.target.value;
+  
   let sortBy = sortData(data.films, sortItemsValue);
   sortBy.forEach(sortItems => generalFunction(sortItems, posters));
   //
-  let classPoster=document.getElementsByClassName("infoMovies");
-  enterInfoMovie(classPoster);
+   let classPoster = document.getElementsByClassName("infoMovies");
+  enterInfoMovie(classPoster); 
   //
 })
+/* let idS=[];
+  let clase=document.getElementsByClassName("infoMovies");
+  for(let i=0;i<clase.length;i++){
+    idS[i]=clase[i].getAttribute('id');
+  }
+  console.log(idS);
+  let array=[];
+  for(let i=0;i<idS.length;i++){
+    array[i]=data.films.filter(film=>film.title===idS[i]);
+  }
+
+  console.log(array); */
+
+
 
 
 
@@ -107,7 +118,7 @@ const searchMovie = document.getElementById("searchMovie");
 searchMovie.addEventListener('click', () => {
   searchFilms("#searchMovie", ".infoMovies");
   //
-  let classPoster=document.getElementsByClassName("infoMovies");
+  let classPoster = document.getElementsByClassName("infoMovies");
   enterInfoMovie(classPoster);
   //
 });
@@ -118,22 +129,24 @@ searchMovie.addEventListener('click', () => {
 
 
 //Trying to show poster in another section
-const enterInfoMovie=(groupFilms)=>{
-  let idPosters=[];
-  let idPostersClick=[];
-  for(let i=0;i<groupFilms.length;i++){
-    idPosters[i]=groupFilms[i].getAttribute('id');
-    idPostersClick[i]=document.getElementById(idPosters[i]);
-     idPostersClick[i].addEventListener('click',()=>{
-      let mensaje=idPostersClick[i].getAttribute('id');
-      let busquedaFiltrado=data.films.filter((film)=>{return film.title===mensaje})
-      document.getElementById("Films").style.display="none";
-      document.getElementById("posterFilm").innerHTML="";
-       let imgPoster=document.createElement("img");
-    imgPoster.src = busquedaFiltrado[0].poster;
-    posterFilm.appendChild(imgPoster);
-       document.getElementById("filmInfoSection").style.display="block";
-      console.log(busquedaFiltrado)})
+const enterInfoMovie = (groupFilms) => {
+  let idPosters = [];
+  let idPostersClick = [];
+  for (let i = 0; i < groupFilms.length; i++) {
+    idPosters[i] = groupFilms[i].getAttribute('id');
+    idPostersClick[i] = document.getElementById(idPosters[i]);
+    idPostersClick[i].addEventListener('click', () => {
+      let mensaje = idPostersClick[i].getAttribute('id');
+      let busquedaFiltrado = data.films.filter((film) => { return film.title === mensaje })
+      document.getElementById("Films").style.display = "none";
+      document.getElementById("posterFilm").innerHTML = "";
+      let posterFilm=document.getElementById("posterFilm");
+      let imgPoster = document.createElement("img");
+      imgPoster.src = busquedaFiltrado[0].poster;
+      posterFilm.appendChild(imgPoster);
+      document.getElementById("filmInfoSection").style.display = "block";
+      console.log(busquedaFiltrado)
+    })
   }
 }
 

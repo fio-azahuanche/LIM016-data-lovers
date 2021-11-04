@@ -1,7 +1,18 @@
 // estas funciones son de ejemplo
 
-export const filterByDirectorProducer = (data, condition) => {
-  return data.filter(film => film.director === condition || film.producer === condition);
+export const filterByDirectorProducer = (data, name,items) => {
+  switch(items){
+    case 'director':{
+      return data.filter(film => film.director === name);
+    }
+    case 'producer':{
+      return data.filter(film => film.producer === name);
+    }
+    default:{
+      break;
+    }
+  }
+  //return data.filter(film => film.director === condition || film.producer === condition);
 };
 
 export const sortData = (data, items) =>{
@@ -52,12 +63,9 @@ export const sortData = (data, items) =>{
 export const searchFilms = (input, selector) => {
   document.addEventListener('keyup', (e) => {
     if (e.target.matches(input)) {
-      console.log(e.target.value);
-      document.querySelectorAll(selector).forEach((el) => el.getAttribute('id').toLowerCase().includes(e.target.value) ? el.classList.remove('filter') : el.classList.add('filter'))
+      document.querySelectorAll(selector).forEach((el) => el.getAttribute('id').toLowerCase().includes(e.target.value.toLowerCase()) ? el.classList.remove('filter') : el.classList.add('filter'))
     }
   })
 
 };
-export const anotherExample = () => {
-  return 'OMG';
-};
+
