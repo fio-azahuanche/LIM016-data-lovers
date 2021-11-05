@@ -222,10 +222,18 @@ p{
 border-radius: 20px;
 }
 
-
-
-
-
 .filter{
   display: none;
+}
+#character{
+  display: flex;
+  flex-wrap: wrap;
+}
+#locations{
+  display: flex;
+  flex-wrap: wrap;
+}
+#vehicles{
+  display: flex;
+  flex-wrap: wrap;
 }

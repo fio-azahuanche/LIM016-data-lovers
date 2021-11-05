@@ -58,14 +58,7 @@ export const sortData = (data, items) =>{
     }
   }
 };
-
-
-export const searchFilms = (input, selector) => {
-  document.addEventListener('keyup', (e) => {
-    if (e.target.matches(input)) {
-      document.querySelectorAll(selector).forEach((el) => el.getAttribute('id').toLowerCase().includes(e.target.value.toLowerCase()) ? el.classList.remove('filter') : el.classList.add('filter'))
-    }
-  })
-
-};
+export const searchData = (data, condition, value) => {
+  return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
+}
 

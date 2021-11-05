@@ -1,4 +1,4 @@
-import { filterByDirectorProducer, sortData, searchFilms } from '../src/data.js';
+import { filterByDirectorProducer, sortData, searchData } from '../src/data.js';
 
 
 describe('filterByDirectorProducer', () => {
@@ -85,15 +85,12 @@ describe('sortData', () => {
 });
 
 
-
-
-
-
-
-
-describe('searchFilms', () => {
+describe('searchData', () => {
   it('is a function', () => {
-    expect(typeof searchFilms).toBe('function');
+    expect(typeof searchData).toBe('function');
   });
-
+  const dataPrueba = [{title: "Whisper of the Heart",rt_score:85,release_date:1995}, {  title: "Castle in the Sky", rt_score:100, release_date:2000}];
+  it('return Lo buscado title',()=>{
+    expect(searchData(dataPrueba,`title`,`whisper`)).toEqual([{"title": "Whisper of the Heart","rt_score":85,"release_date":1995}])
+  })
 });
