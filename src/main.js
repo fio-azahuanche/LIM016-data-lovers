@@ -17,33 +17,32 @@ rightArrow.addEventListener('click', () => {
 const generalFunction = (posterMovies, container) => {
   container.innerHTML = "";
   let div = [], imagenPoster = [], year = [], score = [], star = [], tag = [];
-  for (let i = 0; i < posterMovies.length; i++) {
-    div[i] = document.createElement("div");
-    div[i].classList.add("infoMovies");
-    div[i].setAttribute('id', posterMovies[i].title);
+    posterMovies.forEach((item,i)=>{
+      div[i] = document.createElement("div");
+      div[i].classList.add("infoMovies");
+      div[i].setAttribute('id', item.title);
 
-    imagenPoster[i] = document.createElement("img");
-    imagenPoster[i].src = posterMovies[i].poster;
-    div[i].appendChild(imagenPoster[i]);
+      imagenPoster[i] = document.createElement("img");
+      imagenPoster[i].src = item.poster;
+      div[i].appendChild(imagenPoster[i]);
 
-    year[i] = document.createElement("span")
-    score[i] = document.createElement("span");
-    star[i] = document.createElement("img");
-    year[i].textContent = posterMovies[i].release_date;
-    score[i].textContent = posterMovies[i].rt_score;
-    star[i].src = "pictures/bxs-star 1.png";
+      year[i] = document.createElement("span")
+      score[i] = document.createElement("span");
+      star[i] = document.createElement("img");
+      year[i].textContent = item.release_date;
+      score[i].textContent = item.rt_score;
+      star[i].src = "pictures/bxs-star 1.png";
 
-    tag[i] = document.createElement("div");
-    div[i].appendChild(tag[i]);
-    tag[i].appendChild(year[i]);
-    tag[i].appendChild(score[i]);
-    score[i].appendChild(star[i]);
-    tag[i].classList.add("tags");
+      tag[i] = document.createElement("div");
+      div[i].appendChild(tag[i]);
+      tag[i].appendChild(year[i]);
+      tag[i].appendChild(score[i]);
+      score[i].appendChild(star[i]);
+      tag[i].classList.add("tags");
 
 
-    container.appendChild(div[i]);
-  }
-
+      container.appendChild(div[i]);
+    })
 }
 
 /* Event to show Films and remove Home*/
@@ -120,7 +119,7 @@ searchInput.addEventListener('keyup', ()=>{
   let classPoster = document.getElementsByClassName("infoMovies");
   enterInfoMovie(classPoster);
 
-})  
+})
 
 
 //Trying to show poster in another section
@@ -132,11 +131,8 @@ const enterInfoMovie = (groupFilms) => {
     groupFilms[i].addEventListener('click', () => {
       let busquedaFiltrado = data.films.filter((film) => { return film.title === idPosters[i] })
       document.getElementById("Films").style.display = "none";
-      document.getElementById("posterFilm").innerHTML = "";
-      let posterFilm = document.getElementById("posterFilm");
-      let imgPoster = document.createElement("img");
-      imgPoster.src = busquedaFiltrado[0].poster;
-      posterFilm.appendChild(imgPoster);
+      let descriptionOfEachMovie= document.getElementById("descriptionOfEachMovie");
+      enterDataMovie(busquedaFiltrado[0],descriptionOfEachMovie);
       document.getElementById("filmInfoSection").style.display = "block";
 
       let character = document.getElementById("character");
@@ -152,19 +148,59 @@ const enterInfoMovie = (groupFilms) => {
 const enterDataChar = (group, container) => {
   container.innerHTML = "";
   let div = [], imagenChar = [];
-  for (let i = 0; i < group.length; i++) {
+  group.forEach((item,i)=>{
     div[i] = document.createElement("div");
-    div[i].textContent = group[i].name;
+    div[i].textContent = item.name;
     div[i].classList.add("infoMovies");
-    div[i].setAttribute('id', group[i].name);
+    div[i].setAttribute('id', item.name);
 
     imagenChar[i] = document.createElement("img");
-    imagenChar[i].src = group[i].img;
+    imagenChar[i].src = item.img;
     div[i].appendChild(imagenChar[i]);
 
     container.appendChild(div[i]);
-  }
+  })
 }
+
+const enterDataMovie = (group, container)=>{
+  container.innerHTML = "";
+  let div = document.createElement("div");
+  div.setAttribute('id', 'posterFilm');
+
+  let image = document.createElement("img");
+  image.src = group.poster;
+  div.appendChild(image);
+
+  let divDescription = document.createElement("div");
+  divDescription.setAttribute('id', 'filmDescription');
+
+  let titleFilm = document.createElement("h1");
+  titleFilm.textContent = group.title;
+
+  let yearFilm = document.createElement("span");
+  yearFilm.textContent = group.release_date;
+
+  let descriptionFilm = document.createElement("p");
+  descriptionFilm.textContent = group.description;
+
+  let directorFilm = document.createElement("span");
+  directorFilm.textContent =  "Director: "+group.director;
+
+  let producerFilm = document.createElement("span");
+  producerFilm.textContent =  "Producer: "+group.producer;
+
+  divDescription.appendChild(titleFilm);
+  divDescription.appendChild(yearFilm);
+  divDescription.appendChild(descriptionFilm);
+  divDescription.appendChild(directorFilm);
+  divDescription.appendChild(producerFilm);
+
+  container.appendChild(div);
+  container.appendChild(divDescription);
+}
+
+
+
 
 /* Event to show Films and remove Home & filmInfoSection*/
 const buttonBackFilms = document.getElementById("buttonBackFilms");
