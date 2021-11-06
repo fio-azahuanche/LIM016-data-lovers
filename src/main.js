@@ -13,6 +13,13 @@ rightArrow.addEventListener('click', () => {
   row.scrollLeft += row.offsetWidth;
 });
 
+/* Creating event for logo*/
+const logoHome = document.getElementById("logoHome");
+logoHome.addEventListener('click', ()=>{
+  document.getElementById("Films").style.display = "none";
+  document.getElementById("Home").style.display = "block";
+});
+
 /* Creating General Function for containers*/
 const generalFunction = (posterMovies, container) => {
   container.innerHTML = "";
@@ -31,7 +38,7 @@ const generalFunction = (posterMovies, container) => {
       star[i] = document.createElement("img");
       year[i].textContent = item.release_date;
       score[i].textContent = item.rt_score;
-      star[i].src = "pictures/bxs-star 1.png";
+      star[i].src = "pictures/goldStar.png";
 
       tag[i] = document.createElement("div");
       div[i].appendChild(tag[i]);
@@ -39,6 +46,9 @@ const generalFunction = (posterMovies, container) => {
       tag[i].appendChild(score[i]);
       score[i].appendChild(star[i]);
       tag[i].classList.add("tags");
+      year[i].classList.add("year");
+      score[i].classList.add("score");
+
 
 
       container.appendChild(div[i]);
@@ -122,7 +132,7 @@ searchInput.addEventListener('keyup', ()=>{
 })
 
 
-//Trying to show poster in another section
+//Showing poster in another section
 const enterInfoMovie = (groupFilms) => {
   let idPosters = [];
   for (let i = 0; i < groupFilms.length; i++) {
@@ -151,7 +161,7 @@ const enterDataChar = (group, container) => {
   group.forEach((item,i)=>{
     div[i] = document.createElement("div");
     div[i].textContent = item.name;
-    div[i].classList.add("infoMovies");
+    div[i].classList.add("infoCharacters");
     div[i].setAttribute('id', item.name);
 
     imagenChar[i] = document.createElement("img");
@@ -177,17 +187,30 @@ const enterDataMovie = (group, container)=>{
   let titleFilm = document.createElement("h1");
   titleFilm.textContent = group.title;
 
-  let yearFilm = document.createElement("span");
+  let yearFilm = document.createElement("h2");
   yearFilm.textContent = group.release_date;
 
   let descriptionFilm = document.createElement("p");
   descriptionFilm.textContent = group.description;
 
-  let directorFilm = document.createElement("span");
-  directorFilm.textContent =  "Director: "+group.director;
+  let directorFilm = document.createElement("div");
+  let imgDirector = document.createElement("img");
+  imgDirector.src = "pictures/director.png";
+  directorFilm.append(imgDirector);
+  let txtDirector = document.createElement("span");
+  txtDirector.textContent = "Director: " + group.director;
+  directorFilm.appendChild(txtDirector);
+  /* directorFilm.textContent =  "Director: "+ group.director; */
 
-  let producerFilm = document.createElement("span");
-  producerFilm.textContent =  "Producer: "+group.producer;
+
+  let producerFilm = document.createElement("div");
+  let imgProducer = document.createElement("img");
+  imgProducer.src = "pictures/producer.png";
+  producerFilm.append(imgProducer);
+  let txtProducer = document.createElement("span");
+  txtProducer.textContent = "Producer: " + group.producer;
+  producerFilm.appendChild(txtProducer);
+
 
   divDescription.appendChild(titleFilm);
   divDescription.appendChild(yearFilm);
@@ -202,14 +225,19 @@ const enterDataMovie = (group, container)=>{
 
 
 
-/* Event to show Films and remove Home & filmInfoSection*/
+/* Event to show Films and remove filmInfoSection*/
 const buttonBackFilms = document.getElementById("buttonBackFilms");
 buttonBackFilms.addEventListener('click', () => {
   document.getElementById("filmInfoSection").style.display = "none";
   document.getElementById("Films").style.display = "block";
 });
 
-
+/* Creating event for filmInfoSection's logo */
+const logoBackHome = document.getElementById("logoBackHome");
+logoBackHome.addEventListener('click', ()=>{
+  document.getElementById("filmInfoSection").style.display = "none";
+  document.getElementById("Home").style.display = "block";
+});
 
 
 
