@@ -67,23 +67,50 @@
 
   <!--FILM SCREEN-->
   <article id="Films" style="display: none;">
-    <div class="flex space">
-      <section id="filteringSection">
+    <section id="containerHeader" class="flex space">
+      <div>
+        <button id="restart"><img src="pictures/arrow-clockwise-light 1.png"></button>
         <input type="search" id="searchMovie" placeholder="Search" class="infoMovies-filter">
+      </div>
 
-        <select class="filterBy" id="filter">
-          <option selected disabled>Filter by</option>
-          <option value="D.Hayao Miyazaki" id="hayaoD">Director Hayao</option>
-          <option value="D.Gorō Miyazaki" id="goroD">Director Gorō</option>
-          <option value="D.Hiromasa Yonebayashi" id="hiromasaD">Director Hiromasa</option>
-          <option value="D.Isao Takahata" id="isaoD">Director Isao</option>
-          <option value="P.Toshio Suzuki" id="toshioP">Producer Toshio</option>
-          <option value="P.Isao Takahata" id="isaoP">Producer Isao</option>
-          <option value="P.Toru Hara" id="toruP">Producer Toru</option>
-          <option value="P.Hayao Miyazaki" id="hayaoP">Producer Hayao</option>
-          <option value="P.Yoshiaki Nishimura" id="yoshiakiP">Producer Yoshiaki</option>
-        </select>
+      <img id="logoHome" src="pictures/logoWhite.png" alt="StudioGhibli" style="width: 15%;">
+    </section>
 
+    <section class="flex">
+      <div class="filterBy" id="filter">
+        <h1>Filter by</h1>
+        <hr>
+        <h2>Director</h2>
+        <ul id="listDirector">
+          <li value="0" id="hayaoD">Hayao Miyazaki</li>
+          <li value="1" id="goroD">Gorō Miyazaki</li>
+          <li value="2" id="hiromasaD">Hiromasa Yonebayashi</li>
+          <li value="3" id="isaoD">Isao Takahata</li>
+        </ul>
+        <h2>Producer</h2>
+        <ul id="listProducer">
+          <li value="0" id="toshioP">Toshio Suzuki</li>
+          <li value="1" id="isaoP">Isao Takahata</li>
+          <li value="2" id="toruP">Toru Hara</li>
+          <li value="3" id="hayaoP">Hayao Miyazaki</li>
+          <li value="4" id="yoshiakiP">Yoshiaki Nishimura</li>
+        </ul>
+        <!--h1>Filter by</!--h1>
+        <hr>
+        <h2>Director</h2>
+        <p value="D.Hayao Miyazaki" class="option" id="hayaoD">Director Hayao</p>
+        <p value="D.Gorō Miyazaki" class="option" id="goroD">Director Gorō</p>
+        <p value="D.Hiromasa Yonebayashi" class="option" id="hiromasaD">Director Hiromasa</p>
+        <p value="D.Isao Takahata" class="option" id="isaoD">Director Isao</p>
+        <h2>Producer</h2>
+        <p value="P.Toshio Suzuki" class="option" id="toshioP">Producer Toshio</p>
+        <p value="P.Isao Takahata" class="option" id="isaoP">Producer Isao</p>
+        <p value="P.Toru Hara" class="option" id="toruP">Producer Toru</p>
+        <p value="P.Hayao Miyazaki" class="option" id="hayaoP">Producer Hayao</p>
+        <p-- value="P.Yoshiaki Nishimura" class="option" id="yoshiakiP">Producer Yoshiaki</p-->
+      </div>
+
+      <div id="containerPosters">
         <select id="sortBy">
           <option selected disabled>Sort By</option>
           <option value="yearDescending">Year Descending</option>
@@ -92,13 +119,11 @@
           <option value="a-to-z">A - Z</option>
           <option value="z-to-a">Z - A</option>
         </select>
-      </section>
 
-      <img id="logoHome" src="pictures/logoWhite.png" alt="StudioGhibli" style="width: 15%;">
+        <div id="posters" class="flex"></div>
+      </div>
 
-    </div>
-
-    <div id="posters" class="flex"></div>
+    </section>
   </article>
 
   <!--FILM INFORMATION-->
@@ -106,7 +131,7 @@
     <section id="generalDescription">
       <div class="flex space">
         <div><button id="buttonBackFilms">Back to Films</button></div>
-        <img id="logoBackHome"" src="pictures/logoStudioGhibli.png" style="width: 15%;">
+        <img id="logoBackHome" src="pictures/logoStudioGhibli.png" style="width: 15%;">
       </div>
 
       <div id="descriptionOfEachMovie" class="flex">
