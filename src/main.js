@@ -82,7 +82,8 @@ const dataNueva=(clase)=>{
   for(let i=0;i<idS.length;i++){
     array[i]=data.films.filter(film=>film.title==idS[i])[0];
   }
-return array;}
+return array;
+};
 
 
 
@@ -94,10 +95,10 @@ return array;}
 
 
 /* Showing filtered posters*/
-let posters = document.getElementById("posters");
+/* let posters = document.getElementById("posters");
 //filterByDirectorandProducer
-const filter = document.getElementById("filter");
-filter.addEventListener('change', (event) => {
+const filter = document.getElementsByClassName("option");
+filter.addEventListener('click', (event) => {
 
   let optionSelected = event.target.value;
   if (optionSelected == "D.Hayao Miyazaki" || optionSelected == "D.Gorō Miyazaki" || optionSelected == "D.Hiromasa Yonebayashi" || optionSelected == "D.Isao Takahata") {
@@ -114,7 +115,43 @@ filter.addEventListener('change', (event) => {
   enterInfoMovie(classPoster);
   //
 
-})
+}) */
+
+let posters = document.getElementById("posters");
+const listDirector = document.getElementById("listDirector");
+listDirector.addEventListener('click', (event) => {
+
+  let optionSelected = event.target.value;
+  //console.log(optionSelected);
+  let listD = ["Hayao Miyazaki", "Gorō Miyazaki", "Hiromasa Yonebayashi", "Isao Takahata"];
+
+  for(let i=0; i<listD.length; i++){
+    if (optionSelected == i) {
+      let filterDirectors = filterByDirectorProducer(data.films, listD[i], 'director')
+      generalFunction(filterDirectors, posters)
+    }
+  }
+  //
+  let classPoster = document.getElementsByClassName("infoMovies");
+  enterInfoMovie(classPoster);
+  //
+});
+
+const listProducer = document.getElementById("listProducer");
+listProducer.addEventListener('click', (event)=>{
+  let optionSelected = event.target.value;
+  let listP = ["Toshio Suzuki", "Isao Takahata", "Toru Hara", "Hayao Miyazaki", "Yoshiaki Nishimura"];
+  for(let i=0; i<listP.length; i++){
+    if(optionSelected == i){
+      let filterDirectors = filterByDirectorProducer(data.films, listP[i], 'producer')
+      generalFunction(filterDirectors, posters)
+    }
+  }
+  //
+  let classPoster = document.getElementsByClassName("infoMovies");
+  enterInfoMovie(classPoster);
+  //
+});
 
 /* Showing ordering of posters*/
 const sortBy = document.getElementById("sortBy");
@@ -122,8 +159,8 @@ sortBy.addEventListener('change', (event) => {
   const sortItemsValue = event.target.value;
 //
   let classPoster = document.getElementsByClassName("infoMovies");
-  
-  
+
+
   //let sortBy = sortData(data.films, sortItemsValue);
   let sortBy = sortData(dataNueva(classPoster), sortItemsValue);
   generalFunction(sortBy, posters)
@@ -134,7 +171,7 @@ sortBy.addEventListener('change', (event) => {
 
 
 //Buscador de imagenes
- const searchInput = document.getElementById("searchMovie");
+const searchInput = document.getElementById("searchMovie");
 searchInput.addEventListener('keyup', (e)=>{
   //verificalo
   let classPoster = document.getElementsByClassName("infoMovies");
@@ -142,20 +179,20 @@ searchInput.addEventListener('keyup', (e)=>{
   let IDD=DataFilms.map(el=>el.title)
   let CLASE=[];
   IDD.forEach((el,index)=>{
-    CLASE[index]=document.getElementById(el);  
+    CLASE[index]=document.getElementById(el);
     CLASE[index].classList.add("filter");
   })
- 
+
   let Datanew=searchData(DataFilms,"title", e.target.value);
   let iddd=Datanew.map(el=>el.title)
-  
+
   let clase=[];
   iddd.forEach((el,index)=>{
-    clase[index]=document.getElementById(el);  
+    clase[index]=document.getElementById(el);
     clase[index].classList.remove("filter");
   })
   enterInfoMovie(classPoster);
-  
+
   /* let dataFilms=searchData(data.films, 'title', searchInput.value);
   generalFunction(dataFilms,posters);
 
