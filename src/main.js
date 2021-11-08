@@ -219,8 +219,11 @@ const enterInfoMovie = (groupFilms) => {
       let loc = document.getElementById("locations");
       let veh = document.getElementById("vehicles");
       enterDataChar(busquedaFiltrado[0].people, character,"infoCharPeople");
+      classChar(busquedaFiltrado[0].people,'people');
       enterDataChar(busquedaFiltrado[0].locations, loc,"infoCharLocations");
+      classChar(busquedaFiltrado[0].locations,'locations');
       enterDataChar(busquedaFiltrado[0].vehicles, veh,"infoCharVehicles");
+      classChar(busquedaFiltrado[0].vehicles,'vehicles');
     })
   }
 }
@@ -311,29 +314,87 @@ logoBackHome.addEventListener('click', ()=>{
 
 
 
+
 //INTENTO MODELO (se debe meter estocuando cree las clases);Creating card information each people, location, vehicle
-let cardPeople=document.getElementsByClassName("infoCharPeople");
-let cardsId=[];
-for(let i=0;i<cardPeople.length;i++){
-  cardsId[i]=cardPeople[i].getAttribute("id");
-  cardPeople[i].addEventListener('click',()=>{
-    document.getElementById("cardEachCharacter").style.display="block";
-    showCard(cardsId[i]);
+const classChar = (grupoArray,plv) => {
+  let clickCharacter = grupoArray.map(el => el.name);
+  clickCharacter.forEach((item) => {
+    document.getElementById(item).addEventListener('click', () => {
+      let personaje = grupoArray.filter(el => el.name == item);
+      card(personaje[0],plv);
+      document.getElementById("cardEachCharacter").style.display = "block";
+    })
   })
 }
-const showCard=(byId,movie)=>{//deberia recibir 3 parametros : id del personaje, la pelicula en la que buscaremos,y si es people o location o vehicle
-  let groupChar=data.films.filter(el=>el.title==movie);
-  let personaje=groupChar[0].people.filter(el=>el.name==byId);
-  card(personaje[0]);
-}
-let cardEachCharacter=document.getElementById("cardEachCharacter");
-const card=(element)=>{
-  let div=document.createElement("div");
-  let img=document.createElement("img");
-  img.src=element.img;
+
+let cardEachCharacter = document.getElementById("cardEachCharacter");
+const card = (element,peoLocVeh) => {
+  cardEachCharacter.innerHTML = "";
+  let div = document.createElement("div");
+  let img = document.createElement("img");
+  
+  let divDetalles=document.createElement("div");
+  switch(peoLocVeh){
+    case 'people':{
+      let p1=document.createElement("p");
+      let p2=document.createElement("p");
+      let p3=document.createElement("p");
+      let p4=document.createElement("p");
+      let p5=document.createElement("p");
+
+      p1.textContent=element.gender;
+      p2.textContent=element.age;
+      p3.textContent=element.eye_color;
+      p4.textContent=element.hair_color;
+      p5.textContent=element.specie;
+
+      divDetalles.appendChild(p1);
+      divDetalles.appendChild(p2);
+      divDetalles.appendChild(p3);
+      divDetalles.appendChild(p4);
+      divDetalles.appendChild(p5);
+    }
+    case 'vehicles':{
+      let P1=document.createElement("p");
+      let P2=document.createElement("p");
+      let P3=document.createElement("p");
+      let P4=document.createElement("p");
+
+      P1.textContent=element.description;
+      P2.textContent=element.vehicle_class;
+      P3.textContent=element.length;
+      P4.textContent=element.pilot;
+
+      divDetalles.appendChild(P1);
+      divDetalles.appendChild(P2);
+      divDetalles.appendChild(P3);
+      divDetalles.appendChild(P4);
+    }
+    case 'locations':{
+      let V1=document.createElement("p");
+      let V2=document.createElement("p");
+      let V3=document.createElement("p");
+      let V4=document.createElement("p");
+
+      V1.textContent=element.climate;
+      V2.textContent=element.terrain;
+      V3.textContent=element.surface_water;
+      V4.textContent=element.residents;
+
+      divDetalles.appendChild(V1);
+      divDetalles.appendChild(V2);
+      divDetalles.appendChild(V3);
+      divDetalles.appendChild(V4);
+    }
+
+  }
+
+  img.src = element.img;
   div.appendChild(img);
   cardEachCharacter.appendChild(div);
+  cardEachCharacter.appendChild(divDetalles);
 }
+
 
 
 
