@@ -60,36 +60,35 @@
 
         </div>
       </section>
-
-
     </div>
   </article>
 
   <!--FILM SCREEN-->
   <article id="Films" style="display: none;">
     <section id="containerHeader" class="flex space">
-      <div>
-        <button id="restart"><img src="pictures/arrow-clockwise-light 1.png"></button>
-        <input type="search" id="searchMovie" placeholder="Search" class="infoMovies-filter">
+      <div id="divSearch" class="flex">
+        <button id="reload"><img src="pictures/arrow-clockwise-light 1.png"></button>
+        <div id="searchContainer" class="flex">
+          <input type="search" id="searchMovie" placeholder="Search" class="infoMovies-filter">
+          <img src="pictures/lupa.png">
+        </div>
       </div>
 
       <img id="logoHome" src="pictures/logoWhite.png" alt="StudioGhibli" style="width: 15%;">
     </section>
 
     <!-- <section class="flex"> -->
-    <section class="grid">
+    <section id="prueba" class="grid">
       <div class="filterBy" id="filter">
         <h1>Filter by</h1>
         <hr>
-        <h2>Director</h2>
-        <ul id="listDirector">
+        <ul id="listDirector"><b>Director</b>
           <li value="0" id="hayaoD">Hayao Miyazaki</li>
           <li value="1" id="goroD">Gorō Miyazaki</li>
           <li value="2" id="hiromasaD">Hiromasa Yonebayashi</li>
           <li value="3" id="isaoD">Isao Takahata</li>
         </ul>
-        <h2>Producer</h2>
-        <ul id="listProducer">
+        <ul id="listProducer"><b>Producer</b>
           <li value="0" id="toshioP">Toshio Suzuki</li>
           <li value="1" id="isaoP">Isao Takahata</li>
           <li value="2" id="toruP">Toru Hara</li>
@@ -112,14 +111,17 @@
       </div>
 
       <div id="containerPosters">
-        <select id="sortBy">
-          <option selected disabled>Sort By</option>
-          <option value="yearDescending">Year Descending</option>
-          <option value="yearAscending">Year Ascending</option>
-          <option value="score">Score</option>
-          <option value="a-to-z">A - Z</option>
-          <option value="z-to-a">Z - A</option>
-        </select>
+        <div id="divSort">
+          <select id="sortBy">
+            <option selected disabled>Sort By</option>
+            <option value="yearDescending">Year Descending</option>
+            <option value="yearAscending">Year Ascending</option>
+            <option value="score">Score</option>
+            <option value="a-to-z">A - Z</option>
+            <option value="z-to-a">Z - A</option>
+          </select>
+        </div>
+
 
         <div id="posters"></div>
       </div>
