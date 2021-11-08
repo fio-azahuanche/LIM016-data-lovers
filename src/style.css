@@ -388,7 +388,7 @@ ul b{
   color: black;
 }
 
-.filter{
+.hidden{
   display: none;
 }
 
@@ -429,4 +429,22 @@ h2{
 #buttonBackFilms:hover{
   background-color: #39A388;
   color: white;
+}
+
+@media (min-width: 800px) and (max-width: 1199px){
+  #Home{
+    background-size:80% 60%;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+
+  #Container{
+    margin-bottom: 2%;
+    margin-top: 0%;
+    height: 25%;
+  }
+
+  #popularFilms{
+    min-height: 15vh;
+  }
 }

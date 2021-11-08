@@ -1,24 +1,8 @@
 import { filterByDirectorProducer, sortData,searchData } from './data.js';
 import data from './data/ghibli/ghibli.js';
 
-/* Event to create carousel of popular movies*/
-const row = document.querySelector('.containerCarousel');
-const leftArrow = document.getElementById('leftArrow');
-leftArrow.addEventListener('click', () => {
-  row.scrollLeft -= row.offsetWidth;
-});
-
-const rightArrow = document.getElementById('rightArrow');
-rightArrow.addEventListener('click', () => {
-  row.scrollLeft += row.offsetWidth;
-});
-
-/* Creating event for logo*/
-const logoHome = document.getElementById("logoHome");
-logoHome.addEventListener('click', ()=>{
-  document.getElementById("Films").style.display = "none";
-  document.getElementById("Home").style.display = "block";
-});
+const getById = label => document.getElementById(label);
+const getByClass = label => document.getElementsByClassName(label);
 
 /* Creating General Function for containers*/
 const generalFunction = (posterMovies, container) => {
@@ -49,201 +33,9 @@ const generalFunction = (posterMovies, container) => {
       year[i].classList.add("year");
       score[i].classList.add("score");
 
-
-
       container.appendChild(div[i]);
     })
-}
-
-/* Event to show Films and remove Home*/
-let nav = document.getElementsByClassName("links");
-nav[0].addEventListener('click', () => {
-  document.getElementById("Home").style.display = "none";
-  //Show all posters
-  const posters = document.getElementById("posters");
-  generalFunction(data.films, posters);
-  document.getElementById("Films").style.display = "block";
-  //
-
-  let classPoster = document.getElementsByClassName("infoMovies");
-  enterInfoMovie(classPoster);
-  //
-});
-
-
-
-//velo como queda
-const dataNueva=(clase)=>{
-  let idS=[];
-  for(let i=0;i<clase.length;i++){
-    idS[i]=clase[i].getAttribute('id');
-  }
-  let array=[];
-  for(let i=0;i<idS.length;i++){
-    array[i]=data.films.filter(film=>film.title==idS[i])[0];
-  }
-return array;
 };
-
-
-
-
-
-
-
-
-
-
-/* Showing filtered posters*/
-/* let posters = document.getElementById("posters");
-//filterByDirectorandProducer
-const filter = document.getElementsByClassName("option");
-filter.addEventListener('click', (event) => {
-
-  let optionSelected = event.target.value;
-  if (optionSelected == "D.Hayao Miyazaki" || optionSelected == "D.Gorō Miyazaki" || optionSelected == "D.Hiromasa Yonebayashi" || optionSelected == "D.Isao Takahata") {
-
-    let filterDirectors = filterByDirectorProducer(data.films, optionSelected.slice(2), 'director')
-    generalFunction(filterDirectors, posters)
-
-  } else {
-    let filterProducer = filterByDirectorProducer(data.films, optionSelected.slice(2), 'producer')
-    generalFunction(filterProducer, posters)
-  }
-  //
-  let classPoster = document.getElementsByClassName("infoMovies");
-  enterInfoMovie(classPoster);
-  //
-
-}) */
-
-let posters = document.getElementById("posters");
-const listDirector = document.getElementById("listDirector");
-listDirector.addEventListener('click', (event) => {
-
-  let optionSelected = event.target.value;
-  //console.log(optionSelected);
-  let listD = ["Hayao Miyazaki", "Gorō Miyazaki", "Hiromasa Yonebayashi", "Isao Takahata"];
-
-  for(let i=0; i<listD.length; i++){
-    if (optionSelected == i) {
-      let filterDirectors = filterByDirectorProducer(data.films, listD[i], 'director')
-      generalFunction(filterDirectors, posters)
-    }
-  }
-  //
-  let classPoster = document.getElementsByClassName("infoMovies");
-  enterInfoMovie(classPoster);
-  //
-});
-
-const listProducer = document.getElementById("listProducer");
-listProducer.addEventListener('click', (event)=>{
-  let optionSelected = event.target.value;
-  let listP = ["Toshio Suzuki", "Isao Takahata", "Toru Hara", "Hayao Miyazaki", "Yoshiaki Nishimura"];
-  for(let i=0; i<listP.length; i++){
-    if(optionSelected == i){
-      let filterDirectors = filterByDirectorProducer(data.films, listP[i], 'producer')
-      generalFunction(filterDirectors, posters)
-    }
-  }
-  //
-  let classPoster = document.getElementsByClassName("infoMovies");
-  enterInfoMovie(classPoster);
-  //
-});
-
-/* Showing ordering of posters*/
-const sortBy = document.getElementById("sortBy");
-sortBy.addEventListener('change', (event) => {
-  const sortItemsValue = event.target.value;
-//
-  let classPoster = document.getElementsByClassName("infoMovies");
-
-
-  //let sortBy = sortData(data.films, sortItemsValue);
-  let sortBy = sortData(dataNueva(classPoster), sortItemsValue);
-  generalFunction(sortBy, posters)
-  //
-  enterInfoMovie(classPoster);
-})
-
-
-
-//Buscador de imagenes
-const searchInput = document.getElementById("searchMovie");
-searchInput.addEventListener('keyup', (e)=>{
-  //verificalo
-  let classPoster = document.getElementsByClassName("infoMovies");
-  let DataFilms =dataNueva(classPoster);
-  let IDD=DataFilms.map(el=>el.title)
-  let CLASE=[];
-  IDD.forEach((el,index)=>{
-    CLASE[index]=document.getElementById(el);
-    CLASE[index].classList.add("filter");
-  })
-
-  let Datanew=searchData(DataFilms,"title", e.target.value);
-  let iddd=Datanew.map(el=>el.title)
-
-  let clase=[];
-  iddd.forEach((el,index)=>{
-    clase[index]=document.getElementById(el);
-    clase[index].classList.remove("filter");
-  })
-  enterInfoMovie(classPoster);
-
-  /* let dataFilms=searchData(data.films, 'title', searchInput.value);
-  generalFunction(dataFilms,posters);
-
-  let classPoster = document.getElementsByClassName("infoMovies");
-  enterInfoMovie(classPoster); */
-
-})
-
-
-//Showing poster in another section
-const enterInfoMovie = (groupFilms) => {
-  let idPosters = [];
-  for (let i = 0; i < groupFilms.length; i++) {
-    idPosters[i] = groupFilms[i].getAttribute('id');
-
-    groupFilms[i].addEventListener('click', () => {
-      let busquedaFiltrado = data.films.filter((film) => { return film.title === idPosters[i] })
-      document.getElementById("Films").style.display = "none";
-      let descriptionOfEachMovie= document.getElementById("descriptionOfEachMovie");
-      enterDataMovie(busquedaFiltrado[0],descriptionOfEachMovie);
-      document.getElementById("filmInfoSection").style.display = "block";
-
-      let character = document.getElementById("character");
-      let loc = document.getElementById("locations");
-      let veh = document.getElementById("vehicles");
-      enterDataChar(busquedaFiltrado[0].people, character,"infoCharPeople");
-      classChar(busquedaFiltrado[0].people,'people');
-      enterDataChar(busquedaFiltrado[0].locations, loc,"infoCharLocations");
-      classChar(busquedaFiltrado[0].locations,'locations');
-      enterDataChar(busquedaFiltrado[0].vehicles, veh,"infoCharVehicles");
-      classChar(busquedaFiltrado[0].vehicles,'vehicles');
-    })
-  }
-}
-
-const enterDataChar = (group, container,className) => {
-  container.innerHTML = "";
-  let div = [], imagenChar = [];
-  group.forEach((item,i)=>{
-    div[i] = document.createElement("div");
-    div[i].textContent = item.name;
-    div[i].classList.add(className);
-    div[i].setAttribute('id', item.name);
-
-    imagenChar[i] = document.createElement("img");
-    imagenChar[i].src = item.img;
-    div[i].appendChild(imagenChar[i]);
-
-    container.appendChild(div[i]);
-  })
-}
 
 const enterDataMovie = (group, container)=>{
   container.innerHTML = "";
@@ -273,8 +65,6 @@ const enterDataMovie = (group, container)=>{
   let txtDirector = document.createElement("span");
   txtDirector.textContent = "Director: " + group.director;
   directorFilm.appendChild(txtDirector);
-  /* directorFilm.textContent =  "Director: "+ group.director; */
-
 
   let producerFilm = document.createElement("div");
   let imgProducer = document.createElement("img");
@@ -284,7 +74,6 @@ const enterDataMovie = (group, container)=>{
   txtProducer.textContent = "Producer: " + group.producer;
   producerFilm.appendChild(txtProducer);
 
-
   divDescription.appendChild(titleFilm);
   divDescription.appendChild(yearFilm);
   divDescription.appendChild(descriptionFilm);
@@ -293,48 +82,32 @@ const enterDataMovie = (group, container)=>{
 
   container.appendChild(div);
   container.appendChild(divDescription);
-}
+};
 
+const enterCardChar = (group, container,className) => {
+  container.innerHTML = "";
+  let div = [], imagenChar = [];
+  group.forEach((item,i)=>{
+    div[i] = document.createElement("div");
+    div[i].textContent = item.name;
+    div[i].classList.add(className);
+    div[i].setAttribute('id', item.name);
 
+    imagenChar[i] = document.createElement("img");
+    imagenChar[i].src = item.img;
+    div[i].appendChild(imagenChar[i]);
 
-
-/* Event to show Films and remove filmInfoSection*/
-const buttonBackFilms = document.getElementById("buttonBackFilms");
-buttonBackFilms.addEventListener('click', () => {
-  document.getElementById("filmInfoSection").style.display = "none";
-  document.getElementById("Films").style.display = "block";
-});
-
-/* Creating event for filmInfoSection's logo */
-const logoBackHome = document.getElementById("logoBackHome");
-logoBackHome.addEventListener('click', ()=>{
-  document.getElementById("filmInfoSection").style.display = "none";
-  document.getElementById("Home").style.display = "block";
-});
-
-
-
-
-//INTENTO MODELO (se debe meter estocuando cree las clases);Creating card information each people, location, vehicle
-const classChar = (grupoArray,plv) => {
-  let clickCharacter = grupoArray.map(el => el.name);
-  clickCharacter.forEach((item) => {
-    document.getElementById(item).addEventListener('click', () => {
-      let personaje = grupoArray.filter(el => el.name == item);
-      card(personaje[0],plv);
-      document.getElementById("cardEachCharacter").style.display = "block";
-    })
+    container.appendChild(div[i]);
   })
-}
+};
 
-let cardEachCharacter = document.getElementById("cardEachCharacter");
-const card = (element,peoLocVeh) => {
-  cardEachCharacter.innerHTML = "";
+const card = (element,item) => {
+  getById("cardEachCharacter").innerHTML = "";
   let div = document.createElement("div");
   let img = document.createElement("img");
-  
+
   let divDetalles=document.createElement("div");
-  switch(peoLocVeh){
+  switch(item){
     case 'people':{
       let p1=document.createElement("p");
       let p2=document.createElement("p");
@@ -353,6 +126,7 @@ const card = (element,peoLocVeh) => {
       divDetalles.appendChild(p3);
       divDetalles.appendChild(p4);
       divDetalles.appendChild(p5);
+      break;
     }
     case 'vehicles':{
       let P1=document.createElement("p");
@@ -363,13 +137,15 @@ const card = (element,peoLocVeh) => {
       P1.textContent=element.description;
       P2.textContent=element.vehicle_class;
       P3.textContent=element.length;
-      P4.textContent=element.pilot;
+      P4.textContent=element.pilot.name;
 
       divDetalles.appendChild(P1);
       divDetalles.appendChild(P2);
       divDetalles.appendChild(P3);
       divDetalles.appendChild(P4);
+      break;
     }
+
     case 'locations':{
       let V1=document.createElement("p");
       let V2=document.createElement("p");
@@ -385,15 +161,167 @@ const card = (element,peoLocVeh) => {
       divDetalles.appendChild(V2);
       divDetalles.appendChild(V3);
       divDetalles.appendChild(V4);
+      break;
     }
-
   }
 
   img.src = element.img;
   div.appendChild(img);
-  cardEachCharacter.appendChild(div);
-  cardEachCharacter.appendChild(divDetalles);
-}
+  getById("cardEachCharacter").appendChild(div);
+  getById("cardEachCharacter").appendChild(divDetalles);
+};
+
+const dataNueva=(clase)=>{
+  let idS=[];
+  for(let i=0;i<clase.length;i++){
+    idS[i]=clase[i].getAttribute('id');
+  }
+  let array=[];
+  for(let i=0;i<idS.length;i++){
+    array[i]=data.films.filter(film=>film.title==idS[i])[0];
+  }
+return array;
+};
+
+//Creating card information each people, location, vehicle
+const classChar = (grupoArray,plv) => {
+  let clickCharacter = grupoArray.map(character => character.name);
+  clickCharacter.forEach((item) => {
+    getById(item).addEventListener('click', () => {
+      let personaje = grupoArray.filter(character => character.name == item);
+      card(personaje[0],plv);
+      getById("cardEachCharacter").style.display = "block";
+    })
+  })
+};
+
+//Showing poster in another section
+const enterInfoMovie = (groupFilms) => {
+  let idPosters = [];
+  for (let i = 0; i < groupFilms.length; i++) {
+    idPosters[i] = groupFilms[i].getAttribute('id');
+
+    groupFilms[i].addEventListener('click', () => {
+      let busquedaFiltrado = data.films.filter((film) => { return film.title === idPosters[i] })
+      getById("Films").style.display = "none";
+      enterDataMovie(busquedaFiltrado[0],getById("descriptionOfEachMovie"));
+      getById("filmInfoSection").style.display = "block";
+
+      enterCardChar(busquedaFiltrado[0].people, getById("character"),"infoCharPeople");
+      classChar(busquedaFiltrado[0].people,'people');
+      enterCardChar(busquedaFiltrado[0].locations, getById("locations"),"infoCharLocations");
+      classChar(busquedaFiltrado[0].locations,'locations');
+      enterCardChar(busquedaFiltrado[0].vehicles, getById("vehicles"),"infoCharVehicles");
+      classChar(busquedaFiltrado[0].vehicles,'vehicles');
+    })
+  }
+};
+
+/* Event to create carousel of popular movies*/
+const row = document.querySelector('.containerCarousel');
+getById("leftArrow").addEventListener('click', () => {
+  row.scrollLeft -= row.offsetWidth;
+});
+
+getById("rightArrow").addEventListener('click', () => {
+  row.scrollLeft += row.offsetWidth;
+});
+
+/* Creating event for logo*/
+getById("logoHome").addEventListener('click', ()=>{
+  getById("Films").style.display = "none";
+  getById("Home").style.display = "block";
+});
+
+/* Event to show Films and remove Home*/
+let nav = getByClass("links");
+nav[0].addEventListener('click', () => {
+  getById("Home").style.display = "none";
+  //Show all posters
+  generalFunction(data.films, getById("posters"));
+  getById("Films").style.display = "block";
+  enterInfoMovie(getByClass("infoMovies"));
+});
+
+
+
+getById("listDirector").addEventListener('click', (event) => {
+  let optionSelected = event.target.value;
+  let listD = ["Hayao Miyazaki", "Gorō Miyazaki", "Hiromasa Yonebayashi", "Isao Takahata"];
+  listD.forEach((item,index)=>{
+    if (optionSelected == index) {
+      let filterDirectors = filterByDirectorProducer(data.films, item, 'director')
+      generalFunction(filterDirectors, getById("posters"))
+    }
+  });
+  enterInfoMovie(getByClass("infoMovies"));
+});
+
+getById("listProducer").addEventListener('click', (event)=>{
+  let optionSelected = event.target.value;
+  let listP = ["Toshio Suzuki", "Isao Takahata", "Toru Hara", "Hayao Miyazaki", "Yoshiaki Nishimura"];
+  listP.forEach((item,index)=>{
+    if (optionSelected == index) {
+      let filterProducer = filterByDirectorProducer(data.films, item, 'producer')
+      generalFunction(filterProducer, getById("posters"))
+    }
+  });
+  enterInfoMovie(getByClass("infoMovies"));
+});
+
+/* Showing ordering of posters*/
+getById("sortBy").addEventListener('change', (event) => {
+  const sortItemsValue = event.target.value;
+  let classPoster = getByClass("infoMovies");
+  let sortBy = sortData(dataNueva(classPoster), sortItemsValue);
+  generalFunction(sortBy, getById("posters"))
+  enterInfoMovie(classPoster);
+})
+
+
+//Buscador de imagenes
+getById("searchMovie").addEventListener('keyup', (e)=>{
+  let classPoster = getByClass("infoMovies");
+  let DataFilms =dataNueva(classPoster);
+  let id=DataFilms.map(film=>film.title)
+  let hiddenClass=[];
+  id.forEach((item,index)=>{
+    hiddenClass[index]=getById(item);
+    hiddenClass[index].classList.add("hidden");
+  })
+
+  let Datanew=searchData(DataFilms,"title", e.target.value);
+  let newId=Datanew.map(film=>film.title)
+
+  let showClass=[];
+  newId.forEach((item,index)=>{
+    showClass[index]=document.getElementById(item);
+    showClass[index].classList.remove("hidden");
+  })
+  enterInfoMovie(classPoster);
+})
+
+
+
+
+
+
+/* Event to show Films and remove filmInfoSection*/
+getById("buttonBackFilms").addEventListener('click', () => {
+  getById("filmInfoSection").style.display = "none";
+  getById("Films").style.display = "block";
+});
+
+/* Creating event for filmInfoSection's logo */
+getById("logoBackHome").addEventListener('click', ()=>{
+  getById("filmInfoSection").style.display = "none";
+  getById("Home").style.display = "block";
+});
+
+
+
+
+
 
 
 
