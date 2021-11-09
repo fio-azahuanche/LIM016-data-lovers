@@ -12,6 +12,7 @@ const generalFunction = (posterMovies, container) => {
       div[i] = document.createElement("div");
       div[i].classList.add("infoMovies");
       div[i].setAttribute('id', item.title);
+      div[i].textContent=item.title;
 
       imagenPoster[i] = document.createElement("img");
       imagenPoster[i].src = item.poster;
@@ -29,6 +30,7 @@ const generalFunction = (posterMovies, container) => {
       tag[i].appendChild(year[i]);
       tag[i].appendChild(score[i]);
       score[i].appendChild(star[i]);
+      div[i].classList.add("postersMovie");
       tag[i].classList.add("tags");
       year[i].classList.add("year");
       score[i].classList.add("score");
@@ -103,8 +105,13 @@ const enterCardChar = (group, container,className) => {
 
 const card = (element,item) => {
   getById("cardEachCharacter").innerHTML = "";
+  let bttnCloseModal=document.createElement("button");
   let div = document.createElement("div");
   let img = document.createElement("img");
+
+  img.src = element.img;
+  bttnCloseModal.textContent="cerrar";
+  bttnCloseModal.setAttribute('id','closeModal');
 
   let divDetalles=document.createElement("div");
   switch(item){
@@ -164,12 +171,15 @@ const card = (element,item) => {
       break;
     }
   }
-
-  img.src = element.img;
+  getById("cardEachCharacter").appendChild(bttnCloseModal);
   div.appendChild(img);
   getById("cardEachCharacter").appendChild(div);
   getById("cardEachCharacter").appendChild(divDetalles);
+  getById("closeModal").addEventListener('click',()=>{
+    getById("cardModal").style.display="none";
+  })
 };
+
 
 const dataNueva=(clase)=>{
   let idS=[];
@@ -190,8 +200,10 @@ const classChar = (grupoArray,plv) => {
     getById(item).addEventListener('click', () => {
       let personaje = grupoArray.filter(character => character.name == item);
       card(personaje[0],plv);
-      getById("cardEachCharacter").style.display = "block";
+      getById("cardModal").style.display = "block";
+      
     })
+    
   })
 };
 
@@ -213,7 +225,10 @@ const enterInfoMovie = (groupFilms) => {
       classChar(busquedaFiltrado[0].locations,'locations');
       enterCardChar(busquedaFiltrado[0].vehicles, getById("vehicles"),"infoCharVehicles");
       classChar(busquedaFiltrado[0].vehicles,'vehicles');
+      
+      
     })
+    
   }
 };
 
