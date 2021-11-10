@@ -25,35 +25,48 @@ body{
 }
 
 nav{
+  height: 15vh;
+  /* margin-top:  2%; */
+  width: 75%;
   padding: 1.5% 2.5%;
   /* padding: 1.25rem 2.1875rem; */
   display: flex;
   align-items: center;
 }
-
-nav img{
-  width: 90%;
-  /* width: 16.75em; */
+a{
+  text-align: center;
 }
+/* nav img{
+  width: 90%;
+   width: 16.75em; 
+} */
 
-#linkFilm{
+/* #linkFilm{
   margin-left: 75px;
 }
-
+ */
 .links{
+  width: 30%;
   font-size: 30px;
-  margin-right: 93.75px;
+/*   margin-right: 93.75px; */
   font-style: normal;
   text-decoration: none;
   cursor: pointer;
 }
+.links img{
+  width: 100%;
+  margin-top: 2.5%;
+}
 
-p{
+#Home p{
+  margin-left: 3%;
+  display: flex;
+  align-items: center;
+  height: 30vh;
   /* width: 25em; */
-  width: 625px;
+  width:50%;
   font-size: 25px;
   /* margin: 5rem; */
-  margin: 80px;
 }
 
 #linkFilm:hover, #linkStatistics:hover{
@@ -62,7 +75,11 @@ p{
 
 /*-----CONTAINER POPULAR FILMS-----*/
 #Container{
-  margin-top: 10%;
+  padding: 3% 0% 3% 0%;
+ /*  display: flex;
+    align-items: center; */
+  height: 45vh;
+  /* margin-top: 10%; */
 }
 
 #popularFilms{
@@ -436,24 +453,54 @@ li:hover{
 }
 
 @media (max-width: 1200px){
-  p{
+  #Home{
+    background-size: 90% 70%;
+  }
+  nav{
+    width: 100%;
+    height: 20vh;
+  }
+  .links{
+    font-size: 40px;
+  }
+  #Home p{
+   
+    width: 40%;
+    height: 40vh;
+    font-size: 30px;
+  }
+  /* #Container{
+    
+    height: 40vh;
+  } */
+   #popularFilms{
+    height: 50%;
+   
+  }
+  #popularFilms .containerFilms{
+    height: 100%;
+  }
+  .popularFilm img{
+    height: 250px;
+  } 
+ /*  p{ */
     /* width: 24em;
     margin: 4em 2em; */
-    width: 600px;
+    /* width: 600px;
     margin: 100px 50px;
-  }
-  #Container{
+  } */
+  /* #Container{
     margin-top: 140px;
-  }
+  } */
 }
 
 @media (max-width: 768px){
   #Home{
     background-size: 80% 60%;
   }
-
   nav{
-    justify-content: space-around;
+    width:100%;}
+    /* justify-content: space-around;
     margin-top: 5%;
   }
 
@@ -468,15 +515,17 @@ li:hover{
 
   #linkFilm{
     margin-left: 20%;
-  }
-
+  } */
+  .popularFilm img{
+    height: 200px;
+  } 
   p{
-    width: 240px;
+   /*  width: 240px; */
     /* margin: 4em 2em; */
     font-size: 30px;
   }
 
-  #Container{
+  /* #Container{
     margin-top: 120px;
   }
 
@@ -492,7 +541,7 @@ li:hover{
   .popularFilm img{
     height: 250px;
   }
-
+ */
   #searchContainer{
     width: 500px;
   }
@@ -542,16 +591,17 @@ li:hover{
   .links{
     font-size: 12px;
   }
-  nav img {
+  
+  /* nav img {
     margin-left: 35%;
     width: 170px;
-  }
+  } */
 
-  #Container{
+  /* #Container{
     margin-top: 120px;
-  }
+  } */
 
-  #popularFilms{
+  /* #popularFilms{
     height: 308px;
     padding: 0px;
   }
@@ -562,11 +612,11 @@ li:hover{
 
   .popularFilm img{
     height: 250px;
-  }
-  p{
+  } */
+ /*  p{
     font-size: 12px;
   }
   #containerHeader{
     height: 20vh;
-  }
+  } */
 }
