@@ -67,7 +67,6 @@
   <article id="Films" style="display: none;">
     <section id="containerHeader" class="flex space">
       <div id="divSearch" class="flex">
-        <button id="reload"><img src="pictures/arrow-clockwise-light 1.png"></button>
         <div id="searchContainer" class="flex">
           <input type="search" id="searchMovie" placeholder="Search" class="infoMovies-filter">
           <img src="pictures/lupa.png">
@@ -77,9 +76,9 @@
       <img id="logoHome" src="pictures/logoWhite.png" alt="StudioGhibli" style="width: 15%;">
     </section>
 
-    <section class="grid">
+    <section class="flex">
       <div class="filterBy" id="filter">
-        <h1>Filter by</h1>
+        <h1>Filter by <button id="reload"><img src="pictures/arrow-clockwise-bold.png"></button></h1>
         <hr>
         <ul id="listDirector"><b>Director</b>
           <li value="0" id="hayaoD">Hayao Miyazaki</li>
@@ -108,7 +107,6 @@
           </select>
         </div>
 
-
         <div id="posters"></div>
       </div>
 
@@ -124,20 +122,20 @@
       </div>
 
       <div id="descriptionOfEachMovie" class="flex">
-      </div>
 
+      </div>
     </section>
+
     <section id="Characters">
-      <h2>Characters</h2>
+      <h2 class="title">Characters</h2>
       <div id="character"></div>
 
-      <h2>Locations</h2>
+      <h2 class="title">Locations</h2>
       <div id="locations"></div>
 
-      <h2>Vehicles</h2>
+      <h2 class="title">Vehicles</h2>
       <div id="vehicles"></div>
     </section>
-    
 
   </article>
 

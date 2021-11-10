@@ -7,15 +7,17 @@ const getByClass = label => document.getElementsByClassName(label);
 /* Creating General Function for containers*/
 const generalFunction = (posterMovies, container) => {
   container.innerHTML = "";
-  let div = [], imagenPoster = [], year = [], score = [], star = [], tag = [];
+  let div = [], imagenPoster = [], year = [], score = [], star = [], tag = [], divTitle=[];
     posterMovies.forEach((item,i)=>{
       div[i] = document.createElement("div");
       div[i].classList.add("infoMovies");
       div[i].setAttribute('id', item.title);
-      div[i].textContent=item.title;
+      divTitle[i] = document.createElement("div");
+      divTitle[i].textContent=item.title;
 
       imagenPoster[i] = document.createElement("img");
       imagenPoster[i].src = item.poster;
+      div[i].appendChild(divTitle[i]);
       div[i].appendChild(imagenPoster[i]);
 
       year[i] = document.createElement("span")
@@ -30,10 +32,10 @@ const generalFunction = (posterMovies, container) => {
       tag[i].appendChild(year[i]);
       tag[i].appendChild(score[i]);
       score[i].appendChild(star[i]);
-      div[i].classList.add("postersMovie");
       tag[i].classList.add("tags");
       year[i].classList.add("year");
       score[i].classList.add("score");
+      divTitle[i].classList.add("divTitle");
 
       container.appendChild(div[i]);
     })
@@ -88,18 +90,26 @@ const enterDataMovie = (group, container)=>{
 
 const enterCardChar = (group, container,className) => {
   container.innerHTML = "";
-  let div = [], imagenChar = [];
+  let div = [], imagenChar = [], divName=[];
+  /* for(let i=0; i<group.length;i++){
+    div[i] = `<div id="${group[i].name}" class="${className}"><img src="${group[i].img}"><div>${group[i].name.split(" ")[0]}</div></div>`;
+    container.innerHTML = div[i];
+  } */
   group.forEach((item,i)=>{
+    //div[i] = `<div id="${item.name}" class="${className}"><img src="${item.img}"><div>${item.name.split(" ")[0]}</div></div>`
     div[i] = document.createElement("div");
-    div[i].textContent = item.name;
+    divName[i] = document.createElement("div");
+    divName[i].textContent = item.name.split(" ")[0];
     div[i].classList.add(className);
     div[i].setAttribute('id', item.name);
 
     imagenChar[i] = document.createElement("img");
     imagenChar[i].src = item.img;
     div[i].appendChild(imagenChar[i]);
+    div[i].appendChild(divName[i]);
 
-    container.appendChild(div[i]);
+    //container.innerHTML = div[i];
+    container.append(div[i]);
   })
 };
 
@@ -108,19 +118,23 @@ const card = (element,item) => {
   let bttnCloseModal=document.createElement("button");
   let div = document.createElement("div");
   let img = document.createElement("img");
+  let imgClose = document.createElement("img");
 
   img.src = element.img;
-  bttnCloseModal.textContent="cerrar";
+  imgClose.src = "pictures/x-bold 1.png";
+  bttnCloseModal.appendChild(imgClose);
   bttnCloseModal.setAttribute('id','closeModal');
 
   let divDetalles=document.createElement("div");
+  divDetalles.classList.add("flex");
+  divDetalles.classList.add("wrap");
   switch(item){
     case 'people':{
-      let p1=document.createElement("p");
-      let p2=document.createElement("p");
-      let p3=document.createElement("p");
-      let p4=document.createElement("p");
-      let p5=document.createElement("p");
+      let p1=document.createElement("div");
+      let p2=document.createElement("div");
+      let p3=document.createElement("div");
+      let p4=document.createElement("div");
+      let p5=document.createElement("div");
 
       p1.textContent=element.gender;
       p2.textContent=element.age;
@@ -136,10 +150,10 @@ const card = (element,item) => {
       break;
     }
     case 'vehicles':{
-      let P1=document.createElement("p");
-      let P2=document.createElement("p");
-      let P3=document.createElement("p");
-      let P4=document.createElement("p");
+      let P1=document.createElement("div");
+      let P2=document.createElement("div");
+      let P3=document.createElement("div");
+      let P4=document.createElement("div");
 
       P1.textContent=element.description;
       P2.textContent=element.vehicle_class;
@@ -180,7 +194,6 @@ const card = (element,item) => {
   })
 };
 
-
 const dataNueva=(clase)=>{
   let idS=[];
   for(let i=0;i<clase.length;i++){
@@ -201,9 +214,9 @@ const classChar = (grupoArray,plv) => {
       let personaje = grupoArray.filter(character => character.name == item);
       card(personaje[0],plv);
       getById("cardModal").style.display = "block";
-      
+
     })
-    
+
   })
 };
 
@@ -225,10 +238,7 @@ const enterInfoMovie = (groupFilms) => {
       classChar(busquedaFiltrado[0].locations,'locations');
       enterCardChar(busquedaFiltrado[0].vehicles, getById("vehicles"),"infoCharVehicles");
       classChar(busquedaFiltrado[0].vehicles,'vehicles');
-      
-      
     })
-    
   }
 };
 
@@ -257,7 +267,6 @@ nav[0].addEventListener('click', () => {
   getById("Films").style.display = "block";
   enterInfoMovie(getByClass("infoMovies"));
 });
-
 
 
 getById("listDirector").addEventListener('click', (event) => {
@@ -293,7 +302,6 @@ getById("sortBy").addEventListener('change', (event) => {
   enterInfoMovie(classPoster);
 })
 
-
 //Buscador de imagenes
 getById("searchMovie").addEventListener('keyup', (e)=>{
   let classPoster = getByClass("infoMovies");
@@ -320,7 +328,6 @@ getById("searchMovie").addEventListener('keyup', (e)=>{
 
 
 
-
 /* Event to show Films and remove filmInfoSection*/
 getById("buttonBackFilms").addEventListener('click', () => {
   getById("filmInfoSection").style.display = "none";
@@ -333,13 +340,9 @@ getById("logoBackHome").addEventListener('click', ()=>{
   getById("Home").style.display = "block";
 });
 
-
-
-
-
-
-
-
-
-
-
+/* Event to reload filter */
+getById("reload").addEventListener('click', ()=>{
+  generalFunction(data.films, getById("posters"));
+  getById("Films").style.display = "block";
+  enterInfoMovie(getByClass("infoMovies"));
+});
