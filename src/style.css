@@ -25,33 +25,35 @@ body{
 }
 
 nav{
-  /* padding: 1.5% 2.5%; */
-  padding: 1.25rem 2.1875rem;
+  padding: 1.5% 2.5%;
+  /* padding: 1.25rem 2.1875rem; */
   display: flex;
   align-items: center;
 }
 
 nav img{
-  /* width: 90%; */
-  width: 16.75em;
+  width: 90%;
+  /* width: 16.75em; */
 }
 
 #linkFilm{
-  margin-left: 2.5em;
+  margin-left: 75px;
 }
 
 .links{
   font-size: 30px;
-  margin-right: 3.125em;
+  margin-right: 93.75px;
   font-style: normal;
   text-decoration: none;
   cursor: pointer;
 }
 
 p{
-  width: 25em;
+  /* width: 25em; */
+  width: 625px;
   font-size: 25px;
-  margin: 5rem;
+  /* margin: 5rem; */
+  margin: 80px;
 }
 
 #linkFilm:hover, #linkStatistics:hover{
@@ -60,7 +62,7 @@ p{
 
 /*-----CONTAINER POPULAR FILMS-----*/
 #Container{
-  margin-top: 11%;
+  margin-top: 10%;
 }
 
 #popularFilms{
@@ -433,17 +435,19 @@ li:hover{
   height: 30px;
 }
 
-@media (min-width: 993px) and (max-width: 1200px){
+@media (max-width: 1200px){
   p{
-    width: 24em;
-    margin: 4em 2em;
+    /* width: 24em;
+    margin: 4em 2em; */
+    width: 600px;
+    margin: 100px 50px;
   }
   #Container{
-    margin-top: 150px;
+    margin-top: 140px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 992px){
+@media (max-width: 768px){
   #Home{
     background-size: 80% 60%;
   }
@@ -454,42 +458,51 @@ li:hover{
   }
 
   nav img{
-    margin-left: 20%;
-    width: 350px;
+    margin-left: 35%;
+    width: 270px;
   }
 
   .links{
-    font-size: 45px;
-  }
-
-  #linkFilm{
-    margin-left: 140px;
-  }
-
-  p{
-    width: 8em;
-    margin: 4em 2em;
     font-size: 40px;
   }
 
+  #linkFilm{
+    margin-left: 20%;
+  }
+
+  p{
+    width: 240px;
+    /* margin: 4em 2em; */
+    font-size: 30px;
+  }
+
   #Container{
-    margin-top: 20%;
+    margin-top: 120px;
   }
 
   #popularFilms{
-    height: 340px;
+    height: 308px;
+    padding: 0px;
   }
 
   #popularFilms .containerFilms{
-    height: 330px;
+    height: 300px;
   }
 
   .popularFilm img{
     height: 250px;
   }
 
+  #searchContainer{
+    width: 500px;
+  }
+
+  #searchContainer img {
+    margin-left: 50%;
+  }
+
   #filter{
-    background-size: 240px 100%;
+    background-size: 200px 100%;
   }
 
   .infoMovies{
@@ -525,8 +538,35 @@ li:hover{
   }
 }
 
-@media only screen and (max-width: 767px){
+@media (max-width: 420px){
+  .links{
+    font-size: 12px;
+  }
+  nav img {
+    margin-left: 35%;
+    width: 170px;
+  }
+
   #Container{
-    margin-top: 55%;
+    margin-top: 120px;
+  }
+
+  #popularFilms{
+    height: 308px;
+    padding: 0px;
+  }
+
+  #popularFilms .containerFilms{
+    height: 300px;
+  }
+
+  .popularFilm img{
+    height: 250px;
+  }
+  p{
+    font-size: 12px;
+  }
+  #containerHeader{
+    height: 20vh;
   }
 }
