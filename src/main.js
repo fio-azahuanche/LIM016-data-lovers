@@ -86,7 +86,7 @@ const enterCardChar = (group, container,className) => {
   group.forEach((item)=>{
     let div=document.createElement("div");
     div.innerHTML=`<img src="${item.img}"><div>${item.name.split(" ")[0]}</div>`
-    
+
     div.classList.add(className);
     div.setAttribute('id', item.name);
 
@@ -104,7 +104,7 @@ const card = (element,item) => {
   let divImgCard = document.createElement("div");
   divImgCard.innerHTML=`<img src="${element.img}">`
   divImgCard.classList.add("imgCardModal");
-  
+
 
   let divDetallesGrid=document.createElement("div");
   divDetallesGrid.classList.add("detailsCardModal");
@@ -134,7 +134,7 @@ const card = (element,item) => {
       <div class="box2V"><b>Vehicle class:</b><br> ${element.vehicle_class}</div>
       <div class="box3V"><b>Length:</b><br> ${element.length}</div>
       <div class="box4V"><b>Pilot:</b><br> ${element.pilot.name}</div>`
-     
+
       break;
     }
   }
@@ -220,6 +220,11 @@ nav[1].addEventListener('click', () => {
   getById("Films").style.display = "block";
   enterInfoMovie(getByClass("infoMovies"));
 });
+nav[2].addEventListener('click', () => {
+  getById("Home").style.display = "none";
+  getById("Statistics").style.display = "block";
+
+});
 
 
 getById("listDirector").addEventListener('click', (event) => {
@@ -293,6 +298,7 @@ getById("logoBackHome").addEventListener('click', ()=>{
   getById("Home").style.display = "block";
 });
 
+
 /* Event to reload filter */
 getById("reload").addEventListener('click', ()=>{
   generalFunction(data.films, getById("posters"));
@@ -309,3 +315,66 @@ menuBtn.addEventListener('click', ()=>{
   menuItems.classList.toggle("open");
 });
 
+/* CHART Statistics */
+let movieScore = sortData(data.films,"score");
+let top10movie = [];
+for(let i=0; i<10; i++){
+  top10movie[i]=movieScore[i];
+}
+let labelTop10 = top10movie.map(item=>item.title);
+let dataScore = top10movie.map(item=>parseInt(item.rt_score));
+
+const ctx = document.getElementById('top10').getContext('2d');
+const top10 = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: labelTop10,
+        datasets: [{
+            label: 'titles of films',
+            data: dataScore,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(255, 206, 86, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 99, 132, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+
+let dataPeople = [];
+let dataGender = [];
+let countDataGender = []
+for(let i=0; i<data.films.length; i++){
+  dataPeople[i] = data.films[i].people;
+  dataGender[i] = dataPeople[i].map(item=>item.gender);
+  countDataGender[i]=dataGender[i].length;
+}
+
+console.log(countDataGender)
