@@ -315,7 +315,7 @@ menuBtn.addEventListener('click', ()=>{
   menuItems.classList.toggle("open");
 });
 
-/* CHART Statistics */
+/* CHARTS STATISTICS */
 let movieScore = sortData(data.films,"score");
 let top10movie = [];
 for(let i=0; i<10; i++){
@@ -324,8 +324,8 @@ for(let i=0; i<10; i++){
 let labelTop10 = top10movie.map(item=>item.title);
 let dataScore = top10movie.map(item=>parseInt(item.rt_score));
 
-const ctx = document.getElementById('top10').getContext('2d');
-const top10 = new Chart(ctx, {
+const lineChart = document.getElementById('top10').getContext('2d');
+const top10 = new Chart(lineChart, {
     type: 'line',
     data: {
         labels: labelTop10,
@@ -371,10 +371,35 @@ const top10 = new Chart(ctx, {
 let dataPeople = [];
 let dataGender = [];
 let countDataGender = []
+let female = [];
+let male = [];
 for(let i=0; i<data.films.length; i++){
   dataPeople[i] = data.films[i].people;
   dataGender[i] = dataPeople[i].map(item=>item.gender);
   countDataGender[i]=dataGender[i].length;
+  female[i] = dataGender[i].reduce((acc, item)=>(item === 'Female' ? (acc += 1) : acc), 0);
+  male[i] = countDataGender[i] -female[i];
 }
 
-console.log(countDataGender)
+let totalFemale = female.reduce((a, b) => a + b, 0);
+let totalMale = male.reduce((a, b) => a + b, 0);
+
+const pieChart = document.getElementById('gender').getContext('2d');
+const gender = new Chart(pieChart, {
+    type: 'pie',
+    data : {
+      labels: [
+        'Female',
+        'Male'
+      ],
+      datasets: [{
+        label: 'Dataset of Gender',
+        data: [totalFemale, totalMale],
+        backgroundColor: [
+          'rgb(54, 162, 235)',
+          'rgb(255, 99, 132)'
+        ],
+        hoverOffset: 4
+      }]
+    }
+});
