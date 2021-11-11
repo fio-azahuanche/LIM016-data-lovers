@@ -63,19 +63,13 @@ const enterDataMovie = (group, container)=>{
   descriptionFilm.textContent = group.description;
 
   let directorFilm = document.createElement("div");
-  let imgDirector = document.createElement("img");
-  imgDirector.src = "pictures/director.png";
-  directorFilm.append(imgDirector);
   let txtDirector = document.createElement("span");
-  txtDirector.textContent = "Director: " + group.director;
+  txtDirector.innerHTML = `<img src="pictures/director.png"> <b>Director:</b> ${group.director}`;
   directorFilm.appendChild(txtDirector);
 
   let producerFilm = document.createElement("div");
-  let imgProducer = document.createElement("img");
-  imgProducer.src = "pictures/producer.png";
-  producerFilm.append(imgProducer);
   let txtProducer = document.createElement("span");
-  txtProducer.textContent = "Producer: " + group.producer;
+  txtProducer.innerHTML = `<img src="pictures/producer.png"> <b>Producer:</b> ${group.producer}`;
   producerFilm.appendChild(txtProducer);
 
   divDescription.appendChild(titleFilm);
@@ -260,7 +254,7 @@ getById("logoHome").addEventListener('click', ()=>{
 
 /* Event to show Films and remove Home*/
 let nav = getByClass("links");
-nav[0].addEventListener('click', () => {
+nav[1].addEventListener('click', () => {
   getById("Home").style.display = "none";
   //Show all posters
   generalFunction(data.films, getById("posters"));
@@ -346,3 +340,13 @@ getById("reload").addEventListener('click', ()=>{
   getById("Films").style.display = "block";
   enterInfoMovie(getByClass("infoMovies"));
 });
+
+/* Event to close and open menuBtn (hamburger menu)*/
+const menuBtn = document.querySelector(".menuBtn");
+const menuItems = document.querySelector(".menuItems");
+//main toggle
+menuBtn.addEventListener('click', ()=>{
+  menuBtn.classList.toggle("open");
+  menuItems.classList.toggle("open");
+});
+
