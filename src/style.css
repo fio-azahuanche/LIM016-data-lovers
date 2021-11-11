@@ -493,7 +493,7 @@ li:hover{
     height: 25vh;
     width: 30%;
     margin: 0% 35%;
-     position: absolute; 
+     position: absolute;
   }
   .imgCardModal img{
     width: 100%;
@@ -532,7 +532,7 @@ li:hover{
     width: 92%;
     float: left;
   }
-  
+
 
 /* On screens that are 1200px or less*/
 @media (max-width: 1200px){
@@ -612,7 +612,7 @@ li:hover{
   #containerPosters{
     height: 92vh;
   }
-  
+
   #filmDescription h1{
     font-size: 32px;
   }
@@ -718,12 +718,12 @@ li:hover{
 
   }
    #filter h1{
-     background-color: rgba(2, 22, 39, 0.5);     
+     background-color: rgba(2, 22, 39, 0.5);
      color: white;
      margin:0% ;
-     padding:5% 0% 5% 20%; 
-     -webkit-text-stroke: 1px var(--pink-color); 
-  } 
+     padding:5% 0% 5% 20%;
+     -webkit-text-stroke: 1px var(--pink-color);
+  }
   #filter hr{
     width: 100%;
     margin-left: 0%;
@@ -831,7 +831,7 @@ li:hover{
     margin: 23vh 10%;
     height: 54vh;
   }
-  
+
   .imgCardModal{
     height: 16vh;
     width: 35%

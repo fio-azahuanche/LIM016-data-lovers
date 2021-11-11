@@ -151,7 +151,40 @@
   <article id="cardModal" style="display: none;">
     <section id="cardEachCharacter"></section>
   </article>
+
+  <article id="Statistics" style="display: none;">
+    <section class="sectionChart">
+      <h2 class="subtitle">Top 10 Films</h2>
+      <section class="containerChart">
+        <canvas class="canvasChart" id="top10"></canvas>
+      </section>
+    </section>
+
+    <section class="sectionChart">
+      <h2 class="subtitle">Gender</h2>
+      <section class="containerChart">
+        <canvas class="canvasChart" id="gender"></canvas>
+      </section>
+    </section>
+
+    <section class="sectionChart">
+      <h2 class="subtitle">Type of Films</h2>
+      <section class="containerChart">
+        <canvas class="canvasChart" id="type"></canvas>
+      </section>
+    </section>
+
+    <section class="sectionChart">
+      <h2 class="subtitle">Species of characters</h2>
+      <section class="containerChart">
+        <canvas class="canvasChart" id="specie"></canvas>
+      </section>
+    </section>
+
+  </article>
+
   <div id="root"></div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.6.0/dist/chart.min.js"></script>
   <script src="main.js" type="module"></script>
 </body>
 
