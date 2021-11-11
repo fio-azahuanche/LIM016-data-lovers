@@ -81,112 +81,71 @@ const enterDataMovie = (group, container)=>{
   container.appendChild(div);
   container.appendChild(divDescription);
 };
-
 const enterCardChar = (group, container,className) => {
   container.innerHTML = "";
-  let div = [], imagenChar = [], divName=[];
-  /* for(let i=0; i<group.length;i++){
-    div[i] = `<div id="${group[i].name}" class="${className}"><img src="${group[i].img}"><div>${group[i].name.split(" ")[0]}</div></div>`;
-    container.innerHTML = div[i];
-  } */
-  group.forEach((item,i)=>{
-    //div[i] = `<div id="${item.name}" class="${className}"><img src="${item.img}"><div>${item.name.split(" ")[0]}</div></div>`
-    div[i] = document.createElement("div");
-    divName[i] = document.createElement("div");
-    divName[i].textContent = item.name.split(" ")[0];
-    div[i].classList.add(className);
-    div[i].setAttribute('id', item.name);
+  group.forEach((item)=>{
+    let div=document.createElement("div");
+    div.innerHTML=`<img src="${item.img}"><div>${item.name.split(" ")[0]}</div>`
+    
+    div.classList.add(className);
+    div.setAttribute('id', item.name);
 
-    imagenChar[i] = document.createElement("img");
-    imagenChar[i].src = item.img;
-    div[i].appendChild(imagenChar[i]);
-    div[i].appendChild(divName[i]);
-
-    //container.innerHTML = div[i];
-    container.append(div[i]);
+    container.append(div);
   })
 };
 
 const card = (element,item) => {
   getById("cardEachCharacter").innerHTML = "";
   let bttnCloseModal=document.createElement("button");
-  let div = document.createElement("div");
-  let img = document.createElement("img");
-  let imgClose = document.createElement("img");
-
-  img.src = element.img;
-  imgClose.src = "pictures/x-bold 1.png";
-  bttnCloseModal.appendChild(imgClose);
+  bttnCloseModal.innerHTML=`<img src="pictures/x-bold 1.png">`;
   bttnCloseModal.setAttribute('id','closeModal');
 
-  let divDetalles=document.createElement("div");
-  divDetalles.classList.add("flex");
-  divDetalles.classList.add("wrap");
+
+  let divImgCard = document.createElement("div");
+  divImgCard.innerHTML=`<img src="${element.img}">`
+  divImgCard.classList.add("imgCardModal");
+  
+
+  let divDetallesGrid=document.createElement("div");
+  divDetallesGrid.classList.add("detailsCardModal");
   switch(item){
     case 'people':{
-      let p1=document.createElement("div");
-      let p2=document.createElement("div");
-      let p3=document.createElement("div");
-      let p4=document.createElement("div");
-      let p5=document.createElement("div");
-
-      p1.textContent=element.gender;
-      p2.textContent=element.age;
-      p3.textContent=element.eye_color;
-      p4.textContent=element.hair_color;
-      p5.textContent=element.specie;
-
-      divDetalles.appendChild(p1);
-      divDetalles.appendChild(p2);
-      divDetalles.appendChild(p3);
-      divDetalles.appendChild(p4);
-      divDetalles.appendChild(p5);
-      break;
-    }
-    case 'vehicles':{
-      let P1=document.createElement("div");
-      let P2=document.createElement("div");
-      let P3=document.createElement("div");
-      let P4=document.createElement("div");
-
-      P1.textContent=element.description;
-      P2.textContent=element.vehicle_class;
-      P3.textContent=element.length;
-      P4.textContent=element.pilot.name;
-
-      divDetalles.appendChild(P1);
-      divDetalles.appendChild(P2);
-      divDetalles.appendChild(P3);
-      divDetalles.appendChild(P4);
+      divDetallesGrid.innerHTML=`<h1>${element.name}</h1><br>
+      <div class="box1P"><b>Gender:</b><br> ${element.gender}</div>
+      <div class="box2P"><b>Age:</b><br> ${element.age}</div>
+      <div class="box3P"><b>Eye Color:</b><br> ${element.eye_color}</div>
+      <div class="box4P"><b>Hair color:</b><br> ${element.hair_color}</div>
+      <div class="box5P"><b>Specie:</b><br> ${element.specie}</div>`
       break;
     }
 
     case 'locations':{
-      let V1=document.createElement("p");
-      let V2=document.createElement("p");
-      let V3=document.createElement("p");
-      let V4=document.createElement("p");
+      divDetallesGrid.innerHTML=`<h1>${element.name}</h1><br>
+      <div class="box1L"><b>Climate:</b><br> ${element.climate}</div>
+      <div class="box2L"><b>Terrain:</b><br> ${element.terrain}</div>
+      <div class="box3L"><b>Surface water:</b><br> ${element.surface_water}</div>
+      <div class="box4L"><b>Residents:</b><br> ${element.residents}</div>`
+      break;
+    }
 
-      V1.textContent=element.climate;
-      V2.textContent=element.terrain;
-      V3.textContent=element.surface_water;
-      V4.textContent=element.residents;
-
-      divDetalles.appendChild(V1);
-      divDetalles.appendChild(V2);
-      divDetalles.appendChild(V3);
-      divDetalles.appendChild(V4);
+    case 'vehicles':{
+      divDetallesGrid.innerHTML=`<h1>${element.name}</h1><br>
+      <div class="box1V"><b>Description:</b><br> ${element.description}</div>
+      <div class="box2V"><b>Vehicle class:</b><br> ${element.vehicle_class}</div>
+      <div class="box3V"><b>Length:</b><br> ${element.length}</div>
+      <div class="box4V"><b>Pilot:</b><br> ${element.pilot.name}</div>`
+     
       break;
     }
   }
   getById("cardEachCharacter").appendChild(bttnCloseModal);
-  div.appendChild(img);
-  getById("cardEachCharacter").appendChild(div);
-  getById("cardEachCharacter").appendChild(divDetalles);
+  getById("cardEachCharacter").appendChild(divImgCard);
+  getById("cardEachCharacter").appendChild(divDetallesGrid);
   getById("closeModal").addEventListener('click',()=>{
     getById("cardModal").style.display="none";
   })
 };
+
 
 const dataNueva=(clase)=>{
   let idS=[];

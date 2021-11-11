@@ -144,15 +144,6 @@ input, select, button{
   display: flex;
 }
 
-.wrap div{
-  width: 33%;
-  text-align: center;
-}
-
-.wrap{
-  flex-wrap: wrap;
-}
-
 .space{
   margin:0% 4%;
   justify-content: space-between;
@@ -270,10 +261,12 @@ input, select, button{
   background-attachment: fixed;
 }
 
-h1{
+#filter h1{
+  display: flex;
+  align-items: center;
   font-size: 24px;
   color: var(--second-bg-color);
-  margin-left: 10%;
+  margin: 3% 9%;
 }
 
 hr{
@@ -324,7 +317,10 @@ li:hover{
 #filmDescription span{
   font-size: 17px;
 }
-
+.divTitle{
+  height:20px;
+  font-size: small;
+}
 .infoMovies{
   width: 23%;
   margin: 1%;
@@ -462,16 +458,19 @@ li:hover{
 
 #cardModal{
   position:fixed;
-  background-color: rgb(0, 0, 0,0.5);
+  background-color: rgb(0, 0, 0,0.7);
   width: 100%;
   height: 100vh;
   top:0px;
 }
 
 #cardEachCharacter{
+  border-radius: 15px;
   width: 40%;
-  margin: 5% 30%;
+  margin: 15vh 30%;
   background-color: var(--pink-color);
+  height: 70vh;
+    position: relative;
 
 }
 
@@ -482,12 +481,58 @@ li:hover{
   cursor: pointer;
   width: 30px;
   height: 30px;
+  margin-left: 85%;
 }
 
 #closeModal img{
   width: 30px;
   height: 30px;
 }
+
+  .imgCardModal{
+    height: 25vh;
+    width: 30%;
+    margin: 0% 35%;
+     position: absolute; 
+  }
+  .imgCardModal img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+  .detailsCardModal{
+    width: 70%;
+    height: 42vh;
+    background-color: cornsilk;
+    border-radius: 5%;
+    margin: 15vh 10%;
+    padding: 1% 3.5% 1% 6.5%;
+  }
+  .detailsCardModal h1{
+    color: black;
+    text-align: center;
+    margin: 15% 0% 3% 0%;
+  }
+  .detailsCardModal div{
+    height: 50px;
+    text-align: center;
+    background-color: #DFDFDF;
+    border-style: solid;
+    border-color: #39A388;
+  }
+  .box1P, .box2P, .box3P ,.box2V, .box3V, .box4V {
+    width: 30%;
+    float: left;
+  }
+  .box4P, .box5P,.box1L, .box2L, .box3L,.box4L{
+    width: 46%;
+    float: left;
+  }
+  .box1V {
+    width: 92%;
+    float: left;
+  }
+  
 
 /* On screens that are 1200px or less*/
 @media (max-width: 1200px){
@@ -560,11 +605,6 @@ li:hover{
     margin: 1.5%;
   }
 
-  .divTitle{
-    height: 20px;
-    font-size: small;
-  }
-
   #containerHeader{
     height: 8vh;
   }
@@ -572,7 +612,7 @@ li:hover{
   #containerPosters{
     height: 92vh;
   }
-
+  
   #filmDescription h1{
     font-size: 32px;
   }
@@ -584,6 +624,18 @@ li:hover{
 
   #character, #locations #vehicles{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+  #cardEachCharacter{
+    width: 70%;
+    margin: 23vh 15%;
+    height: 54vh;
+  }
+  .imgCardModal{
+    height: 20vh;
+  }
+  .detailsCardModal{
+    height: 27vh;
+    margin: 15vh 10% 12vh 10%
   }
 }
 
@@ -659,8 +711,26 @@ li:hover{
     left: 0;
     height: 100vh;
     transform: translateX(100vh);
-    background-color: var(--turquoise-bg-soft);
+    background-color:rgba(10, 65, 65, 0.9);
     z-index: 100;
+    width: 60%;
+    margin-top: 8vh;
+
+  }
+   #filter h1{
+     background-color: rgba(2, 22, 39, 0.5);     
+     color: white;
+     margin:0% ;
+     padding:5% 0% 5% 20%; 
+     -webkit-text-stroke: 1px var(--pink-color); 
+  } 
+  #filter hr{
+    width: 100%;
+    margin-left: 0%;
+  }
+  #filter ul b{
+    color: var(--pink-color);
+
   }
 
   .menuItems.open{
@@ -755,5 +825,27 @@ li:hover{
 
   .infoCharPeople div, .infoCharLocations div, .infoCharVehicles div{
     margin: 0;
+  }
+  #cardEachCharacter{
+    width: 80%;
+    margin: 23vh 10%;
+    height: 54vh;
+  }
+  
+  .imgCardModal{
+    height: 16vh;
+    width: 35%
+  }
+  .detailsCardModal{
+    height: 30vh;
+    margin: 10vh 10%;
+    padding: 5% 3.5% 1% 6.5%;
+  }
+  .detailsCardModal h1{
+    font-size: 18px;
+  }
+  .detailsCardModal div{
+    height: 35px;
+    font-size: 13px;
   }
 }
