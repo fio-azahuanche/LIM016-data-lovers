@@ -297,7 +297,7 @@ li:hover{
   margin: 1% 4%;
 }
 
-/*posters area*/
+/* posters area*/
 #containerPosters{
   height: 88vh;
   width: 75%;
@@ -317,10 +317,12 @@ li:hover{
 #filmDescription span{
   font-size: 17px;
 }
+
 .divTitle{
   height:20px;
   font-size: small;
 }
+
 .infoMovies{
   width: 23%;
   margin: 1%;
@@ -372,6 +374,22 @@ li:hover{
   width: 15px;
 }
 
+/* scrollBar*/
+#containerPosters::-webkit-scrollbar {
+  width: 12px;
+  height: 6px;
+}
+
+#containerPosters::-webkit-scrollbar-thumb {
+  background: rgba(10, 65, 65, 0.7);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+#containerPosters::-webkit-scrollbar-thumb:active {
+  background: var(--blue-color);
+}
+
 /*-----CHARACTERS OF EACH MOVIE-----*/
 #logoBackHome{
   width: 15%;
@@ -381,6 +399,22 @@ li:hover{
 #buttonBackFilms:hover{
   background-color: #39A388;
   color: white;
+}
+
+/* scrollBar*/
+html::-webkit-scrollbar {
+  width: 12px;
+  height: 6px;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: rgba(10, 65, 65, 0.7);
+  border-radius: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.7);
+}
+
+html::-webkit-scrollbar-thumb:active {
+  background: var(--blue-color);
 }
 
 /*------movies's description------*/
@@ -405,6 +439,7 @@ li:hover{
 
 #filmDescription p{
   font-size: 18px;
+  font-weight: 300;
   text-align: justify;
   width: 80%;
   margin: 1% 0 1% 8%;
@@ -533,7 +568,6 @@ li:hover{
     float: left;
   }
 
-
 /* On screens that are 1200px or less*/
 @media (max-width: 1200px){
   #Home{
@@ -613,6 +647,14 @@ li:hover{
     height: 92vh;
   }
 
+  #containerPosters::-webkit-scrollbar {
+    display: none;
+  }
+
+  #html::-webkit-scrollbar {
+    display: none;
+  }
+
   #filmDescription h1{
     font-size: 32px;
   }
@@ -639,9 +681,9 @@ li:hover{
   }
 }
 
-/* On screens that are 420px or less*/
+/* On screens that are 425px or less*/
 /*MOBILE RESPONSIVE*/
-@media (max-width: 420px){
+@media (max-width: 425px){
   #Home{
     background-image: url("pictures/chihiro.png");
     background-size: 100% 70%;
@@ -709,32 +751,34 @@ li:hover{
     top: 0;
     right: 0;
     left: 0;
-    height: 100vh;
-    transform: translateX(100vh);
+    height: 95vh;
+    transform: translateX(-100vh);
     background-color:rgba(10, 65, 65, 0.9);
     z-index: 100;
     width: 60%;
     margin-top: 8vh;
-
-  }
-   #filter h1{
-     background-color: rgba(2, 22, 39, 0.5);
-     color: white;
-     margin:0% ;
-     padding:5% 0% 5% 20%;
-     -webkit-text-stroke: 1px var(--pink-color);
-  }
-  #filter hr{
-    width: 100%;
-    margin-left: 0%;
-  }
-  #filter ul b{
-    color: var(--pink-color);
-
   }
 
   .menuItems.open{
     transform: translateX(0);
+  }
+
+  #filter h1{
+    background-color: rgba(2, 22, 39, 0.5);
+    color: white;
+    margin:0% ;
+    padding:5% 0% 5% 20%;
+    -webkit-text-stroke: 1px var(--pink-color);
+  }
+
+  #filter hr{
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  #filter ul b{
+    color: var(--pink-color);
+
   }
 
   .infoMovies{
@@ -752,6 +796,14 @@ li:hover{
 
   .infoMovies img{
     height: 150px;
+  }
+
+  #containerPosters::-webkit-scrollbar {
+    display: none;
+  }
+
+  #html::-webkit-scrollbar {
+    display: none;
   }
 
   #filmDescription p{
