@@ -220,12 +220,6 @@ nav[1].addEventListener('click', () => {
   getById("Films").style.display = "block";
   enterInfoMovie(getByClass("infoMovies"));
 });
-nav[2].addEventListener('click', () => {
-  getById("Home").style.display = "none";
-  getById("Statistics").style.display = "block";
-
-});
-
 
 getById("listDirector").addEventListener('click', (event) => {
   let optionSelected = event.target.value;
@@ -316,16 +310,20 @@ menuBtn.addEventListener('click', ()=>{
 });
 
 /* CHARTS STATISTICS */
-let movieScore = sortData(data.films,"score");
-let top10movie = [];
-for(let i=0; i<10; i++){
-  top10movie[i]=movieScore[i];
-}
-let labelTop10 = top10movie.map(item=>item.title);
-let dataScore = top10movie.map(item=>parseInt(item.rt_score));
+nav[2].addEventListener('click', () => {
+  getById("Home").style.display = "none";
+  getById("Statistics").style.display = "block";
+  let movieScore = sortData(data.films,"score");
 
-const lineChart = document.getElementById('top10').getContext('2d');
-const top10 = new Chart(lineChart, {
+  let top10movie = [];
+  for(let i=0; i<10; i++){
+    top10movie[i]=movieScore[i];
+  }
+    let labelTop10 = top10movie.map(item=>item.title);
+    let dataScore = top10movie.map(item=>parseInt(item.rt_score));
+
+  const lineChart = document.getElementById('top10').getContext('2d');
+  const top10 = new Chart(lineChart, {
     type: 'line',
     data: {
         labels: labelTop10,
@@ -366,40 +364,119 @@ const top10 = new Chart(lineChart, {
             }
         }
     }
-});
+  });
 
-let dataPeople = [];
-let dataGender = [];
-let countDataGender = []
-let female = [];
-let male = [];
-for(let i=0; i<data.films.length; i++){
-  dataPeople[i] = data.films[i].people;
-  dataGender[i] = dataPeople[i].map(item=>item.gender);
-  countDataGender[i]=dataGender[i].length;
-  female[i] = dataGender[i].reduce((acc, item)=>(item === 'Female' ? (acc += 1) : acc), 0);
-  male[i] = countDataGender[i] -female[i];
-}
 
-let totalFemale = female.reduce((a, b) => a + b, 0);
-let totalMale = male.reduce((a, b) => a + b, 0);
+  let dataGender = [];
+  for(let i=0; i<data.films.length; i++){
+   dataGender[i] = data.films[i].people.map(item=>item.gender);
+  }
+  let dataConcat = dataGender.reduce((a,b)=>a.concat(b));
+  let female=dataConcat.filter(item=>item=="Female").length;
+  let male=dataConcat.filter(item=>item=="Male").length;
+  let countDataGender=[female,male,dataConcat.length-female-male];
 
-const pieChart = document.getElementById('gender').getContext('2d');
-const gender = new Chart(pieChart, {
+  const pieChart = document.getElementById('gender').getContext('2d');
+  const gender = new Chart(pieChart, {
     type: 'pie',
     data : {
       labels: [
         'Female',
-        'Male'
+        'Male','Others'
       ],
       datasets: [{
         label: 'Dataset of Gender',
-        data: [totalFemale, totalMale],
+        data: countDataGender,
         backgroundColor: [
+          'rgb(255, 99, 132)',
           'rgb(54, 162, 235)',
-          'rgb(255, 99, 132)'
+          'orange'
         ],
         hoverOffset: 4
       }]
     }
+  });
+
+  let genres = data.films.map(item=>item.genres);
+  let arrayGenres= [];
+  for(let i=0; i<genres.length; i++){
+    arrayGenres[i]=genres[i].split(" ");
+  }
+  let genresConcat = arrayGenres.reduce((a,b)=>a.concat(b));
+  let types = ['romance', 'adventure', 'drama', 'action', 'war', 'fantasy','family','biography','comedy'];
+  let countGenres =[];
+  for(let i=0; i<types.length; i++){
+    countGenres[i]=genresConcat.filter(item=>item==types[i]).length;
+  }
+
+  const barChart = document.getElementById('Genres').getContext('2d');
+  const Genres = new Chart(barChart, {
+    type: 'bar',
+    data : {
+      labels: types,
+      datasets: [{
+        label: 'Dataset of Genres',
+        data: countGenres,
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'orange',
+          'yellow',
+          'purple',
+          'green',
+          'red',
+          'pink',
+          'brown'
+        ],
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        },
+      }]
+    }
+  });
+
+  let dataSpecie = [];
+  for(let i=0; i<data.films.length; i++){
+   dataSpecie[i] = data.films[i].people.map(item=>item.specie);
+  }
+  let species = ['Human', 'Cat', 'Raccoon Dog', 'Spirit', 'Deity, Dragon', 'Totoro','Witch','Borrower', 'Others'];
+  let speciesConcat = dataSpecie.reduce((a,b)=>a.concat(b));
+  let arraySpecies = [];
+  for(let i=0; i<species.length-1; i++){
+    arraySpecies[i]=speciesConcat.filter(item=>item==species[i]).length;
+  }
+  let sumSpecies = arraySpecies.reduce((a,b)=>a+b);
+  arraySpecies[8] = speciesConcat.length - sumSpecies;
+
+  const donutChart = document.getElementById('specie').getContext('2d');
+  const specie = new Chart(donutChart, {
+    type: 'doughnut',
+    data : {
+      labels: species,
+      datasets: [{
+        label: 'Dataset of Species',
+        data: arraySpecies,
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'orange',
+          'yellow',
+          'purple',
+          'green',
+          'red',
+          'pink',
+          'brown'
+        ],
+        hoverOffset: 4
+      }]
+    }
+  });
+
 });
+
+
+
