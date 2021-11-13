@@ -568,6 +568,17 @@ html::-webkit-scrollbar-thumb:active {
     float: left;
   }
 
+  .sectionChart{
+    width: 60%;
+    height: 50%;
+    margin: 0 20%;
+  }
+
+  .containerChart{
+    width: 30%;
+
+  }
+
 /* On screens that are 1200px or less*/
 @media (max-width: 1200px){
   #Home{
