@@ -88,17 +88,19 @@
           <h1>Filter by <button id="reload"><img src="pictures/arrow-clockwise-bold.png"></button></h1>
         <hr>
           <ul id="listDirector"><b>Director</b>
-            <li value="0" id="hayaoD">Hayao Miyazaki</li>
-            <li value="1" id="goroD">Gorō Miyazaki</li>
-            <li value="2" id="hiromasaD">Hiromasa Yonebayashi</li>
-            <li value="3" id="isaoD">Isao Takahata</li>
+            <li value="0">Hayao Miyazaki</li>
+            <li value="1">Isao Takahata</li>
+            <li value="2">Yoshifumi Kondō</li>
+            <li value="3">Hiroyuki Morita</li>
+            <li value="4">Gorō Miyazaki</li>
+            <li value="5">Hiromasa Yonebayashi</li>
           </ul>
           <ul id="listProducer"><b>Producer</b>
-            <li value="0" id="toshioP">Toshio Suzuki</li>
-            <li value="1" id="isaoP">Isao Takahata</li>
-            <li value="2" id="toruP">Toru Hara</li>
-            <li value="3" id="hayaoP">Hayao Miyazaki</li>
-            <li value="4" id="yoshiakiP">Yoshiaki Nishimura</li>
+            <li value="0">Isao Takahata</li>
+            <li value="1">Hayao Miyazaki</li>
+            <li value="2">Toru Hara</li>
+            <li value="3">Toshio Suzuki</li>
+            <li value="4">Yoshiaki Nishimura</li>
           </ul>
         </div>
 
@@ -154,28 +156,22 @@
 
   <article id="Statistics" style="display: none;">
     <section class="sectionChart">
-      <h2 class="subtitle">Top 10 Films</h2>
-      <canvas class="canvasChart" width="3" height="1" id="top10"></canvas>
+      <canvas class="canvasChart" width="3" height="2" id="top10"></canvas>
     </section>
 
     <section class="flex">
-
         <section class="containerChart">
-          <h2 class="subtitle">Gender</h2>
           <canvas class="canvasChart" id="gender"></canvas>
         </section>
 
         <section class="containerChart">
-          <h2 class="subtitle">Type of Films</h2>
-          <canvas class="canvasChart" id="Genres"></canvas>
+          <canvas class="canvasChart" width="1" height="1" id="Genres"></canvas>
         </section>
 
         <section class="containerChart">
-          <h2 class="subtitle">Species of characters</h2>
           <canvas class="canvasChart" id="specie"></canvas>
         </section>
       </section>
-
 
   </article>
 
