@@ -46,21 +46,14 @@ const enterDataMovie = (group, container)=>{
   let div = document.createElement("div");
   div.setAttribute('id', 'posterFilm');
 
-  let image = document.createElement("img");
-  image.src = group.poster;
-  div.appendChild(image);
+  div.innerHTML=`<img src=${group.poster}>`
 
   let divDescription = document.createElement("div");
   divDescription.setAttribute('id', 'filmDescription');
 
-  let titleFilm = document.createElement("h1");
-  titleFilm.textContent = group.title;
-
-  let yearFilm = document.createElement("h2");
-  yearFilm.textContent = group.release_date;
-
-  let descriptionFilm = document.createElement("p");
-  descriptionFilm.textContent = group.description;
+  divDescription.innerHTML=`<h1>${group.title}</h1>
+  <h2>${group.release_date}</h2>
+  <p>${group.description}</p>`
 
   let directorFilm = document.createElement("div");
   let txtDirector = document.createElement("span");
@@ -72,15 +65,13 @@ const enterDataMovie = (group, container)=>{
   txtProducer.innerHTML = `<img src="pictures/producer.png"> <b>Producer:</b> ${group.producer}`;
   producerFilm.appendChild(txtProducer);
 
-  divDescription.appendChild(titleFilm);
-  divDescription.appendChild(yearFilm);
-  divDescription.appendChild(descriptionFilm);
   divDescription.appendChild(directorFilm);
   divDescription.appendChild(producerFilm);
 
   container.appendChild(div);
   container.appendChild(divDescription);
 };
+
 const enterCardChar = (group, container,className) => {
   container.innerHTML = "";
   group.forEach((item)=>{
@@ -100,11 +91,9 @@ const card = (element,item) => {
   bttnCloseModal.innerHTML=`<img src="pictures/x-bold 1.png">`;
   bttnCloseModal.setAttribute('id','closeModal');
 
-
   let divImgCard = document.createElement("div");
   divImgCard.innerHTML=`<img src="${element.img}">`
   divImgCard.classList.add("imgCardModal");
-
 
   let divDetallesGrid=document.createElement("div");
   divDetallesGrid.classList.add("detailsCardModal");
@@ -145,7 +134,6 @@ const card = (element,item) => {
     getById("cardModal").style.display="none";
   })
 };
-
 
 const dataNueva=(clase)=>{
   let idS=[];
@@ -223,7 +211,10 @@ nav[1].addEventListener('click', () => {
 
 getById("listDirector").addEventListener('click', (event) => {
   let optionSelected = event.target.value;
-  let listD = ["Hayao Miyazaki", "Gorō Miyazaki", "Hiromasa Yonebayashi", "Isao Takahata"];
+  let directors = data.films.map(item=>item.director)
+  let listD = directors.filter((item,index)=>{
+    return directors.indexOf(item) === index;
+  });
   listD.forEach((item,index)=>{
     if (optionSelected == index) {
       let filterDirectors = filterByDirectorProducer(data.films, item, 'director')
@@ -233,9 +224,13 @@ getById("listDirector").addEventListener('click', (event) => {
   enterInfoMovie(getByClass("infoMovies"));
 });
 
+
 getById("listProducer").addEventListener('click', (event)=>{
   let optionSelected = event.target.value;
-  let listP = ["Toshio Suzuki", "Isao Takahata", "Toru Hara", "Hayao Miyazaki", "Yoshiaki Nishimura"];
+  let producers = data.films.map(item=>item.producer)
+  let listP = producers.filter((item,index)=>{
+    return producers.indexOf(item) === index;
+  });
   listP.forEach((item,index)=>{
     if (optionSelected == index) {
       let filterProducer = filterByDirectorProducer(data.films, item, 'producer')
@@ -244,6 +239,7 @@ getById("listProducer").addEventListener('click', (event)=>{
   });
   enterInfoMovie(getByClass("infoMovies"));
 });
+
 
 /* Showing ordering of posters*/
 getById("sortBy").addEventListener('change', (event) => {
@@ -279,7 +275,6 @@ getById("searchMovie").addEventListener('keyup', (e)=>{
 
 
 
-
 /* Event to show Films and remove filmInfoSection*/
 getById("buttonBackFilms").addEventListener('click', () => {
   getById("filmInfoSection").style.display = "none";
@@ -291,7 +286,6 @@ getById("logoBackHome").addEventListener('click', ()=>{
   getById("filmInfoSection").style.display = "none";
   getById("Home").style.display = "block";
 });
-
 
 /* Event to reload filter */
 getById("reload").addEventListener('click', ()=>{
@@ -313,59 +307,44 @@ menuBtn.addEventListener('click', ()=>{
 nav[2].addEventListener('click', () => {
   getById("Home").style.display = "none";
   getById("Statistics").style.display = "block";
-  let movieScore = sortData(data.films,"score");
 
+  let movieScore = sortData(data.films,"score");
   let top10movie = [];
   for(let i=0; i<10; i++){
     top10movie[i]=movieScore[i];
   }
-    let labelTop10 = top10movie.map(item=>item.title);
-    let dataScore = top10movie.map(item=>parseInt(item.rt_score));
 
-  const lineChart = document.getElementById('top10').getContext('2d');
+  const lineChart = getById('top10').getContext('2d');
   const top10 = new Chart(lineChart, {
     type: 'line',
     data: {
-        labels: labelTop10,
+        labels: top10movie.map(item=>item.title),
         datasets: [{
-            label: 'titles of films',
-            data: dataScore,
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
-            ],
+            label: ' Score',
+            data: top10movie.map(item=>parseInt(item.rt_score)),
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(255, 99, 132, 1)',
-                'rgba(255, 99, 132, 1)',
                 'rgba(255, 99, 132, 1)'
             ],
-            borderWidth: 1
+            borderWidth: 4
         }]
     },
     options: {
-        scales: {
-            y: {
-                beginAtZero: false
-            }
+      scales: {
+        y: {
+          beginAtZero: false,
         }
+      },
+      plugins:{
+        title: {
+          display: true,
+          text: 'Top 10',
+          font:{
+            size: 30
+          }
+        }
+      }
     }
   });
-
 
   let dataGender = [];
   for(let i=0; i<data.films.length; i++){
@@ -374,9 +353,7 @@ nav[2].addEventListener('click', () => {
   let dataConcat = dataGender.reduce((a,b)=>a.concat(b));
   let female=dataConcat.filter(item=>item=="Female").length;
   let male=dataConcat.filter(item=>item=="Male").length;
-  let countDataGender=[female,male,dataConcat.length-female-male];
-
-  const pieChart = document.getElementById('gender').getContext('2d');
+  const pieChart = getById('gender').getContext('2d');
   const gender = new Chart(pieChart, {
     type: 'pie',
     data : {
@@ -385,8 +362,8 @@ nav[2].addEventListener('click', () => {
         'Male','Others'
       ],
       datasets: [{
-        label: 'Dataset of Gender',
-        data: countDataGender,
+        label: 'Amount',
+        data: [female,male,dataConcat.length-female-male],
         backgroundColor: [
           'rgb(255, 99, 132)',
           'rgb(54, 162, 235)',
@@ -394,6 +371,22 @@ nav[2].addEventListener('click', () => {
         ],
         hoverOffset: 4
       }]
+    },
+    options:{
+      plugins:{
+        title: {
+          display: true,
+          text: 'Average Gender',
+          font:{
+            size: 30
+          }
+        },
+        legend:{
+          position: 'right'
+        }
+      },
+      responsive: true,
+      maintainAspectRatio: false,
     }
   });
 
@@ -403,7 +396,9 @@ nav[2].addEventListener('click', () => {
     arrayGenres[i]=genres[i].split(" ");
   }
   let genresConcat = arrayGenres.reduce((a,b)=>a.concat(b));
-  let types = ['romance', 'adventure', 'drama', 'action', 'war', 'fantasy','family','biography','comedy'];
+  let types = genresConcat.filter((item,index)=>{
+    return genresConcat.indexOf(item) === index;
+  });
   let countGenres =[];
   for(let i=0; i<types.length; i++){
     countGenres[i]=genresConcat.filter(item=>item==types[i]).length;
@@ -415,7 +410,7 @@ nav[2].addEventListener('click', () => {
     data : {
       labels: types,
       datasets: [{
-        label: 'Dataset of Genres',
+        label: 'Amount',
         data: countGenres,
         backgroundColor: [
           'rgb(255, 99, 132)',
@@ -434,8 +429,20 @@ nav[2].addEventListener('click', () => {
               beginAtZero: true
             }
           }
-        },
+        }
       }]
+    },
+    options:{
+      plugins:{
+        title: {
+          display: true,
+          text: 'Average Genres',
+          font:{
+            size: 30
+          }
+        }
+      },
+      responsive: true,
     }
   });
 
@@ -473,10 +480,22 @@ nav[2].addEventListener('click', () => {
         ],
         hoverOffset: 4
       }]
+    },
+    options:{
+      plugins:{
+        title: {
+          display: true,
+          text: 'Average number of species',
+          font:{
+            size: 30
+          }
+        },
+        legend:{
+          position: 'right'
+        }
+      },
+      responsive: true,
+      maintainAspectRatio: false
     }
   });
-
 });
-
-
-
