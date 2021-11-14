@@ -246,6 +246,8 @@ getById("sortBy").addEventListener('change', (event) => {
   const sortItemsValue = event.target.value;
   let classPoster = getByClass("infoMovies");
   let sortBy = sortData(dataNueva(classPoster), sortItemsValue);
+
+
   generalFunction(sortBy, getById("posters"))
   enterInfoMovie(classPoster);
 })
@@ -303,25 +305,45 @@ menuBtn.addEventListener('click', ()=>{
   menuItems.classList.toggle("open");
 });
 
+
+
+  
 /* CHARTS STATISTICS */
+getById("buttonBackFilms1").addEventListener('click', () => {
+  getById("Statistics").style.display = "none";
+  generalFunction(data.films, getById("posters"));
+  enterInfoMovie(getByClass("infoMovies"));
+  getById("Films").style.display = "block";
+});
+
+
 nav[2].addEventListener('click', () => {
   getById("Home").style.display = "none";
   getById("Statistics").style.display = "block";
 
-  let movieScore = sortData(data.films,"score");
+  let scores=data.films.map(item=>[item.title,item.rt_score]);
+scores.sort((a,b)=>{ return b[1]-a[1]});
+let movies10=[], scores10=[];
+for(let i=0;i<10;i++){
+  movies10[i]=scores[i][0];
+  scores10[i]=scores[i][1];
+}
+  /* let movieScore = sortData(data.films,"score");
   let top10movie = [];
   for(let i=0; i<10; i++){
     top10movie[i]=movieScore[i];
-  }
+  } */
 
   const lineChart = getById('top10').getContext('2d');
   const top10 = new Chart(lineChart, {
     type: 'line',
     data: {
-        labels: top10movie.map(item=>item.title),
+        //labels: top10movie.map(item=>item.title),
+        labels:movies10,
         datasets: [{
             label: ' Score',
-            data: top10movie.map(item=>parseInt(item.rt_score)),
+            data:scores10,
+            //data: top10movie.map(item=>parseInt(item.rt_score)),
             borderColor: [
                 'rgba(255, 99, 132, 1)'
             ],
