@@ -391,12 +391,12 @@ li:hover{
 }
 
 /*-----CHARACTERS OF EACH MOVIE-----*/
-#logoBackHome{
+#logoBackHome, #logoBackHome2{
   width: 15%;
   cursor: pointer;
 }
 
-#buttonBackFilms:hover{
+#buttonBackFilms:hover, #buttonBackFilms1:hover{
   background-color: #39A388;
   color: white;
 }

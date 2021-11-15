@@ -307,7 +307,7 @@ menuBtn.addEventListener('click', ()=>{
 
 
 
-  
+
 /* CHARTS STATISTICS */
 getById("buttonBackFilms1").addEventListener('click', () => {
   getById("Statistics").style.display = "none";
@@ -316,18 +316,22 @@ getById("buttonBackFilms1").addEventListener('click', () => {
   getById("Films").style.display = "block";
 });
 
+getById("logoBackHome2").addEventListener('click', ()=>{
+  getById("Statistics").style.display = "none";
+  getById("Home").style.display = "block";
+});
 
 nav[2].addEventListener('click', () => {
   getById("Home").style.display = "none";
   getById("Statistics").style.display = "block";
 
   let scores=data.films.map(item=>[item.title,item.rt_score]);
-scores.sort((a,b)=>{ return b[1]-a[1]});
-let movies10=[], scores10=[];
-for(let i=0;i<10;i++){
+  scores.sort((a,b)=>{ return b[1]-a[1]});
+  let movies10=[], scores10=[];
+  for(let i=0;i<10;i++){
   movies10[i]=scores[i][0];
   scores10[i]=scores[i][1];
-}
+  }
   /* let movieScore = sortData(data.films,"score");
   let top10movie = [];
   for(let i=0; i<10; i++){
