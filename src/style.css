@@ -705,6 +705,17 @@ html::-webkit-scrollbar-thumb:active {
     height: 27vh;
     margin: 15vh 10% 12vh 10%
   }
+  .sectionChart{
+    width: 60%;
+    margin: 0% 15%;
+  }
+  .column{
+    flex-direction: column;
+  }
+  .containerChart{
+    width: 40%;
+    margin: 2% 28%;
+  }
 }
 
 /* On screens that are 425px or less*/
@@ -926,5 +937,16 @@ html::-webkit-scrollbar-thumb:active {
   .detailsCardModal div{
     height: 35px;
     font-size: 13px;
+  }
+  #buttonBackFilms1{
+    width: 130px;
+  }
+  #logoBackHome2{
+    width: 30%;
+  }
+  .containerChart{
+      height: 260px;
+      width: 60%;
+      margin: 2% 18%;
   }
 }

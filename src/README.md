@@ -81,9 +81,17 @@ Esta sería la vista para celulares:
 - El usuario al ingresar por el teclado va buscando y cuando borra reaparece todos los posters.
 - Testear la función search y cumplir con los mínimos requerimientos para los test.
 
-> HU 6:  🗣️ Yo COMO usuario QUIERO buscar una película por su nombre PARA ver su información.
+> HU 6:  🗣️ Yo COMO usuario QUIERO poder ver la página en distintos dispositivos PARA tener acceso fácilmente a la información.
 
  📍 **Criterios de Aceptación:**
+- Es adaptable para tablets y celulares.
+- En versión celular, se despliega el menú tipo "hamburger".
+
+> HU 7:  🗣️ Yo COMO usuario QUIERO visualizar la recolección de datos en gráficos estadísticos PARA ser un mejor conocedor de las películas de Studio Ghibli.
+
+ 📍 **Criterios de Aceptación:**
+-  Manejo básico del chart.js.
+-  Correcto entendimiento de las gráficas estadísticas.
 
 ##  3. Consideraciones Generales 🚨
 
