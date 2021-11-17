@@ -1,4 +1,4 @@
-import { filterByDirectorProducer, sortData, searchData } from './data.js';
+import { filterByDirectorProducer, sortData, searchData, top10Movies } from './data.js';
 import data from './data/ghibli/ghibli.js';
 
 const getById = label => document.getElementById(label);
@@ -6,15 +6,28 @@ const getByClass = label => document.getElementsByClassName(label);
 
 const dataFilms=data.films;
 
+let home = getById("Home");
 let nav = getByClass("links");
 let navFilms=nav[1];
 let navStatistics=nav[2];
+let filmInfoSection = getById("filmInfoSection");
 
 let leftArrow=getById("leftArrow");
 let rightArrow=getById("rightArrow");
+let posters = getById("posters");
 let films = getById("Films");
+let sortBy = getById("sortBy");
+let searchMovie = getById("searchMovie");
+let reloadFilter = getById("reload");
+let descriptionOfEachMovie = getById("descriptionOfEachMovie");
+let listDirector = getById("listDirector");
+let listProducer = getById("listProducer");
+let character = getById("character");
+let locations = getById("locations");
+let vehicles = getById("vehicles");
 let cardCharacter = getById("cardEachCharacter");
 let cardModal = getById("cardModal");
+let Statistics = getById("Statistics");
 
 /* Creating General Function for containers*/
 const generalFunction = (posterMovies, container) => {
@@ -89,10 +102,8 @@ const enterCardChar = (group, container, className) => {
   group.forEach((item) => {
     let div = document.createElement("div");
     div.innerHTML = `<img src="${item.img}"><div>${item.name.split(" ")[0]}</div>`
-
     div.classList.add(className);
     div.setAttribute('id', item.name);
-
     container.append(div);
   })
 };
@@ -102,6 +113,8 @@ const card = (element, item) => {
   let bttnCloseModal = document.createElement("button");
   bttnCloseModal.innerHTML = `<img src="pictures/x-bold 1.png">`;
   bttnCloseModal.setAttribute('id', 'closeModal');
+  let generalDiv = document.createElement("div");
+  generalDiv.classList.add("flex");
 
   let divImgCard = document.createElement("div");
   divImgCard.innerHTML = `<img src="${element.img}">`
@@ -112,36 +125,40 @@ const card = (element, item) => {
   switch (item) {
     case 'people': {
       divDetallesGrid.innerHTML = `<h1>${element.name}</h1><br>
-      <div class="box1P"><b>Gender:</b><br> ${element.gender}</div>
-      <div class="box2P"><b>Age:</b><br> ${element.age}</div>
-      <div class="box3P"><b>Eye Color:</b><br> ${element.eye_color}</div>
-      <div class="box4P"><b>Hair color:</b><br> ${element.hair_color}</div>
-      <div class="box5P"><b>Specie:</b><br> ${element.specie}</div>`
+      <ul>
+      <li><b>Gender:</b> ${element.gender}</li>
+      <li><b>Age:</b> ${element.age}</li>
+      <li><b>Eye Color:</b> ${element.eye_color}</li>
+      <li><b>Hair color:</b> ${element.hair_color}</li>
+      <li><b>Specie:</b> ${element.specie}</li></ul>`
       break;
     }
 
     case 'locations': {
       divDetallesGrid.innerHTML = `<h1>${element.name}</h1><br>
-      <div class="box1L"><b>Climate:</b><br> ${element.climate}</div>
-      <div class="box2L"><b>Terrain:</b><br> ${element.terrain}</div>
-      <div class="box3L"><b>Surface water:</b><br> ${element.surface_water}</div>
-      <div class="box4L"><b>Residents:</b><br> ${element.residents}</div>`
+      <ul>
+      <li><b>Climate:</b><br> ${element.climate}</li>
+      <li><b>Terrain:</b><br> ${element.terrain}</li>
+      <li><b>Surface water:</b><br> ${element.surface_water}</li>
+      <li><b>Residents:</b><br> ${element.residents}</li></ul>`
       break;
     }
 
     case 'vehicles': {
       divDetallesGrid.innerHTML = `<h1>${element.name}</h1><br>
-      <div class="box1V"><b>Description:</b><br> ${element.description}</div>
-      <div class="box2V"><b>Vehicle class:</b><br> ${element.vehicle_class}</div>
-      <div class="box3V"><b>Length:</b><br> ${element.length}</div>
-      <div class="box4V"><b>Pilot:</b><br> ${element.pilot.name}</div>`
+      <ul>
+      <li><b>Description:</b><br> ${element.description}</li>
+      <li><b>Vehicle class:</b><br> ${element.vehicle_class}</li>
+      <li><b>Length:</b><br> ${element.length}</li>
+      <li><b>Pilot:</b><br> ${element.pilot.name}</li></ul>`
 
       break;
     }
   }
   cardCharacter.appendChild(bttnCloseModal);
-  cardCharacter.appendChild(divImgCard);
-  cardCharacter.appendChild(divDetallesGrid);
+  generalDiv.appendChild(divImgCard);
+  generalDiv.appendChild(divDetallesGrid);
+  cardCharacter.appendChild(generalDiv);
   getById("closeModal").addEventListener('click', () => {
     cardModal.style.display = "none";
   })
@@ -182,14 +199,14 @@ const enterInfoMovie = (groupFilms) => {
     groupFilms[i].addEventListener('click', () => {
       let busquedaFiltrado = dataFilms.filter((film) => { return film.title === idPosters[i] })
       films.style.display = "none";
-      enterDataMovie(busquedaFiltrado[0], getById("descriptionOfEachMovie"));
-      getById("filmInfoSection").style.display = "block";
+      enterDataMovie(busquedaFiltrado[0], descriptionOfEachMovie);
+      filmInfoSection.style.display = "block";
 
-      enterCardChar(busquedaFiltrado[0].people, getById("character"), "infoCharPeople");
+      enterCardChar(busquedaFiltrado[0].people, character, "infoCharPeople");
       classChar(busquedaFiltrado[0].people, 'people');
-      enterCardChar(busquedaFiltrado[0].locations, getById("locations"), "infoCharLocations");
+      enterCardChar(busquedaFiltrado[0].locations, locations, "infoCharLocations");
       classChar(busquedaFiltrado[0].locations, 'locations');
-      enterCardChar(busquedaFiltrado[0].vehicles, getById("vehicles"), "infoCharVehicles");
+      enterCardChar(busquedaFiltrado[0].vehicles, vehicles, "infoCharVehicles");
       classChar(busquedaFiltrado[0].vehicles, 'vehicles');
     })
   }
@@ -208,102 +225,108 @@ rightArrow.addEventListener('click', () => {
 /* Creating event for logo*/
 getById("logoHome").addEventListener('click', () => {
   films.style.display = "none";
-  getById("Home").style.display = "block";
+  home.style.display = "block";
 });
 
 /* Event to show Films and remove Home*/
 navFilms.addEventListener('click', () => {
-  getById("Home").style.display = "none";
+  home.style.display = "none";
   //Show all posters
-  generalFunction(dataFilms, getById("posters"));
+  generalFunction(dataFilms, posters);
   films.style.display = "block";
-  //getById("Films").style.display = "block";
   enterInfoMovie(getByClass("infoMovies"));
 });
 
-getById("listDirector").addEventListener('click', (event) => {
+const hidden_show_Class = (classToChange, classToRemove) => {
+  let actualData = dataNueva(classToChange);
+  let idData = actualData.map(film => film.title);
+  let classToHidden = [],classToShow = [];
+  idData.forEach((id, index) => {
+    classToHidden[index] = getById(id);
+    classToHidden[index].classList.add("hidden");
+  })
+
+  classToRemove.forEach((item, index) => {
+    classToShow[index] = getById(item);
+    classToShow[index].classList.remove("hidden");
+  })
+}
+
+listDirector.addEventListener('click', (event) => {
   let optionSelected = event.target.value;
   let directors = dataFilms.map(item => item.director)
   let listD = directors.filter((item, index) => {
     return directors.indexOf(item) === index;
   });
+  let classActual = getByClass("infoMovies");
   listD.forEach((item, index) => {
     if (optionSelected == index) {
       let filterDirectors = filterByDirectorProducer(dataFilms, item, 'director')
-      generalFunction(filterDirectors, getById("posters"))
+      let newIdFilterD = filterDirectors.map(film => film.title);
+      hidden_show_Class(classActual, newIdFilterD);
     }
   });
-  enterInfoMovie(getByClass("infoMovies"));
+  enterInfoMovie(classActual);
 });
 
 
-getById("listProducer").addEventListener('click', (event) => {
+listProducer.addEventListener('click', (event) => {
   let optionSelected = event.target.value;
   let producers = dataFilms.map(item => item.producer)
   let listP = producers.filter((item, index) => {
     return producers.indexOf(item) === index;
   });
+  let classActual = getByClass("infoMovies");
   listP.forEach((item, index) => {
     if (optionSelected == index) {
       let filterProducer = filterByDirectorProducer(dataFilms, item, 'producer')
-      generalFunction(filterProducer, getById("posters"))
+      let newIdFilterP = filterProducer.map(film => film.title);
+      hidden_show_Class(classActual, newIdFilterP);
     }
   });
-  enterInfoMovie(getByClass("infoMovies"));
+  enterInfoMovie(classActual);
 });
 
 
 /* Showing ordering of posters*/
-getById("sortBy").addEventListener('change', (event) => {
+sortBy.addEventListener('change', (event) => {
   const sortItemsValue = event.target.value;
   let classPoster = getByClass("infoMovies");
   let sortBy = sortData(dataNueva(classPoster), sortItemsValue);
 
-
-  generalFunction(sortBy, getById("posters"))
+  let ids=sortBy.map(item=>item.title);
+  for(let i=0;i<ids.length;i++){
+    let nodoEliminado=posters.removeChild(getById(ids[i]));
+    posters.append(nodoEliminado);
+  }
   enterInfoMovie(classPoster);
 })
 
 //Buscador de imagenes
-getById("searchMovie").addEventListener('keyup', (e) => {
+searchMovie.addEventListener('keyup', (e) => {
   let classPoster = getByClass("infoMovies");
   let DataFilms = dataNueva(classPoster);
-  let id = DataFilms.map(film => film.title)
-  let hiddenClass = [];
-  id.forEach((item, index) => {
-    hiddenClass[index] = getById(item);
-    hiddenClass[index].classList.add("hidden");
-  })
-
   let Datanew = searchData(DataFilms, "title", e.target.value);
-  let newId = Datanew.map(film => film.title)
-
-  let showClass = [];
-  newId.forEach((item, index) => {
-    showClass[index] = document.getElementById(item);
-    showClass[index].classList.remove("hidden");
-  })
+  let newId = Datanew.map(film => film.title);
+  hidden_show_Class(classPoster, newId);
   enterInfoMovie(classPoster);
 })
 
-
-
-
 /* Event to show Films and remove filmInfoSection*/
 getById("buttonBackFilms").addEventListener('click', () => {
-  getById("filmInfoSection").style.display = "none";
+  filmInfoSection.style.display = "none";
   films.style.display = "block";
 });
 
 /* Creating event for filmInfoSection's logo */
 getById("logoBackHome").addEventListener('click', () => {
-  getById("filmInfoSection").style.display = "none";
-  getById("Home").style.display = "block";
+  filmInfoSection.style.display = "none";
+  home.style.display = "block";
 });
 
 /* Event to reload filter */
-getById("reload").addEventListener('click', () => {
-  generalFunction(dataFilms, getById("posters"));
+reloadFilter.addEventListener('click', () => {
+  generalFunction(dataFilms, posters);
   films.style.display = "block";
   enterInfoMovie(getByClass("infoMovies"));
 });
@@ -317,212 +340,100 @@ menuBtn.addEventListener('click', () => {
   menuItems.classList.toggle("open");
 });
 
-
-
-
 /* CHARTS STATISTICS */
 getById("buttonBackFilms1").addEventListener('click', () => {
-  getById("Statistics").style.display = "none";
-  generalFunction(dataFilms, getById("posters"));
+  Statistics.style.display = "none";
+  generalFunction(dataFilms, posters);
   enterInfoMovie(getByClass("infoMovies"));
   films.style.display = "block";
 });
 
 getById("logoBackHome2").addEventListener('click', () => {
-  getById("Statistics").style.display = "none";
-  getById("Home").style.display = "block";
+  Statistics.style.display = "none";
+  home.style.display = "block";
 });
 
 navStatistics.addEventListener('click', () => {
-  getById("Home").style.display = "none";
-  getById("Statistics").style.display = "block";
+  home.style.display = "none";
+  Statistics.style.display = "block";
+});
 
-  let scores = dataFilms.map(item => [item.title, item.rt_score]);
-  scores.sort((a, b) => { return b[1] - a[1] });
-  let movies10 = [], scores10 = [];
-  for (let i = 0; i < 10; i++) {
-    movies10[i] = scores[i][0];
-    scores10[i] = scores[i][1];
-  }
-
-  const lineChart = getById('top10').getContext('2d');
-  const top10 = new Chart(lineChart, {
-    type: 'line',
+const addChart = (title, typeChart, labelsChart, legendShow, string)=>{
+  const chart = getById(title).getContext('2d');
+  const colors = ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'orange','#C32BAD','#7027A0','#6ECB63','#3A6351','#1E3163', '#C84B31'];
+  //eslint-disable-next-line
+  const charts = new Chart(chart,{
+    type: typeChart,
     data: {
-      labels: movies10,
+      labels: labelsChart[0],
       datasets: [{
-        label: ' Score',
-        data: scores10,
+        label: string,
+        data: labelsChart[1],
+        backgroundColor: colors,
         borderColor: [
           'rgba(255, 99, 132, 1)'
         ],
-        borderWidth: 4
-      }]
-    },
-    options: {
-
-      plugins: {
-        title: {
-          display: true,
-          text: 'Top 10',
-          font: {
-            size: 30
+        borderWidth: 1.5,
+        hoverOffset: 4
+      }],
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
           }
         }
       }
-    }
-  });
-
-  let dataGender = [];
-  for (let i = 0; i < dataFilms.length; i++) {
-    dataGender[i] = dataFilms[i].people.map(item => item.gender);
-  }
-  let dataConcat = dataGender.reduce((a, b) => a.concat(b));
-  let female = dataConcat.filter(item => item == "Female").length;
-  let male = dataConcat.filter(item => item == "Male").length;
-  const pieChart = getById('gender').getContext('2d');
-  const gender = new Chart(pieChart, {
-    type: 'pie',
-    data: {
-      labels: [
-        'Female',
-        'Male', 'Others'
-      ],
-      datasets: [{
-        label: 'Amount',
-        data: [female, male, dataConcat.length - female - male],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'orange'
-        ],
-        hoverOffset: 4
-      }]
     },
     options: {
       plugins: {
         title: {
           display: true,
-          text: 'Average Gender',
+          text: title.toUpperCase(),
           font: {
             size: 30
           }
         },
         legend: {
-          position: 'right'
+          position: 'right',
+          display: legendShow
         }
       },
       responsive: true,
-      maintainAspectRatio: false,
     }
-  });
+  })
+}
 
-  let genres = dataFilms.map(item => item.genres);
-  let arrayGenres = [];
-  for (let i = 0; i < genres.length; i++) {
-    arrayGenres[i] = genres[i].split(" ");
+const dataLabelToChart = (data, topic, labels) => {
+  let dataChart = [];
+  for (let i = 0; i < data.length; i++) {
+    dataChart[i] = data[i].people.map(item => item[topic]);
   }
+  let arrayLabel=labels;
+  let arrayConcat = dataChart.reduce((a, b) => a.concat(b));
+  let amountByLabel = [];
+  for (let i = 0; i < arrayLabel.length - 1; i++) {
+    amountByLabel[i] = arrayConcat.filter(item => item == arrayLabel[i]).length;
+  }
+  let sum = amountByLabel.reduce((a, b) => a + b);
+  amountByLabel[arrayLabel.length - 1] = arrayConcat.length - sum;
+  return [arrayLabel, amountByLabel]
+}
+
+const genresMovie = (data) => {
+  let genres = data.map(item => item.genres);
+  let arrayGenres = [], countGenres = [];
+  genres.forEach((item,index)=>arrayGenres[index] = item.split(" "));
   let genresConcat = arrayGenres.reduce((a, b) => a.concat(b));
-  let types = genresConcat.filter((item, index) => {
-    return genresConcat.indexOf(item) === index;
-  });
-  let countGenres = [];
-  for (let i = 0; i < types.length; i++) {
-    countGenres[i] = genresConcat.filter(item => item == types[i]).length;
-  }
+  let types = genresConcat.filter((item, index) => genresConcat.indexOf(item) === index);
+  types.forEach((element,index)=>countGenres[index] = genresConcat.filter(item => item == element).length);
+  return [types, countGenres];
+}
 
-  const barChart = document.getElementById('Genres').getContext('2d');
-  const Genres = new Chart(barChart, {
-    type: 'bar',
-    data: {
-      labels: types,
-      datasets: [{
-        label: 'Amount',
-        data: countGenres,
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'orange',
-          'yellow',
-          'purple',
-          'green',
-          'red',
-          'pink',
-          'brown'
-        ],
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true
-            }
-          }
-        }
-      }]
-    },
-    options: {
-      plugins: {
-        title: {
-          display: true,
-          text: 'Average Genres',
-          font: {
-            size: 30
-          }
-        }
-      },
-      responsive: true,
-    }
-  });
-
-  let dataSpecie = [];
-  for (let i = 0; i < dataFilms.length; i++) {
-    dataSpecie[i] = dataFilms[i].people.map(item => item.specie);
-  }
+document.addEventListener('DOMContentLoaded', ()=>{
   let species = ['Human', 'Cat', 'Raccoon Dog', 'Spirit', 'Deity, Dragon', 'Totoro', 'Witch', 'Borrower', 'Others'];
-  let speciesConcat = dataSpecie.reduce((a, b) => a.concat(b));
-  let arraySpecies = [];
-  for (let i = 0; i < species.length - 1; i++) {
-    arraySpecies[i] = speciesConcat.filter(item => item == species[i]).length;
-  }
-  let sumSpecies = arraySpecies.reduce((a, b) => a + b);
-  arraySpecies[8] = speciesConcat.length - sumSpecies;
-
-  const donutChart = document.getElementById('specie').getContext('2d');
-  const specie = new Chart(donutChart, {
-    type: 'doughnut',
-    data: {
-      labels: species,
-      datasets: [{
-        label: 'Dataset of Species',
-        data: arraySpecies,
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'orange',
-          'yellow',
-          'purple',
-          'green',
-          'red',
-          'pink',
-          'brown'
-        ],
-        hoverOffset: 4
-      }]
-    },
-    options: {
-      plugins: {
-        title: {
-          display: true,
-          text: 'Average number of species',
-          font: {
-            size: 30
-          }
-        },
-        legend: {
-          position: 'right'
-        }
-      },
-      responsive: true,
-      maintainAspectRatio: false
-    }
-  });
+  let gender = ['Female', 'Male', 'Others'];
+  addChart('gender', 'pie', dataLabelToChart(dataFilms, 'gender', gender),true, " amount");
+  addChart('specie', 'doughnut', dataLabelToChart(dataFilms, 'specie', species),true, " amount");
+  addChart('top10', 'line', top10Movies(dataFilms),false, " score");
+  addChart('Genres', 'bar', genresMovie(dataFilms),false, " amount");
 });

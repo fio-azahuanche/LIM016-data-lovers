@@ -506,8 +506,7 @@ html::-webkit-scrollbar-thumb:active {
   margin: 15vh 30%;
   background-color: var(--pink-color);
   height: 70vh;
-    position: relative;
-
+  /*position: relative*/
 }
 
 #closeModal{
@@ -527,47 +526,23 @@ html::-webkit-scrollbar-thumb:active {
 
   .imgCardModal{
     height: 25vh;
-    width: 30%;
-    margin: 0% 35%;
-     position: absolute;
   }
   .imgCardModal img{
     width: 100%;
     height: 100%;
-    border-radius: 50%;
   }
   .detailsCardModal{
-    width: 70%;
     height: 42vh;
-    background-color: cornsilk;
-    border-radius: 5%;
-    margin: 15vh 10%;
-    padding: 1% 3.5% 1% 6.5%;
   }
   .detailsCardModal h1{
     color: black;
     text-align: center;
-    margin: 15% 0% 3% 0%;
   }
   .detailsCardModal div{
     height: 50px;
     text-align: center;
-    background-color: #DFDFDF;
-    border-style: solid;
-    border-color: #39A388;
   }
-  .box1P, .box2P, .box3P ,.box2V, .box3V, .box4V {
-    width: 30%;
-    float: left;
-  }
-  .box4P, .box5P,.box1L, .box2L, .box3L,.box4L{
-    width: 46%;
-    float: left;
-  }
-  .box1V {
-    width: 92%;
-    float: left;
-  }
+
 
   #Statistics{
     background-image: url('pictures/background2.png');
@@ -693,6 +668,11 @@ html::-webkit-scrollbar-thumb:active {
   #character, #locations #vehicles{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
   }
+
+  .infoCharPeople img, .infoCharLocations img, .infoCharVehicles img{
+    height: 115px;
+  }
+
   #cardEachCharacter{
     width: 70%;
     margin: 23vh 15%;

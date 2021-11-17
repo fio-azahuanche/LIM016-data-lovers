@@ -1,5 +1,3 @@
-// estas funciones son de ejemplo
-
 export const filterByDirectorProducer = (data, name,items) => {
   switch(items){
     case 'director':{
@@ -12,7 +10,6 @@ export const filterByDirectorProducer = (data, name,items) => {
       break;
     }
   }
-  //return data.filter(film => film.director === condition || film.producer === condition);
 };
 
 export const sortData = (data, items) =>{
@@ -58,7 +55,18 @@ export const sortData = (data, items) =>{
     }
   }
 };
+
 export const searchData = (data, condition, value) => {
   return data.filter(item => item[condition].toLowerCase().includes(value.toLowerCase()));
-}
+};
 
+export const top10Movies = (data) => {
+  let scores = data.map(item => [item.title, item.rt_score]);
+  scores.sort((a, b) =>  b[1] - a[1]);
+  let movies10 = [], scores10 = [];
+  for (let i = 0; i < 10; i++) {
+    movies10[i] = scores[i][0];
+    scores10[i] = scores[i][1];
+  }
+  return [movies10, scores10];
+};
