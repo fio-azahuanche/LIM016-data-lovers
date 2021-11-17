@@ -44,9 +44,7 @@ Esta sería la vista para desktop:
 
 Esta sería la vista para celulares:
 
-![prototipoCelular](pictures/Android-home.jpg)
-![prototipoCelular](pictures/Android-movies.jpg)
-![prototipoCelular](pictures/Android-characters.jpg)
+![prototipoCelular](pictures/androidPrototype.jpg)
 
 ### 2.2  Historias de Usuario y Criterios de Aceptación 📢 📝
 
