@@ -109,10 +109,16 @@ const enterCardChar = (group, container, className) => {
 };
 
 const card = (element, item) => {
-  cardCharacter.innerHTML = "";
-  let bttnCloseModal = document.createElement("button");
+  getById("dni").innerHTML = "";
+  getById("cardEachCharacter1").innerHTML = "";
+  //cardCharacter.innerHTML = "";
+  /* let bttnCloseModal = document.createElement("button");
   bttnCloseModal.innerHTML = `<img src="pictures/x-bold 1.png">`;
-  bttnCloseModal.setAttribute('id', 'closeModal');
+  bttnCloseModal.setAttribute('id', 'closeModal'); */
+  getById("cardEachCharacter1").innerHTML=`<h1>${element.name}</h1><hr>`
+  /* let name=document.createElement("h1");
+  name.innerHTML=element.name; */
+
   let generalDiv = document.createElement("div");
   generalDiv.classList.add("flex");
 
@@ -124,7 +130,7 @@ const card = (element, item) => {
   divDetallesGrid.classList.add("detailsCardModal");
   switch (item) {
     case 'people': {
-      divDetallesGrid.innerHTML = `<h1>${element.name}</h1><br>
+      divDetallesGrid.innerHTML = `
       <ul>
       <li><b>Gender:</b> ${element.gender}</li>
       <li><b>Age:</b> ${element.age}</li>
@@ -135,17 +141,17 @@ const card = (element, item) => {
     }
 
     case 'locations': {
-      divDetallesGrid.innerHTML = `<h1>${element.name}</h1><br>
+      divDetallesGrid.innerHTML = `
       <ul>
-      <li><b>Climate:</b><br> ${element.climate}</li>
-      <li><b>Terrain:</b><br> ${element.terrain}</li>
-      <li><b>Surface water:</b><br> ${element.surface_water}</li>
-      <li><b>Residents:</b><br> ${element.residents}</li></ul>`
+      <li><b>Climate:</b> ${element.climate}</li>
+      <li><b>Terrain:</b> ${element.terrain}</li>
+      <li><b>Surface water:</b> ${element.surface_water}</li>
+      <li><b>Residents:</b> ${element.residents}</li></ul>`
       break;
     }
 
     case 'vehicles': {
-      divDetallesGrid.innerHTML = `<h1>${element.name}</h1><br>
+      divDetallesGrid.innerHTML = `
       <ul>
       <li><b>Description:</b><br> ${element.description}</li>
       <li><b>Vehicle class:</b><br> ${element.vehicle_class}</li>
@@ -155,14 +161,20 @@ const card = (element, item) => {
       break;
     }
   }
-  cardCharacter.appendChild(bttnCloseModal);
+
+  getById("dni").textContent="ID: "+element.id.slice(0,8);
   generalDiv.appendChild(divImgCard);
   generalDiv.appendChild(divDetallesGrid);
-  cardCharacter.appendChild(generalDiv);
-  getById("closeModal").addEventListener('click', () => {
+  //getById("cardEachCharacter1").appendChild(name);
+  getById("cardEachCharacter1").appendChild(generalDiv);
+  //cardCharacter.appendChild(generalDiv);
+  /* getById("closeModal").addEventListener('click', () => {
     cardModal.style.display = "none";
-  })
+  }) */
 };
+getById("closeModal").addEventListener('click', () => {
+  cardModal.style.display = "none";
+})
 
 const dataNueva = (clase) => {
   let idS = [];

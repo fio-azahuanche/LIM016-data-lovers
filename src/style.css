@@ -1,8 +1,8 @@
 :root{
-  --main-bg-color: rgba(254, 143, 143, 0.5);
-  --pink-color: rgb(254, 143, 143);
+  --main-bg-color: #FFD2D2;
+   --pink-color: rgb(254, 143, 143); 
   --blue-color: #3481D3;
-  --films-bg-color: #39A388;
+  --films-bg-color: #4EC9A9;
   --second-bg-color: #0A4141;
   --turquoise-bg-soft: rgba(10, 65, 65, 0.8);
   --description-film-bg: rgba(57, 163, 136, 0.55);
@@ -10,7 +10,7 @@
 
 body{
   margin: 0%;
-  background-color: var(--main-bg-color);
+   background-color: var(--main-bg-color); 
   font-family: 'Lato', sans-serif;
 }
 
@@ -69,7 +69,8 @@ a{
 }
 
 #popularFilms{
-  background: var(--turquoise-bg-soft);
+  background-color: rgba(57, 163, 136, 0.7);
+  /* background: var(--turquoise-bg-soft); */
   padding: 10px;
 }
 
@@ -119,13 +120,13 @@ a{
 
 /*-----FILMS SCREEN-----*/
 #Films{
-  background: var(--films-bg-color);
+  background: #D4FAF0;
 }
 
 /*------ search area------*/
 #containerHeader{
   height: 12vh;
-  background: var(--blue-color);
+  background: var(--films-bg-color);
   margin: 0px;
   align-items: center;
 }
@@ -255,6 +256,7 @@ input, select, button{
 
 #filter{
   width: 25%;
+  background-color: var(--films-bg-color);
   background-image: url("pictures/imageFilter.png");
   background-repeat: no-repeat;
   background-size: auto 768px;
@@ -265,13 +267,13 @@ input, select, button{
   display: flex;
   align-items: center;
   font-size: 24px;
-  color: var(--second-bg-color);
+  color: var(--main-bg-color);
   margin: 3% 9%;
 }
 
 hr{
-  width: 70%;
-  margin: 0% 10%;
+  width: 90%;
+    margin: 0% 5%;
 }
 
 ul{
@@ -319,6 +321,7 @@ li:hover{
 }
 
 .divTitle{
+  color: var(--blue-color);
   height:20px;
   font-size: small;
 }
@@ -420,7 +423,11 @@ html::-webkit-scrollbar-thumb:active {
 /*------movies's description------*/
 #descriptionOfEachMovie{
   margin:2% 5%;
-  background: var(--description-film-bg);
+  border-radius: 15px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--pink-color);
+  /* background: var(--description-film-bg); */
 }
 
 #filmDescription h1{
@@ -452,7 +459,7 @@ html::-webkit-scrollbar-thumb:active {
 /*------people, locations, vehicles------*/
 #Characters{
   min-height: 100vh;
-  background-color: var(--second-bg-color);
+  background-color: #39A388  ;
   background-image: url('pictures/image1.png');
   background-repeat: no-repeat;
   background-position: right bottom;
@@ -489,6 +496,8 @@ html::-webkit-scrollbar-thumb:active {
 
 /*------MODAL SECTION------*/
 #filmInfoSection{
+  display: none;
+   margin-top: 3%;
   position: relative;
 }
 
@@ -501,22 +510,36 @@ html::-webkit-scrollbar-thumb:active {
 }
 
 #cardEachCharacter{
-  border-radius: 15px;
-  width: 40%;
-  margin: 15vh 30%;
-  background-color: var(--pink-color);
-  height: 70vh;
+  border-style: solid;
+  border-width: 0.5vh 1%;
+  border-color: brown;
+   border-radius: 15px; 
+  width: 60%;
+  margin: 12.5vh 19%;
+  background-color: var(--main-bg-color);
+  height: 74vh;
   /*position: relative*/
 }
-
+#cardEachCharacter1{
+  height: 62vh;
+  background-color: white;
+  border-radius: 0 0 15px 15px;
+}
+#headCard{
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 12vh;
+}
+#logoCard img{
+  height: 11vh;
+}
 #closeModal{
+  width: auto;
   background: none;
   border: none;
   outline: none;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
-  margin-left: 85%;
 }
 
 #closeModal img{
@@ -525,22 +548,31 @@ html::-webkit-scrollbar-thumb:active {
 }
 
   .imgCardModal{
-    height: 25vh;
+    padding: 2%;
+    display: flex;
+    height: 45vh;
+    width: 40%;
+    justify-content: center;
   }
   .imgCardModal img{
-    width: 100%;
-    height: 100%;
+    width: 96%;
   }
   .detailsCardModal{
-    height: 42vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60%;
   }
-  .detailsCardModal h1{
+  .detailsCardModal ul{
+    list-style-type: circle;
+    color: brown;
+  }
+  #cardEachCharacter h1{
+    margin: 0px;
+    padding: 15px;
     color: black;
     text-align: center;
-  }
-  .detailsCardModal div{
-    height: 50px;
-    text-align: center;
+    font-size: 35px;
   }
 
 
