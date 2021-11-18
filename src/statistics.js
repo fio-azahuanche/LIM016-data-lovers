@@ -46,7 +46,7 @@ const addChart = (title, typeChart, labelsChart, legendShow, string)=>{
       }
     })
   }
-  
+
   const dataLabelToChart = (data, topic, labels) => {
     let dataChart = [];
     for (let i = 0; i < data.length; i++) {
@@ -62,7 +62,7 @@ const addChart = (title, typeChart, labelsChart, legendShow, string)=>{
     amountByLabel[arrayLabel.length - 1] = arrayConcat.length - sum;
     return [arrayLabel, amountByLabel]
   }
-  
+
   const genresMovie = (data) => {
     let genres = data.map(item => item.genres);
     let arrayGenres = [], countGenres = [];
@@ -72,7 +72,7 @@ const addChart = (title, typeChart, labelsChart, legendShow, string)=>{
     types.forEach((element,index)=>countGenres[index] = genresConcat.filter(item => item == element).length);
     return [types, countGenres];
   }
-  
+
   document.addEventListener('DOMContentLoaded', ()=>{
     let species = ['Human', 'Cat', 'Raccoon Dog', 'Spirit', 'Deity, Dragon', 'Totoro', 'Witch', 'Borrower', 'Others'];
     let gender = ['Female', 'Male', 'Others'];

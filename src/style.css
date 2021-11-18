@@ -395,9 +395,16 @@ li:hover{
   cursor: pointer;
 }
 
-#buttonBackFilms:hover, #buttonBackFilms1:hover{
-  background-color: var(--turquoise-bg-color);
-  color: white;
+#buttonBackFilms, #buttonBackFilms1{
+  width: auto;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  height: 80%;
+}
+#buttonBackFilms img, #buttonBackFilms1 img{
+  height: 100%;
 }
 
 /* scrollBar*/
@@ -458,10 +465,10 @@ html::-webkit-scrollbar-thumb:active {
   text-align: justify;
   margin:10px 0;
 }
- 
+
 #filmDescription div{
   margin-top: 5px;
-} 
+}
 
 /*------people, locations, vehicles------*/
 #Characters{

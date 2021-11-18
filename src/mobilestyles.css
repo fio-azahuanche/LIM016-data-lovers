@@ -89,6 +89,7 @@
     font-size: 28px;
   }
 
+
   #filter hr{
     width: 100%;
     margin-left: 0%;
@@ -111,6 +112,13 @@
     height: 150px;
     object-fit: cover;
   }
+  .divTitle {
+    height: 35px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: smaller;
+}
 
   #containerPosters::-webkit-scrollbar {
     display: none;
@@ -119,8 +127,12 @@
   #html::-webkit-scrollbar {
     display: none;
   }
+  #posterFilm{
+    width: 40%;
+  }
 
   #posterFilm img{
+    width: auto;
     height: 150px;
   }
   #filmDescription{
@@ -140,15 +152,6 @@
 
   #filmDescription span{
     font-size: 13px;
-  }
-
-  #posterFilm{
-    width: 40%;
-  }
-
-  #buttonBackFilms{
-    width: 120px;
-    height: 30px;
   }
 
   #logoBackHome{
@@ -213,8 +216,8 @@
     font-size: 16px;
     line-height: 21px;
   }
-  #buttonBackFilms1{
-    width: 130px;
+   #buttonBackFilms1,#buttonBackFilms{
+    height: 35px;
   }
   #logoBackHome2{
     width: 30%;

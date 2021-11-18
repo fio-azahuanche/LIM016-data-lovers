@@ -70,7 +70,7 @@
   #filmDescription p{
     line-height: 21px;
     font-size: 16px;
-  } 
+  }
 
   #character, #locations #vehicles{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -94,7 +94,7 @@
   #cardEachCharacter1{
     height:41vh ;
   }
-  
+
   .imgCardModal{
     height: 30vh;
   }
@@ -113,5 +113,4 @@
     width: 40%;
     margin: 2% 28%;
   }
-  
 }

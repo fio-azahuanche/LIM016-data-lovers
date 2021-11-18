@@ -137,7 +137,7 @@ Con los hallazgos anteriores, se realizó un nuevo prototipo del card de cada pe
 
 - La interfaz del proyecto está desplegada usando GitHub Pages.
 
-- El tiempo del proyecto fue de `4 semanas.`
+- El tiempo del proyecto fue de `3 semanas.`
 
 ![banner](pictures/banner.png)
 
@@ -203,7 +203,7 @@ Para las pruebas Unitarias `(tests)`, creamos nuestras propias funciones, así c
 
 - [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
 
-- [ ] **GitHub: Despliegue con GitHub Pages**
+- [x] **GitHub: Despliegue con GitHub Pages**
 
 - [x] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
 
