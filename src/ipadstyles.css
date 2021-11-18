@@ -32,10 +32,11 @@
   }
 
   #filter{
-    /* background-size: 200px 100%; */
     background-size: auto 100%;
   }
-
+  #filter h1{
+    font-size: 23px;
+  }
   .infoMovies{
     width: 30%;
     margin: 1.5%;
@@ -56,15 +57,20 @@
   #html::-webkit-scrollbar {
     display: none;
   }
-
-  #filmDescription h1{
-    font-size: 32px;
+  #posterFilm{
+    width: 25%;
+  }
+  #filmDescription{
+    width: 75%;
+  }
+   #filmDescription h1{
+    font-size: 30px;
   }
 
   #filmDescription p{
-    font-size: 15px;
-    width: 85%;
-  }
+    line-height: 21px;
+    font-size: 16px;
+  } 
 
   #character, #locations #vehicles{
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
@@ -75,16 +81,26 @@
   }
 
   #cardEachCharacter{
-    width: 70%;
-    margin: 23vh 15%;
-    height: 54vh;
+    width: 90%;
+    height: 50vh;
+  margin: 24.5vh 4.5%;
   }
+  #headCard{
+    height: 9vh;
+  }
+  #logoCard img{
+    height: 8vh;
+  }
+  #cardEachCharacter1{
+    height:41vh ;
+  }
+  
   .imgCardModal{
-    height: 20vh;
+    height: 30vh;
   }
-  .detailsCardModal{
-    height: 27vh;
-    margin: 15vh 10% 12vh 10%
+  .detailsCardModal ul li {
+    font-size: 30px;
+    line-height: 40px;
   }
   .sectionChart{
     width: 60%;
@@ -97,4 +113,5 @@
     width: 40%;
     margin: 2% 28%;
   }
+  
 }

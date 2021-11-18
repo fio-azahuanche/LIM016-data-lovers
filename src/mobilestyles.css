@@ -120,38 +120,30 @@
     display: none;
   }
 
+  #posterFilm img{
+    height: 150px;
+  }
+  #filmDescription{
+    width: 60%;
+  }
+
+  #filmDescription h1{
+    font-size: 18px;
+  }
+
+  #filmDescription h2{
+    font-size: 16px;
+  }
   #filmDescription p{
     display: none;
   }
 
-  #posterFilm img{
-    height: 150px;
-  }
-
-  #filmDescription h1{
-    font-size: 20px;
-    margin: 8% 0% 0% 0%;
-  }
-
-  #filmDescription h2{
-    font-size: 18px;
-    margin-left: 0%;
-  }
-
-  #filmDescription div{
-    margin-left: 0%;
-  }
-
   #filmDescription span{
-    font-size: 14px;
+    font-size: 13px;
   }
 
   #posterFilm{
     width: 40%;
-  }
-
-  #filmDescription{
-    width: 60%;
   }
 
   #buttonBackFilms{
@@ -193,26 +185,33 @@
     margin: 0;
   }
   #cardEachCharacter{
-    width: 80%;
-    margin: 23vh 10%;
-    height: 54vh;
+    width: 90%;
+    margin: 23vh 4.5%;
+    height: 50vh;
   }
-
-  .imgCardModal{
-    height: 16vh;
-    width: 35%
+  #headCard {
+    height: 9vh;
   }
-  .detailsCardModal{
-    height: 30vh;
-    margin: 10vh 10%;
-    padding: 5% 3.5% 1% 6.5%;
+  #logoCard img {
+    height: 7vh;
   }
-  .detailsCardModal h1{
-    font-size: 18px;
+  #dni{
+    font-size: 15px;
   }
-  .detailsCardModal div{
-    height: 35px;
-    font-size: 13px;
+  #cardEachCharacter h1 {
+    padding: 10px;
+    font-size: 20px;
+}
+.imgCardModal {
+  height: 31vh;
+  width: 35%;
+}
+.detailsCardModal{
+  width: 65%;
+}
+  .detailsCardModal ul li {
+    font-size: 16px;
+    line-height: 21px;
   }
   #buttonBackFilms1{
     width: 130px;

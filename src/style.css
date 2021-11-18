@@ -105,8 +105,7 @@ a{
 /*-----CAROUSEL-----*/
 .containerCarousel{
   width: 100%;
-  overflow: hidden;/*this one hides the bar*/
-  /*overflow-x: scroll; this one shows the bar*/
+  overflow: hidden;
   scroll-behavior: smooth;
 }
 
@@ -285,7 +284,7 @@ ul{
   font-size: 16px;
 }
 
-ul b{
+#filter ul b{
   font-size: 20px;
   color: var(--pink-color);
   text-shadow: 1px 1px 1px var(--titles-color);
@@ -314,14 +313,6 @@ li:hover{
   display: flex;
   flex-wrap: wrap;
   margin: 0% 4%;
-}
-
-#posterFilm img{
-  margin: 5%;
-}
-
-#filmDescription span{
-  font-size: 17px;
 }
 
 .divTitle{
@@ -381,6 +372,7 @@ li:hover{
   width: 15px;
 }
 
+
 /* scrollBar*/
 #containerPosters::-webkit-scrollbar {
   width: 16px;
@@ -430,19 +422,33 @@ html::-webkit-scrollbar-thumb:active {
   border-radius: 15px;
   background: var(--turquoise-soft);
 }
-
+#posterFilm{
+  width:20%;
+  display: flex;
+}
+#posterFilm img{
+  margin: 5%;
+  object-fit: cover ;
+}
+#filmDescription{
+  padding: 2% 3%;
+  width: 80%;
+}
+#filmDescription span{
+  font-size: 17px;
+}
 #filmDescription h1{
   font-size: 40px;
   text-align: left;
   color: var(--titles-color);
   text-transform: uppercase;
-  margin: 2.5% 0 0 8%;
+   margin: 3px 0;
 }
 
 #filmDescription h2{
   font-size: 24px;
   color: white;
-  margin: 0 0 0 8%;
+  margin: 3px 0;
 }
 
 #filmDescription p{
@@ -450,13 +456,12 @@ html::-webkit-scrollbar-thumb:active {
   font-weight: 300;
   line-height: 24px;
   text-align: justify;
-  width: 80%;
-  margin: 1% 0 1% 8%;
+  margin:10px 0;
 }
-
+ 
 #filmDescription div{
-  margin: 0 0 0 8%;
-}
+  margin-top: 5px;
+} 
 
 /*------people, locations, vehicles------*/
 #Characters{
@@ -522,7 +527,6 @@ html::-webkit-scrollbar-thumb:active {
   margin: 12.5vh 19%;
   background-color: var(--main-bg-color);
   height: 74vh;
-  /*position: relative*/
 }
 #cardEachCharacter1{
   height: 62vh;
@@ -559,6 +563,7 @@ html::-webkit-scrollbar-thumb:active {
   justify-content: center;
 }
 .imgCardModal img{
+  object-fit: cover;
   width: 96%;
 }
 .detailsCardModal{
@@ -575,13 +580,12 @@ html::-webkit-scrollbar-thumb:active {
 .detailsCardModal ul b{
   color: rgba(0, 0, 0, 0.7);
   text-shadow: none;
-  font-size: 25px;
 }
 
 .detailsCardModal ul li{
   color: rgba(0, 0, 0, 0.7);
-  font-size: 20px;
-  line-height: 35px;
+  font-size: 32px;
+  line-height: 42px;
 }
 
 #cardEachCharacter h1{
@@ -639,7 +643,6 @@ html::-webkit-scrollbar-thumb:active {
     font-size: 40px;
   }
   #Home p{
-
     width: 40%;
     height: 35vh;
     font-size: 30px;
@@ -655,5 +658,12 @@ html::-webkit-scrollbar-thumb:active {
   }
   #filter{
     background-size: 270px 100%;
+  }
+  #posterFilm img {
+    width: 155px;
+}
+  #cardEachCharacter{
+    width: 80%;
+  margin: 12.5vh 9.5%;
   }
 }
