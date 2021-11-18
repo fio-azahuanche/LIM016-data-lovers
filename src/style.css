@@ -1,16 +1,19 @@
 :root{
   --main-bg-color: #FFD2D2;
-   --pink-color: rgb(254, 143, 143); 
+  --pink-color: rgb(254, 143, 143);
+  --films-bg-color: #CEE5D0;
+  --titles-color: #0A4141;
+  --turquoise-bg-color: #39A388;
+  --turquoise-soft: rgba(57, 163, 136, 0.6);
+  --text-card-color: rgba(0, 0, 0, 0.7);
+  --menu-bg-color: rgba(57, 163, 136, 0.9);
+  --filter-bg-color:#16725A;
   --blue-color: #3481D3;
-  --films-bg-color: #4EC9A9;
-  --second-bg-color: #0A4141;
-  --turquoise-bg-soft: rgba(10, 65, 65, 0.8);
-  --description-film-bg: rgba(57, 163, 136, 0.55);
 }
 
 body{
   margin: 0%;
-   background-color: var(--main-bg-color); 
+  background-color: var(--main-bg-color);
   font-family: 'Lato', sans-serif;
 }
 
@@ -59,7 +62,7 @@ a{
 }
 
 #linkFilm:hover, #linkStatistics:hover{
-  color: var(--blue-color);
+  color: var(--pink-color);
 }
 
 /*-----CONTAINER POPULAR FILMS-----*/
@@ -69,8 +72,7 @@ a{
 }
 
 #popularFilms{
-  background-color: rgba(57, 163, 136, 0.7);
-  /* background: var(--turquoise-bg-soft); */
+  background-color: var(--turquoise-soft);
   padding: 10px;
 }
 
@@ -126,7 +128,7 @@ a{
 /*------ search area------*/
 #containerHeader{
   height: 12vh;
-  background: var(--films-bg-color);
+  background: var(--turquoise-bg-color);
   margin: 0px;
   align-items: center;
 }
@@ -200,7 +202,7 @@ input, select, button{
 .menuBtnLines, .menuBtnLines::before, .menuBtnLines::after{
   width: 24px;
   height: 1.6px;
-  background-color: white;
+  background-color: var(--titles-color);
   transition: all 0.5s ease-in-out;
 }
 
@@ -256,18 +258,18 @@ input, select, button{
 
 #filter{
   width: 25%;
-  background-color: var(--films-bg-color);
-  background-image: url("pictures/imageFilter.png");
+  background-color: var(--turquoise-bg-color);
+  background-image: url("pictures/imgFilter.png");
   background-repeat: no-repeat;
-  background-size: auto 768px;
+  background-size: auto 634px;
   background-attachment: fixed;
 }
 
 #filter h1{
   display: flex;
   align-items: center;
-  font-size: 24px;
-  color: var(--main-bg-color);
+  font-size: 30px;
+  color: var(--titles-color);
   margin: 3% 9%;
 }
 
@@ -285,10 +287,12 @@ ul{
 
 ul b{
   font-size: 20px;
+  color: var(--pink-color);
+  text-shadow: 1px 1px 1px var(--titles-color);
 }
 
 li:hover{
-  color: var(--blue-color);;
+  color: var(--turquoise-bg-color);
   background-color: rgb(250, 250, 250, 0.3);
 }
 
@@ -321,7 +325,7 @@ li:hover{
 }
 
 .divTitle{
-  color: var(--blue-color);
+  color: var(--titles-color);
   height:20px;
   font-size: small;
 }
@@ -341,7 +345,7 @@ li:hover{
   height: 250px;
   border-radius: 5%;
   border-style: solid;
-  border-color: var(--pink-color);;
+  border-color: var(--pink-color);
   cursor: pointer;
 }
 
@@ -362,7 +366,7 @@ li:hover{
 }
 
 .infoMovies .tags .year{
-  background-color: var(--blue-color);
+  background-color: var(--turquoise-bg-color);
   align-items: center;
 }
 
@@ -379,18 +383,18 @@ li:hover{
 
 /* scrollBar*/
 #containerPosters::-webkit-scrollbar {
-  width: 12px;
+  width: 16px;
   height: 6px;
 }
 
 #containerPosters::-webkit-scrollbar-thumb {
   background: rgba(10, 65, 65, 0.7);
   border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid white;
 }
 
 #containerPosters::-webkit-scrollbar-thumb:active {
-  background: var(--blue-color);
+  background: var(--turquoise-soft);
 }
 
 /*-----CHARACTERS OF EACH MOVIE-----*/
@@ -400,40 +404,37 @@ li:hover{
 }
 
 #buttonBackFilms:hover, #buttonBackFilms1:hover{
-  background-color: #39A388;
+  background-color: var(--turquoise-bg-color);
   color: white;
 }
 
 /* scrollBar*/
 html::-webkit-scrollbar {
-  width: 12px;
+  width: 16px;
   height: 6px;
 }
 
 html::-webkit-scrollbar-thumb {
   background: rgba(10, 65, 65, 0.7);
   border-radius: 10px;
-  border: 2px solid rgba(255, 255, 255, 0.7);
+  border: 2px solid white;
 }
 
 html::-webkit-scrollbar-thumb:active {
-  background: var(--blue-color);
+  background: var(--turquoise-soft);
 }
 
 /*------movies's description------*/
 #descriptionOfEachMovie{
   margin:2% 5%;
   border-radius: 15px;
-  border-width: 5px;
-  border-style: solid;
-  border-color: var(--pink-color);
-  /* background: var(--description-film-bg); */
+  background: var(--turquoise-soft);
 }
 
 #filmDescription h1{
   font-size: 40px;
   text-align: left;
-  color: var(--blue-color);
+  color: var(--titles-color);
   text-transform: uppercase;
   margin: 2.5% 0 0 8%;
 }
@@ -447,6 +448,7 @@ html::-webkit-scrollbar-thumb:active {
 #filmDescription p{
   font-size: 18px;
   font-weight: 300;
+  line-height: 24px;
   text-align: justify;
   width: 80%;
   margin: 1% 0 1% 8%;
@@ -459,12 +461,12 @@ html::-webkit-scrollbar-thumb:active {
 /*------people, locations, vehicles------*/
 #Characters{
   min-height: 100vh;
-  background-color: #39A388  ;
+  background-color: var(--turquoise-bg-color);
   background-image: url('pictures/image1.png');
   background-repeat: no-repeat;
   background-position: right bottom;
   background-size:65%;
-  color: white;
+  color: var(--titles-color);
   padding: 1% 0;
 }
 
@@ -484,6 +486,8 @@ html::-webkit-scrollbar-thumb:active {
   text-align: center;
   border-radius: 10px;
   background-color:  var(--pink-color);
+  color: white;
+  text-shadow: 1px 1px 1px var(--titles-color);
 }
 
 .infoCharPeople img, .infoCharLocations img, .infoCharVehicles img{
@@ -497,7 +501,7 @@ html::-webkit-scrollbar-thumb:active {
 /*------MODAL SECTION------*/
 #filmInfoSection{
   display: none;
-   margin-top: 3%;
+  margin-top: 3%;
   position: relative;
 }
 
@@ -512,8 +516,8 @@ html::-webkit-scrollbar-thumb:active {
 #cardEachCharacter{
   border-style: solid;
   border-width: 0.5vh 1%;
-  border-color: brown;
-   border-radius: 15px; 
+  border-color: var(--pink-color);
+  border-radius: 15px;
   width: 60%;
   margin: 12.5vh 19%;
   background-color: var(--main-bg-color);
@@ -547,59 +551,80 @@ html::-webkit-scrollbar-thumb:active {
   height: 30px;
 }
 
-  .imgCardModal{
-    padding: 2%;
-    display: flex;
-    height: 45vh;
-    width: 40%;
-    justify-content: center;
-  }
-  .imgCardModal img{
-    width: 96%;
-  }
-  .detailsCardModal{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 60%;
-  }
-  .detailsCardModal ul{
-    list-style-type: circle;
-    color: brown;
-  }
-  #cardEachCharacter h1{
-    margin: 0px;
-    padding: 15px;
-    color: black;
-    text-align: center;
-    font-size: 35px;
-  }
+.imgCardModal{
+  padding: 2%;
+  display: flex;
+  height: 45vh;
+  width: 40%;
+  justify-content: center;
+}
+.imgCardModal img{
+  width: 96%;
+}
+.detailsCardModal{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60%;
+}
+.detailsCardModal ul{
+  list-style-type: circle;
+  color: var(--turquoise-bg-color);
+}
 
+.detailsCardModal ul b{
+  color: rgba(0, 0, 0, 0.7);
+  text-shadow: none;
+  font-size: 25px;
+}
 
-  #Statistics{
-    background-image: url('pictures/background2.png');
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    padding-top: 3%;
-  }
+.detailsCardModal ul li{
+  color: rgba(0, 0, 0, 0.7);
+  font-size: 20px;
+  line-height: 35px;
+}
 
-  .sectionChart{
-    width: 40%;
-    margin: 0% 25%;
-    padding: 0 5%;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 15px;
-    border: 5px solid var(--blue-color);
-  }
+#cardEachCharacter h1{
+  margin: 0px;
+  padding: 15px;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  font-size: 35px;
+}
 
-  .containerChart{
-    width: 25%;
-    margin: 2%;
-    padding: 2%;
-    background-color: rgba(255, 255, 255, 0.4);
-    border-radius: 15px;
-    border: 5px solid var(--blue-color);
-  }
+#dni{
+  color: rgba(0, 0, 0, 0.7);
+  background-color: #4EC9A9;
+  padding: 1%;
+  border-radius: 15px;
+  font-size: 30px;
+}
+
+/*------STATISTICS SECTION------*/
+#Statistics{
+  background-image: url('pictures/background2.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  padding-top: 3%;
+}
+
+.sectionChart{
+  width: 40%;
+  margin: 0% 25%;
+  padding: 0 5%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  border: 5px solid var(--turquoise-bg-color);
+}
+
+.containerChart{
+  width: 25%;
+  margin: 2%;
+  padding: 2%;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 15px;
+  border: 5px solid var(--turquoise-bg-color);
+}
 
 /* On screens that are 1200px or less*/
 @media (max-width: 1200px){
@@ -628,337 +653,7 @@ html::-webkit-scrollbar-thumb:active {
   .popularFilm img{
     height: 160px;
   }
-}
-
-/* On screens that are 768px or less*/
-/*TABLET RESPONSIVE*/
-@media (max-width: 768px){
-  #Home{
-    background-size: 90% 70%;
-  }
-
-  #Home p{
-    font-size: 25px;
-  }
-
-  nav{
-    width:100%;
-  }
-
-  .links{
-    font-size: 35px;
-  }
-
-  .popularFilm img{
-    height: 200px;
-    width: 240px;
-    object-fit: cover;
-  }
-
-  #searchContainer{
-    width: 500px;
-  }
-
-  #searchContainer img {
-    margin-left: 50%;
-  }
-
   #filter{
-    background-size: 200px 100%;
-  }
-
-  .infoMovies{
-    width: 30%;
-    margin: 1.5%;
-  }
-
-  #containerHeader{
-    height: 8vh;
-  }
-
-  #containerPosters{
-    height: 92vh;
-  }
-
-  #containerPosters::-webkit-scrollbar {
-    display: none;
-  }
-
-  #html::-webkit-scrollbar {
-    display: none;
-  }
-
-  #filmDescription h1{
-    font-size: 32px;
-  }
-
-  #filmDescription p{
-    font-size: 15px;
-    width: 85%;
-  }
-
-  #character, #locations #vehicles{
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-  }
-
-  .infoCharPeople img, .infoCharLocations img, .infoCharVehicles img{
-    height: 115px;
-  }
-
-  #cardEachCharacter{
-    width: 70%;
-    margin: 23vh 15%;
-    height: 54vh;
-  }
-  .imgCardModal{
-    height: 20vh;
-  }
-  .detailsCardModal{
-    height: 27vh;
-    margin: 15vh 10% 12vh 10%
-  }
-  .sectionChart{
-    width: 60%;
-    margin: 0% 15%;
-  }
-  .column{
-    flex-direction: column;
-  }
-  .containerChart{
-    width: 40%;
-    margin: 2% 28%;
-  }
-}
-
-/* On screens that are 425px or less*/
-/*MOBILE RESPONSIVE*/
-@media (max-width: 425px){
-  #Home{
-    background-image: url("pictures/chihiro.png");
-    background-size: 100% 70%;
-  }
-
-  #Home p{
-    font-size: 12px;
-    visibility: hidden;
-    height: 50vh;
-  }
-
-  nav{
-    height: 15vh;
-  }
-
-  .links{
-    font-size: 20px;
-  }
-
-  .links img{
-    width: 110%;
-  }
-
-  .popularFilm img{
-    width: 105px;
-    height: 135px;
-    object-fit: cover;
-  }
-
-  #searchContainer {
-    width: 240px;
-  }
-
-  #searchContainer img {
-    margin-left: 1px;
-  }
-
-  #logoHome{
-    width: 20%;
-  }
-
-  #filter{
-    width: 0%;
-  }
-
-  select{
-    width: 100px;
-    height: 25px;
-  }
-
-  #containerPosters{
-    width: 100%;
-    z-index: 0;
-  }
-
-  .menuBtn{
-    display: flex;
-    z-index: 101;
-    margin: 12px;
-  }
-
-  .menuItems{
-    flex-direction: column;
-    position: absolute;
-    top: 0;
-    right: 0;
-    left: 0;
-    height: 95vh;
-    transform: translateX(-100vh);
-    background-color:rgba(10, 65, 65, 0.9);
-    z-index: 100;
-    width: 60%;
-    margin-top: 8vh;
-  }
-
-  .menuItems.open{
-    transform: translateX(0);
-  }
-
-  #filter h1{
-    background-color: rgba(2, 22, 39, 0.5);
-    color: white;
-    margin:0% ;
-    padding:5% 0% 5% 20%;
-    -webkit-text-stroke: 1px var(--pink-color);
-  }
-
-  #filter hr{
-    width: 100%;
-    margin-left: 0%;
-  }
-
-  #filter ul b{
-    color: var(--pink-color);
-
-  }
-
-  .infoMovies{
-    font-size: 13px;
-  }
-
-  .infoMovies .tags span{
-    padding: 2px 4px;
-  }
-
-  .infoMovies .tags img{
-    height: 12px;
-    width: 12px;
-  }
-
-  .infoMovies img{
-    height: 150px;
-    object-fit: cover;
-  }
-
-  #containerPosters::-webkit-scrollbar {
-    display: none;
-  }
-
-  #html::-webkit-scrollbar {
-    display: none;
-  }
-
-  #filmDescription p{
-    display: none;
-  }
-
-  #posterFilm img{
-    height: 150px;
-  }
-
-  #filmDescription h1{
-    font-size: 20px;
-    margin: 8% 0% 0% 0%;
-  }
-
-  #filmDescription h2{
-    font-size: 18px;
-    margin-left: 0%;
-  }
-
-  #filmDescription div{
-    margin-left: 0%;
-  }
-
-  #filmDescription span{
-    font-size: 14px;
-  }
-
-  #posterFilm{
-    width: 40%;
-  }
-
-  #filmDescription{
-    width: 60%;
-  }
-
-  #buttonBackFilms{
-    width: 120px;
-    height: 30px;
-  }
-
-  #logoBackHome{
-    width: 30%;
-  }
-
-  #Characters{
-    padding: 5% 0;
-    background-size: 75% 40%;
-  }
-
-  #Characters h2{
-    margin: 2% 0 2% 4%;
-    font-size: 16px;
-    font-weight: normal;
-  }
-
-  #character, #locations, #vehicles{
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 15px;
-    margin: 0px 15px;
-    font-size: 12px;
-  }
-
-  .infoCharPeople, .infoCharLocations, .infoCharVehicles{
-    font-weight: normal;
-  }
-
-  .infoCharPeople img, .infoCharLocations img, .infoCharVehicles img{
-    height: 65px;
-  }
-
-  .infoCharPeople div, .infoCharLocations div, .infoCharVehicles div{
-    margin: 0;
-  }
-  #cardEachCharacter{
-    width: 80%;
-    margin: 23vh 10%;
-    height: 54vh;
-  }
-
-  .imgCardModal{
-    height: 16vh;
-    width: 35%
-  }
-  .detailsCardModal{
-    height: 30vh;
-    margin: 10vh 10%;
-    padding: 5% 3.5% 1% 6.5%;
-  }
-  .detailsCardModal h1{
-    font-size: 18px;
-  }
-  .detailsCardModal div{
-    height: 35px;
-    font-size: 13px;
-  }
-  #buttonBackFilms1{
-    width: 130px;
-  }
-  #logoBackHome2{
-    width: 30%;
-  }
-  .containerChart{
-      height: 260px;
-      width: 60%;
-      margin: 2% 18%;
+    background-size: 270px 100%;
   }
 }

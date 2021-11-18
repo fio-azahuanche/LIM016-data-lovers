@@ -7,7 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Studio Ghibli</title>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="ipadstyles.css"/>
+  <link rel="stylesheet" href="mobilestyles.css"/>
 </head>
 
 <body>
@@ -150,6 +152,7 @@
 
   </article>
 
+  <!--CARD INFORMATION-->
   <article id="cardModal" style="display: none;">
     <section id="cardEachCharacter">
       <div class="flex" id="headCard">
@@ -158,17 +161,18 @@
         <button id="closeModal"><img src="pictures/x-bold 1.png"></button>
       </div>
       <div id="cardEachCharacter1"></div>
-      
+
     </section>
   </article>
 
+  <!--STATISTICS SCREEN-->
   <article id="Statistics" style="display: none;">
     <div class="flex space">
       <button id="buttonBackFilms1">Back to Films</button>
       <img id="logoBackHome2" src="pictures/logoStudioGhibli.png">
     </div>
     <section class="sectionChart">
-      <canvas class="canvasChart" width="3" height="3" id="top10"></canvas><!--width="3" height="2"-->
+      <canvas class="canvasChart" width="3" height="3" id="top10"></canvas>
     </section>
 
     <section class="flex column">

@@ -1,0 +1,100 @@
+/* On screens that are 768px or less*/
+/*TABLET RESPONSIVE*/
+@media (max-width: 768px){
+  #Home{
+    background-size: 90% 70%;
+  }
+
+  #Home p{
+    font-size: 25px;
+  }
+
+  nav{
+    width:100%;
+  }
+
+  .links{
+    font-size: 35px;
+  }
+
+  .popularFilm img{
+    height: 200px;
+    width: 240px;
+    object-fit: cover;
+  }
+
+  #searchContainer{
+    width: 500px;
+  }
+
+  #searchContainer img {
+    margin-left: 50%;
+  }
+
+  #filter{
+    /* background-size: 200px 100%; */
+    background-size: auto 100%;
+  }
+
+  .infoMovies{
+    width: 30%;
+    margin: 1.5%;
+  }
+
+  #containerHeader{
+    height: 8vh;
+  }
+
+  #containerPosters{
+    height: 92vh;
+  }
+
+  #containerPosters::-webkit-scrollbar {
+    display: none;
+  }
+
+  #html::-webkit-scrollbar {
+    display: none;
+  }
+
+  #filmDescription h1{
+    font-size: 32px;
+  }
+
+  #filmDescription p{
+    font-size: 15px;
+    width: 85%;
+  }
+
+  #character, #locations #vehicles{
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  }
+
+  .infoCharPeople img, .infoCharLocations img, .infoCharVehicles img{
+    height: 115px;
+  }
+
+  #cardEachCharacter{
+    width: 70%;
+    margin: 23vh 15%;
+    height: 54vh;
+  }
+  .imgCardModal{
+    height: 20vh;
+  }
+  .detailsCardModal{
+    height: 27vh;
+    margin: 15vh 10% 12vh 10%
+  }
+  .sectionChart{
+    width: 60%;
+    margin: 0% 15%;
+  }
+  .column{
+    flex-direction: column;
+  }
+  .containerChart{
+    width: 40%;
+    margin: 2% 28%;
+  }
+}

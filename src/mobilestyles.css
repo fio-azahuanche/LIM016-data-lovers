@@ -1,0 +1,228 @@
+/* On screens that are 425px or less*/
+/*MOBILE RESPONSIVE*/
+@media (max-width: 425px){
+  #Home{
+    background-image: url("pictures/chihiro.png");
+    background-size: 100% 70%;
+  }
+
+  #Home p{
+    font-size: 12px;
+    visibility: hidden;
+    height: 50vh;
+  }
+
+  nav{
+    height: 15vh;
+  }
+
+  .links{
+    font-size: 20px;
+  }
+
+  .links img{
+    width: 110%;
+  }
+
+  .popularFilm img{
+    width: 105px;
+    height: 135px;
+    object-fit: cover;
+  }
+
+  #searchContainer {
+    width: 240px;
+  }
+
+  #searchContainer img {
+    margin-left: 1px;
+  }
+
+  #logoHome{
+    width: 20%;
+  }
+
+  #filter{
+    width: 0%;
+  }
+
+  select{
+    width: 100px;
+    height: 25px;
+  }
+
+  #containerPosters{
+    width: 100%;
+    z-index: 0;
+  }
+
+  .menuBtn{
+    display: flex;
+    z-index: 101;
+    margin: 12px;
+  }
+
+  .menuItems{
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 95vh;
+    transform: translateX(-100vh);
+    background-color: var(--menu-bg-color);
+    z-index: 100;
+    width: 60%;
+    margin-top: 8vh;
+  }
+
+  .menuItems.open{
+    transform: translateX(0);
+  }
+
+  #filter h1{
+    background-color: var(--filter-bg-color);
+    color: white;
+    margin:0% ;
+    padding:5% 0% 5% 20%;
+    -webkit-text-stroke: 1px var(--pink-color);
+    font-size: 28px;
+  }
+
+  #filter hr{
+    width: 100%;
+    margin-left: 0%;
+  }
+
+  .infoMovies{
+    font-size: 13px;
+  }
+
+  .infoMovies .tags span{
+    padding: 2px 4px;
+  }
+
+  .infoMovies .tags img{
+    height: 12px;
+    width: 12px;
+  }
+
+  .infoMovies img{
+    height: 150px;
+    object-fit: cover;
+  }
+
+  #containerPosters::-webkit-scrollbar {
+    display: none;
+  }
+
+  #html::-webkit-scrollbar {
+    display: none;
+  }
+
+  #filmDescription p{
+    display: none;
+  }
+
+  #posterFilm img{
+    height: 150px;
+  }
+
+  #filmDescription h1{
+    font-size: 20px;
+    margin: 8% 0% 0% 0%;
+  }
+
+  #filmDescription h2{
+    font-size: 18px;
+    margin-left: 0%;
+  }
+
+  #filmDescription div{
+    margin-left: 0%;
+  }
+
+  #filmDescription span{
+    font-size: 14px;
+  }
+
+  #posterFilm{
+    width: 40%;
+  }
+
+  #filmDescription{
+    width: 60%;
+  }
+
+  #buttonBackFilms{
+    width: 120px;
+    height: 30px;
+  }
+
+  #logoBackHome{
+    width: 30%;
+  }
+
+  #Characters{
+    padding: 5% 0;
+    background-size: 75% 40%;
+  }
+
+  #Characters h2{
+    margin: 2% 0 2% 4%;
+    font-size: 16px;
+    font-weight: normal;
+  }
+
+  #character, #locations, #vehicles{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+    margin: 0px 15px;
+    font-size: 12px;
+  }
+
+  .infoCharPeople, .infoCharLocations, .infoCharVehicles{
+    font-weight: normal;
+  }
+
+  .infoCharPeople img, .infoCharLocations img, .infoCharVehicles img{
+    height: 65px;
+  }
+
+  .infoCharPeople div, .infoCharLocations div, .infoCharVehicles div{
+    margin: 0;
+  }
+  #cardEachCharacter{
+    width: 80%;
+    margin: 23vh 10%;
+    height: 54vh;
+  }
+
+  .imgCardModal{
+    height: 16vh;
+    width: 35%
+  }
+  .detailsCardModal{
+    height: 30vh;
+    margin: 10vh 10%;
+    padding: 5% 3.5% 1% 6.5%;
+  }
+  .detailsCardModal h1{
+    font-size: 18px;
+  }
+  .detailsCardModal div{
+    height: 35px;
+    font-size: 13px;
+  }
+  #buttonBackFilms1{
+    width: 130px;
+  }
+  #logoBackHome2{
+    width: 30%;
+  }
+  .containerChart{
+      height: 260px;
+      width: 60%;
+      margin: 2% 18%;
+  }
+}
