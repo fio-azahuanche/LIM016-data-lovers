@@ -25,7 +25,7 @@ let listProducer = getById("listProducer");
 let character = getById("character");
 let locations = getById("locations");
 let vehicles = getById("vehicles");
-let cardCharacter = getById("cardEachCharacter");
+//let cardCharacter = getById("cardEachCharacter");
 let cardModal = getById("cardModal");
 let Statistics = getById("Statistics");
 
@@ -153,10 +153,10 @@ const card = (element, item) => {
     case 'vehicles': {
       divDetallesGrid.innerHTML = `
       <ul>
-      <li><b>Description:</b><br> ${element.description}</li>
-      <li><b>Vehicle class:</b><br> ${element.vehicle_class}</li>
-      <li><b>Length:</b><br> ${element.length}</li>
-      <li><b>Pilot:</b><br> ${element.pilot.name}</li></ul>`
+      <li><b>Description: </b>${element.description}</li>
+      <li><b>Vehicle class: </b>${element.vehicle_class}</li>
+      <li><b>Length: </b>${element.length}</li>
+      <li><b>Pilot: </b>${element.pilot.name}</li></ul>`
 
       break;
     }

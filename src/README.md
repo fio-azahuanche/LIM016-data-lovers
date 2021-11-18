@@ -2,20 +2,50 @@
 
 # Data Lovers – Studio Ghibli
 
-## 1. Resumen del proyecto 📝
+## 1. Introducción 📌
+Studio Ghibli es un estudio de animación japonés, conocido por sus largometrajes
+animados como **Mi vecino Totoro**, **El viaje de Chihiro** o
+**El castillo ambulante**, entre otros grandes éxitos.
+
+Las animaciones tienen gran acogida a nivel mundial y algunas han recibido
+varias nominaciones y premios. De todo este fandom hay un grupo que desea poder
+interactuar y ver la información de las animaciones y sus personajes.
+
+## 2. Investigación UX 🔍
+Para entender mejor qué información podrían necesitar nuestros usuarios,
+hicimos una rápida investigación y estos son algunos de los hallazgos:
+
+- Studio Ghibli tiene varias animaciones, para nuestros usuarios es importante
+  saber cuáles son.
+- Las animaciones tienen directorxs y productorxs. Estxs son las mentes detrás
+  de una gran animación. En Studio Ghibli hay directorxs y productorxs que han
+  colaborado en la creación de más de una animación. Por ello, es importante
+  para nuestro usuario poder conocerlos y saber cuáles son las
+  animaciones a las que dieron "vida".
+- Las animaciones tienen información relevante para nuestras usuarias, como
+  descripción, fecha de lanzamiento, score, director, productor y personajes.
+- Cada animación tiene sus personajes, para nuestros usuarios es importante saber cuáles son
+- Los personajes tienen características únicas que el usuario quiere saber, como
+  nombre, edad, género, especie, etc.
+- Las animaciones tienen locaciones y vehículos únicos en cada una. Para
+  nuestros usuarios es importante saber cuáles son.
+- Adicionalmente a esta información, para nuestros usuarios es importante poder
+  ver el top 10 de películas de Studio Ghibli y poder ver, en gráficos estadísticos, las características más relevantes en relación a todo el conjunto de personajes.
+
+## 3. Resumen del proyecto 📝
 
 Este proyecto tiene como finalidad **construir una página web responsive**, dirigido a personas que les gusta el cine, en especial el animado, y quieren estar más informados sobre las películas de Studio Ghibli. Por lo que, se podrá `visualizar` de manera precisa y clara información de todas las películas, contando con información relevente como el año de su estreno, su descripción, el director, productor, personajes, locaciones y vehículos. Toda esta información puede ser manejada por los usuarios, de tal manera que puedan `filtrarla` y `ordenarla` según diversas especificaciones.
 
-## 2. Descripción del proyecto 📎
+## 4. Descripción del proyecto 📎
 
 ### ¿Quiénes son los principales usuarios?
-Desde fans del cine animado hasta adultos, jóvenes y niños que crecieron viendo la películas de Studio Ghibli, que no recuerdan el nombre específico de las peliculas para volverlas a ver o encontrar información detallada.
+Desde fans del cine animado hasta adultos, jóvenes y niños que crecieron viendo la películas de Studio Ghibli, que no recuerdan el nombre específico de las peliculas y desean volverlas a ver o encontrar información detallada.
 ### ¿Cuáles son los objetivos de los usuarios en relación con esta página?
 Que las personas de cualquier edad puedan acceder a la información detallada de las películas del Studio Ghibli.
 ### ¿Cómo esta página está resolviendo los problemas de los usuarios?
 Filtrando, ordenando y buscando la información detallada de cada película según sus diversas necesidades de los usuarios.
 
-### 2.1 Proceso Creativo de Diseño 👩🏻‍🎨🎨
+### 4.1 Proceso Creativo de Diseño 👩🏻‍🎨🎨
 
 * Estilo
 
@@ -37,16 +67,16 @@ Esta sería la vista para desktop:
 
 Estos dos prototipos fueron realizados en Figma para aplicar los colores y temática previamente pensados.
 
-Esta sería la vista para desktop:
+Esta sería la vista para desktop: 💻
 
 ![prototipoDesktop](pictures/home.jpg)
 ![prototipoDesktop](pictures/characters.jpg)
 
-Esta sería la vista para celulares:
+Esta sería la vista para celulares: 📲
 
-![prototipoCelular](pictures/androidPrototype.jpg)
+![prototipoCelular](pictures/androidPrototype.JPG)
 
-### 2.2  Historias de Usuario y Criterios de Aceptación 📢 📝
+### 4.2  Historias de Usuario y Criterios de Aceptación 📢 📝
 
 > HU 1:  🗣️ Yo COMO fan del cine QUIERO ver las portadas de las películas populares de studio ghibli PARA identificar una película que vi y olvide.
 
@@ -88,66 +118,76 @@ Esta sería la vista para celulares:
 > HU 7:  🗣️ Yo COMO usuario QUIERO visualizar la recolección de datos en gráficos estadísticos PARA ser un mejor conocedor de las películas de Studio Ghibli.
 
  📍 **Criterios de Aceptación:**
--  Manejo básico del chart.js.
+-  Se puede identificar el top 10 de películas.
 -  Correcto entendimiento de las gráficas estadísticas.
 
-##  3. Consideraciones Generales 🚨
+### 4.3  Hallazgos del prototipo 📌📢
+Gracias al feedback recibido por nuestras compañeras, se identificó que se debía establecer algunas mejoras en los siguientes aspectos:
 
-- 📍 Este proyecto se realizó en dupla.
+- Modificar los colores de fondo para no sobrecargar la vista de la página.
+- Mejorar el diseño del card de cada personaje, para una mejor adaptación en distintos dispositivos.
 
-- 📍 La interfaz del proyecto será desplegada usando GitHub Pages.
+Con los hallazgos anteriores, se realizó un nuevo prototipo del card de cada personaje y cambiando los colores de fondo obteniendose el siguiente resultado (sección de la descripción y detalles de cada película).
 
-- 📍 El tiempo del proyecto fue de `- semanas.`
+![prototipoMejorado](pictures/prototype2.jpg)
+
+##  5. Consideraciones Generales 🚨
+
+- Este proyecto se realizó en dupla.
+
+- La interfaz del proyecto está desplegada usando GitHub Pages.
+
+- El tiempo del proyecto fue de `4 semanas.`
 
 ![banner](pictures/banner.png)
 
-##  4. Pruebas Unitarias 📝💯
+##  6. Pruebas Unitarias 📝💯
 
 Para las pruebas Unitarias `(tests)`, creamos nuestras propias funciones, así como la configuración necesaria para ejecutar los tests usando el comando `npm test`. Logrando superar la cobertura mínima del **70%** de statements, functions y lines, y un mínimo del **50%** de branches.
 
-## 5. Objetivos de aprendizaje
+## 7. Objetivos de aprendizaje
 
 ### HTML
 
-- [ ] **Uso de HTML semántico**
+- [x] **Uso de HTML semántico**
 
 ### CSS
 
-- [ ] **Uso de selectores de CSS**
+- [x] **Uso de selectores de CSS**
 
-- [ ] **Modelo de caja (box model): borde, margen, padding**
+- [x] **Modelo de caja (box model): borde, margen, padding**
 
-- [ ] **Uso de flexbox en CSS**
+- [x] **Uso de flexbox en CSS**
 
 ### Web APIs
 
-- [ ] **Uso de selectores del DOM**
+- [x] **Uso de selectores del DOM**
 
 - [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
 
-- [ ] **Manipulación dinámica del DOM**
+- [x] **Manipulación dinámica del DOM**
 
 ### JavaScript
 
 - [ ] **Diferenciar entre tipos de datos primitivos y no primitivos**
 
-- [ ] **Arrays (arreglos)**
+- [x] **Arrays (arreglos)**
 
-- [ ] **Objetos (key, value)**
+- [x] **Objetos (key, value)**
 
 - [ ] **Variables (declaración, asignación, ámbito)**
 
-- [ ] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
+- [x] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
 
-- [ ] **Uso de bucles/ciclos (while, for, for..of)**
+- [x] **Uso de bucles/ciclos (while, for, for..of)**
 
-- [ ] **Funciones (params, args, return)**
+- [x] **Funciones (params, args, return)**
 
-- [ ] **Pruebas unitarias (unit tests)**
+- [x] **Pruebas unitarias (unit tests)**
 
-- [ ] **Módulos de ECMAScript (ES Modules)**
+- [x] **Módulos de ECMAScript (ES Modules)**
 
-- [ ] **Uso de linter (ESLINT)**
+- [x] **Uso de linter (ESLINT)**
 
 - [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
 
@@ -155,24 +195,24 @@ Para las pruebas Unitarias `(tests)`, creamos nuestras propias funciones, así c
 
 ### Control de Versiones (Git y GitHub)
 
-- [ ] **Git: Instalación y configuración**
+- [x] **Git: Instalación y configuración**
 
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
+- [x] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
 
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
+- [x] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
 
 - [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
 
 - [ ] **GitHub: Despliegue con GitHub Pages**
 
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
+- [x] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
 
 ### UX (User eXperience)
 
-- [ ] **Diseñar la aplicación pensando en y entendiendo al usuario**
+- [x] **Diseñar la aplicación pensando en y entendiendo al usuario**
 
-- [ ] **Crear prototipos para obtener feedback e iterar**
+- [x] **Crear prototipos para obtener feedback e iterar**
 
-- [ ] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
+- [x] **Aplicar los principios de diseño visual (contraste, alineación, jerarquía)**
 
 - [ ] **Planear y ejecutar tests de usabilidad**
