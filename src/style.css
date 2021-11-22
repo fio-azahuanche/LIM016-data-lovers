@@ -586,6 +586,7 @@ html::-webkit-scrollbar-thumb:active {
 .detailsCardModal ul{
   list-style-type: circle;
   color: var(--turquoise-bg-color);
+  cursor: inherit;
 }
 
 .detailsCardModal ul b{
@@ -607,7 +608,7 @@ html::-webkit-scrollbar-thumb:active {
   font-size: 35px;
 }
 
-#dni{
+#cardID{
   color: rgba(0, 0, 0, 0.7);
   background-color: #4EC9A9;
   padding: 1%;

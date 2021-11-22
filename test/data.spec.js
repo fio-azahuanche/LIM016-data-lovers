@@ -55,28 +55,28 @@ describe('sortData', () => {
 
 
 
-  it('returns `a-z`', () => {
+  it('for the first case returns `a-z`', () => {
     expect(sortData(testData,`a-to-z`)).toEqual([{"rt_score": 100, "title": "Castle in the Sky","release_date":2000}, { "rt_score": 85, "title": "Whisper of the Heart","release_date":1995}]);
   });
-  it('returns `a-z`', () => {
-    const sameTitle=[{title:"b"},{title:"a"}]
-    expect(sortData(sameTitle,`a-to-z`)).toEqual([{"title":"a"},{"title":"b"}]);
+  it('for the second case returns `a-z`', () => {
+    const testTitles=[{title:"b"},{title:"a"}]
+    expect(sortData(testTitles,`a-to-z`)).toEqual([{"title":"a"},{"title":"b"}]);
   });
-  it('returns `a-z`', () => {
+  it('for all other cases returns `a-z`', () => {
     const sameTitle=[{title:"Cs"},{title:"Cs"}]
     expect(sortData(sameTitle,`a-to-z`)).toEqual([{"title":"Cs"},{"title":"Cs"}]);
   });
 
 
 
-  it('returns `z-a`', () => {
+  it('for the first case returns `z-a`', () => {
     expect(sortData(testData,`z-to-a`)).toEqual([{ "rt_score": 85, "title": "Whisper of the Heart","release_date":1995},{"rt_score": 100, "title": "Castle in the Sky","release_date":2000}]);
   });
-  it('returns `z-a`', () => {
+  it('for the second case returns `z-a`', () => {
     const sameTitle=[{title:"b"},{title:"a"}]
     expect(sortData(sameTitle,`z-to-a`)).toEqual([{"title":"b"},{"title":"a"}]);
   });
-  it('returns `z-a`', () => {
+  it('for all other cases returns `z-a`', () => {
     const sameTitle=[{title:"Cs"},{title:"Cs"}]
     expect(sortData(sameTitle,`z-to-a`)).toEqual([{"title":"Cs"},{"title":"Cs"}]);
   });
@@ -90,7 +90,7 @@ describe('searchData', () => {
     expect(typeof searchData).toBe('function');
   });
   const dataPrueba = [{title: "Whisper of the Heart",rt_score:85,release_date:1995}, {  title: "Castle in the Sky", rt_score:100, release_date:2000}];
-  it('return Lo buscado title',()=>{
+  it('should return the search result title',()=>{
     expect(searchData(dataPrueba,`title`,`whisper`)).toEqual([{"title": "Whisper of the Heart","rt_score":85,"release_date":1995}])
   })
 });
