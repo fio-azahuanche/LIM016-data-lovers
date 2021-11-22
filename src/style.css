@@ -35,7 +35,7 @@ nav{
   align-items: center;
 }
 
-a{
+#Home a{
   text-align: center;
 }
 
@@ -153,9 +153,8 @@ input, select, button{
 
 #logoHome{
   cursor: pointer;
-  padding: 1%;
-  margin-right: 2%;
-  width: 15%;
+  margin-right: 6%;
+  width: 80%;
 }
 
 #divSearch{
@@ -391,10 +390,15 @@ li:hover{
 
 /*-----CHARACTERS OF EACH MOVIE-----*/
 #logoBackHome, #logoBackHome2{
-  width: 15%;
+  width: 70%;
   cursor: pointer;
 }
 
+#Statistics a, #Films a, #filmInfoSection a{
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
 #buttonBackFilms, #buttonBackFilms1{
   width: auto;
   background: none;

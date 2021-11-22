@@ -46,6 +46,10 @@
     height: 8vh;
   }
 
+  #logoBackHome, #logoBackHome2 {
+    width: 55%;
+  }
+
   #containerPosters{
     height: 92vh;
   }
